@@ -9,7 +9,7 @@ import { Col } from 'rsuite'
 import { CheckPicker } from 'rsuite'
 import { DatePicker } from 'rsuite'
 
-const wsc = new WebSocket('ws://10.12.9.77:441')
+const wsc = new WebSocket('ws://localhost:3000')
 
 const Home = () => {
     /* HELPS FUNCTION */
