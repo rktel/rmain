@@ -1,4 +1,4 @@
-import { wss } from './ws'
+
 
 Meteor.startup(_ => {
 
@@ -13,11 +13,6 @@ Meteor.startup(_ => {
         }
     }, 1000);
 
-    wss.on('connection', (ws) => {
-        ws.on('message', (message) => {
-          console.log(`Received message => ${message}`)
-        })
-        ws.send('ho!')
-      })
+
 
 })
