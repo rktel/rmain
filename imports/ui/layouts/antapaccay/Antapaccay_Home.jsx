@@ -26,9 +26,7 @@ const Home = () => {
     /* HOOKS */
     useEffect(_ => {
         // console.log('In useEffect')
-        setTimeout(_=>{
-            wsc.send("Pepa pig")
-        }, 5000)
+
         Meteor.call('Antapaccay_plates', (error, elements) => {
             setPlates(elements)
         })
