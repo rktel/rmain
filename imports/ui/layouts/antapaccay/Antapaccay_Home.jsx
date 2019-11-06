@@ -8,6 +8,8 @@ import { Container, Header, Footer, Navbar } from 'rsuite'
 import { Col } from 'rsuite'
 import { CheckPicker } from 'rsuite'
 import { DatePicker } from 'rsuite'
+import { Notification } from 'rsuite';
+
 
 import { rstream } from '../../../api/streamers'
 
@@ -28,7 +30,19 @@ const Home = () => {
     useEffect(_ => {
         // console.log('In useEffect')
         rstream.on('Antapaccay', data => {
-            console.log(data)
+            if(data.length>0){
+                Notification['success']({
+                    title: 'Aviso',
+                    placement: 'bottomRight',
+                    description: `Data encontrada`
+                })
+            }else{
+                Notification['warning']({
+                    title: 'Aviso',
+                    placement: 'bottomRight',
+                    description: `No hay data`
+                })
+            }
         })
         Meteor.call('Antapaccay_plates', (error, elements) => {
             setPlates(elements)
@@ -39,7 +53,7 @@ const Home = () => {
     const [vehiclesSelected, setVehiclesSelected] = useState([])
     const [dateStart, setDateStart] = useState(defaultDateStart())
     const [dateEnd, setDateEnd] = useState(defaultDateEnd())
-
+    const [loadingBtn, setLoadingBtn] = useState(false)
 
     const handleVehiclesSelected = (value) => {
         setVehiclesSelected(value)
@@ -47,6 +61,11 @@ const Home = () => {
     const handleClickQueryBtn = () => {
         if(vehiclesSelected.length>0)
         Meteor.call('Antapaccay_queryReport', vehiclesSelected, dateStart.toISOString(), dateEnd.toISOString())
+        setLoadingBtn(true)
+        setTimeout(_=>{
+            setLoadingBtn(false)
+        }, 1750)
+
     }
     const handleChangeDateStart = (value) => {
         setDateStart(value)
@@ -104,7 +123,7 @@ const Home = () => {
                             </FormGroup>
                             <FormGroup>
                                 <ButtonToolbar>
-                                    <Button appearance="primary" block onClick={handleClickQueryBtn}>Buscar</Button>
+                                    <Button appearance="primary" block onClick={handleClickQueryBtn} loading={loadingBtn}>Buscar</Button>
                                 </ButtonToolbar>
                             </FormGroup>
                         </Form>
