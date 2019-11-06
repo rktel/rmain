@@ -331,7 +331,7 @@ const Home = () => {
                     <div>
                         <FlexboxGrid justify="end">
                             <ButtonToolbar>
-                                <Button color="blue" appearance="subtle" onClick={handleClickDownloadBtn}>
+                                <Button color="green" appearance="subtle" onClick={handleClickDownloadBtn}>
                                     <Icon icon="file-excel-o" /> Descargar
                                 </Button>
                             </ButtonToolbar>
