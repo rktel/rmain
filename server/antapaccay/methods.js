@@ -1,5 +1,5 @@
 import { Antapaccay, Plates } from '../../imports/api/collections'
-
+import { rstream } from '../../imports/api/streamers'
 
 //FUNCTIONS HELPERS ANTAPACCAY .... console.log(item.events[0].id, item.events[0].created, item.events[0].vehicle)
 
@@ -146,8 +146,8 @@ function createReport(userID, data) {
 
 
 
-Meteor.methods({ 
-    Antapaccay_queryReport(userID, vehiclesSelected, dateStart, dateEnd) {
+Meteor.methods({
+    Antapaccay_queryReport(vehiclesSelected, dateStart, dateEnd) {
         console.log('........................ANTAPACCAY...............................')
         // console.log('dateStart', dateStart, 'dateEnd', dateEnd)
         // console.log('Usuario: ', Meteor.user().username)
@@ -162,7 +162,7 @@ Meteor.methods({
             .sort({ 'events.vehicle': 1 })
             .toArray((error, data) => {
                 if (!error) {
-                    createReport(userID, data)
+                    rstream.emit('Antapaccay', data)
                 }
             })
     },

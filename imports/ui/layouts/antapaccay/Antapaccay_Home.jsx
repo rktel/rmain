@@ -9,6 +9,7 @@ import { Col } from 'rsuite'
 import { CheckPicker } from 'rsuite'
 import { DatePicker } from 'rsuite'
 
+import { rstream } from '../../../api/streamers'
 
 
 const Home = () => {
@@ -26,7 +27,9 @@ const Home = () => {
     /* HOOKS */
     useEffect(_ => {
         // console.log('In useEffect')
-
+        rstream.on('Antapaccay', data => {
+            console.log(data)
+        })
         Meteor.call('Antapaccay_plates', (error, elements) => {
             setPlates(elements)
         })
@@ -100,7 +103,7 @@ const Home = () => {
                             </FormGroup>
                             <FormGroup>
                                 <ButtonToolbar>
-                                    <Button appearance="primary" block onClick={handleClickQueryBtn} loading>Buscar</Button>
+                                    <Button appearance="primary" block onClick={handleClickQueryBtn}>Buscar</Button>
                                 </ButtonToolbar>
                             </FormGroup>
                         </Form>

@@ -1,0 +1,1 @@
+export const rstream = new Meteor.Streamer('rstream')
