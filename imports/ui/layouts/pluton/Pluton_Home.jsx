@@ -331,7 +331,7 @@ const Home = () => {
                 </Sidebar>
                 <Content >
                     <div>
-                        <Panel bodyFill>
+                        <Panel>
                             <FlexboxGrid justify="end">
                                 <ButtonToolbar>
                                     <Button color="green" appearance="ghost" onClick={handleClickDownloadBtn}>
