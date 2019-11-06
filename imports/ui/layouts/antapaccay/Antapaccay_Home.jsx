@@ -30,6 +30,7 @@ const Home = () => {
     useEffect(_ => {
         // console.log('In useEffect')
         rstream.on('Antapaccay', (rid, data) => {
+            console.log(rid , randomId)
             if (data.length > 0 && rid == randomId) {
                 Notification['success']({
                     title: 'Aviso',
