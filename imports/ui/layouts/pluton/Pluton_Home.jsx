@@ -331,10 +331,10 @@ const Home = () => {
                 </Sidebar>
                 <Content >
                     <div>
-                        <Panel bordered bodyFill>
+                        <Panel bodyFill>
                             <FlexboxGrid justify="end">
                                 <ButtonToolbar>
-                                    <Button color="green" appearance="subtle" onClick={handleClickDownloadBtn}>
+                                    <Button color="green" appearance="ghost" onClick={handleClickDownloadBtn}>
                                         <Icon icon="file-excel-o" /> Descargar
                                 </Button>
                                 </ButtonToolbar>
