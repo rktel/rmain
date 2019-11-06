@@ -12,7 +12,7 @@ import { Notification } from 'rsuite';
 
 
 import { rstream } from '../../../api/streamers'
-
+import XLSX from 'xlsx'
 
 const Home = () => {
     /* HELPS FUNCTION */
@@ -36,6 +36,10 @@ const Home = () => {
                     placement: 'topRight',
                     description: `Data encontrada`
                 })
+                data = XLSX.utils.json_to_sheet(data)
+                const workbook = XLSX.utils.book_new()
+                XLSX.utils.book_append_sheet(workbook, data, 'Reporte')
+                XLSX.writeFile(workbook, `Reporte.xlsx`)
             } else {
                 Notification['warning']({
                     title: 'Aviso',
