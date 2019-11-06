@@ -33,13 +33,13 @@ const Home = () => {
             if (data.length > 0) {
                 Notification['success']({
                     title: 'Aviso',
-                    placement: 'bottomRight',
+                    placement: 'topRight',
                     description: `Data encontrada`
                 })
             } else {
                 Notification['warning']({
                     title: 'Aviso',
-                    placement: 'bottomRight',
+                    placement: 'topRight',
                     description: `No hay data`
                 })
             }
