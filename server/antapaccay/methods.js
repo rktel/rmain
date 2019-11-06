@@ -154,7 +154,7 @@ Meteor.methods({
         console.log('Fecha de Inicio: ', dateStart)
         console.log('Fecha de Fin: ', dateEnd)
         // plates = plates.sort()
-        console.log('placas: ', plates)
+        console.log('placas: ', vehiclesSelected)
         Antapaccay.rawCollection()
             .find({ 'events': { $elemMatch: { 'vehicle': { $in: vehiclesSelected }, 'created': { $gte: dateStart, $lte: dateEnd } } } })
             .sort({ 'events.vehicle': 1 })
