@@ -195,7 +195,7 @@ const Home = () => {
                                     value={vehicleSelected}
                                     onChange={handleChangeVehicleSelected}
                                     data={plates}
-                                    block
+                                    
                                     placeholder="Selecciona unidad"
                                 />
                             </Col>
@@ -210,7 +210,7 @@ const Home = () => {
                                     onChange={handleChangeDateStart}
                                     format="YYYY-MM-DD HH:mm:ss"
                                     ranges={[]}
-                                    block
+                                    
                                 />
                             </Col>
                         </Row>
@@ -224,7 +224,7 @@ const Home = () => {
                                     onChange={handleChangeDateEnd}
                                     format="YYYY-MM-DD HH:mm:ss"
                                     ranges={[]}
-                                    block
+                                    
                                 />
                             </Col>
                         </Row>
@@ -237,7 +237,7 @@ const Home = () => {
                                     value={fuelSelected}
                                     onChange={handleChangeFuelSelected}
                                     data={fuelList}
-                                    block
+                                    
                                     placeholder="Seleccione combustible"
                                 />
                             </Col>
@@ -250,7 +250,7 @@ const Home = () => {
                                 <InputNumber
                                     value={gallonsSelected}
                                     onChange={handleChangeGallonsSelected}
-                                    block
+                                    
                                     placeholder="Ingrese galones"
                                     step={0.01}
                                 />
@@ -264,7 +264,7 @@ const Home = () => {
                                 <InputNumber
                                     value={priceUnitarySelected}
                                     onChange={handleChangePriceUnitarySelected}
-                                    block
+                                    
                                     placeholder="Ingrese precio "
                                     step={0.01}
                                 />
@@ -278,7 +278,7 @@ const Home = () => {
                                 <InputNumber
                                     value={valueSalesSelected}
                                     onChange={handleChangeValueSalesSelected}
-                                    block
+                                    
                                     placeholder="Ingrese valor venta"
                                     step={0.01}
                                 />
@@ -292,7 +292,7 @@ const Home = () => {
                                 <InputNumber
                                     value={totalPriceSelected}
                                     onChange={handleChangeTotalPriceSelected}
-                                    block
+                                    
                                     placeholder="Ingrese precio total"
                                     step={0.01}
                                 />
@@ -306,7 +306,7 @@ const Home = () => {
                                 <InputNumber
                                     value={jokerFactorSelected}
                                     onChange={handleChangeJokerFactorSelected}
-                                    block
+                                    
                                     placeholder="Ingrese factor comodin"
                                     step={0.001}
                                 />
