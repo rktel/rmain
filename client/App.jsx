@@ -8,11 +8,12 @@ import Antapaccay_Home from '../imports/ui/layouts/antapaccay/Antapaccay_Home'
 import Pluton_Home from '../imports/ui/layouts/pluton/Pluton_Home'
 
 const App = () => {
-
+    if(!Meteor.userId()){
+        <Redirect to="/login" /> 
+    }
     return (
         <BrowserRouter>
             <Switch>
-                {!Meteor.userId() ? <Redirect to="/login" /> : false}
                 <Route path='/ntpccy' exact component={Antapaccay_Home} />
                 <Route path='/pltn' exact component={Pluton_Home} />
                 <Route path='/login' component={Login} />
