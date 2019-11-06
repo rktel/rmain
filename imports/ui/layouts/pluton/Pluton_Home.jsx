@@ -179,7 +179,7 @@ const Home = () => {
             </Header>
 
             <Container style={{ marginTop: '2px' }}>
-                <Sidebar style={{ flex: '0 0 340px' , paddingRight:'8px'}}>
+                <Sidebar style={{ flex: '0 0 340px', paddingRight: '8px' }}>
                     <Grid fluid>
                         <Row>
                             <Col xs={9}>
@@ -192,7 +192,7 @@ const Home = () => {
                                     value={vehicleSelected}
                                     onChange={handleChangeVehicleSelected}
                                     data={plates}
-                                    
+
                                     placeholder="Selecciona unidad"
                                 />
                             </Col>
@@ -207,7 +207,7 @@ const Home = () => {
                                     onChange={handleChangeDateStart}
                                     format="YYYY-MM-DD HH:mm:ss"
                                     ranges={[]}
-                                    
+
                                 />
                             </Col>
                         </Row>
@@ -221,7 +221,7 @@ const Home = () => {
                                     onChange={handleChangeDateEnd}
                                     format="YYYY-MM-DD HH:mm:ss"
                                     ranges={[]}
-                                    
+
                                 />
                             </Col>
                         </Row>
@@ -234,7 +234,7 @@ const Home = () => {
                                     value={fuelSelected}
                                     onChange={handleChangeFuelSelected}
                                     data={fuelList}
-                                    
+
                                     placeholder="Seleccione combustible"
                                 />
                             </Col>
@@ -247,7 +247,7 @@ const Home = () => {
                                 <InputNumber
                                     value={gallonsSelected}
                                     onChange={handleChangeGallonsSelected}
-                                    
+
                                     placeholder="Ingrese galones"
                                     step={0.01}
                                 />
@@ -261,7 +261,7 @@ const Home = () => {
                                 <InputNumber
                                     value={priceUnitarySelected}
                                     onChange={handleChangePriceUnitarySelected}
-                                    
+
                                     placeholder="Ingrese precio "
                                     step={0.01}
                                 />
@@ -275,7 +275,7 @@ const Home = () => {
                                 <InputNumber
                                     value={valueSalesSelected}
                                     onChange={handleChangeValueSalesSelected}
-                                    
+
                                     placeholder="Ingrese valor venta"
                                     step={0.01}
                                 />
@@ -289,7 +289,7 @@ const Home = () => {
                                 <InputNumber
                                     value={totalPriceSelected}
                                     onChange={handleChangeTotalPriceSelected}
-                                    
+
                                     placeholder="Ingrese precio total"
                                     step={0.01}
                                 />
@@ -303,7 +303,7 @@ const Home = () => {
                                 <InputNumber
                                     value={jokerFactorSelected}
                                     onChange={handleChangeJokerFactorSelected}
-                                    
+
                                     placeholder="Ingrese factor comodin"
                                     step={0.001}
                                 />
@@ -329,15 +329,7 @@ const Home = () => {
                 </Sidebar>
                 <Content >
                     <div>
-                    <Navbar>
-                    <Navbar.Header>
-                    </Navbar.Header>
-                    <Navbar.Body>
-                          <Nav pullRight>
-                            <Nav.Item icon={<Icon icon="file-excel-o" />} onClick={handleClickDownloadBtn} >Descargar</Nav.Item>
-                        </Nav>
-                    </Navbar.Body>
-                </Navbar>
+                        
                         <Table
                             height={400}
                             data={resultList}
