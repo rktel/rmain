@@ -331,7 +331,7 @@ const Home = () => {
                 </Sidebar>
                 <Content >
                     <div>
-                        <Panel bordered>
+                        <Panel bordered style={{ padding: '4px' }}>
                             <FlexboxGrid justify="end">
                                 <ButtonToolbar>
                                     <Button color="green" appearance="subtle" onClick={handleClickDownloadBtn}>
@@ -340,70 +340,72 @@ const Home = () => {
                                 </ButtonToolbar>
                             </FlexboxGrid>
                         </Panel>
-                        <Table
-                            height={400}
-                            data={resultList}
-                            onRowClick={el => {
-                                console.log(el);
+                        <Panel bordered style={{ padding: '4px' }}>
+                            <Table
+                                height={400}
+                                data={resultList}
+                                onRowClick={el => {
+                                    console.log(el);
 
-                            }}
-                        >
-                            <Column width={80} fixed>
-                                <HeaderCell>Placa</HeaderCell>
-                                <Cell dataKey="Placa" />
-                            </Column>
-                            <Column width={72} >
-                                <HeaderCell>Tipo</HeaderCell>
-                                <Cell dataKey="Tipo" />
-                            </Column>
-                            <Column width={72} >
-                                <HeaderCell>gal</HeaderCell>
-                                <Cell dataKey="gal" />
-                            </Column>
-                            <Column width={72} >
-                                <HeaderCell>Precio(U)</HeaderCell>
-                                <Cell dataKey="Precio(U)" />
-                            </Column>
-                            <Column width={80} >
-                                <HeaderCell>Valor(V)</HeaderCell>
-                                <Cell dataKey="Valor(V)" />
-                            </Column>
-                            <Column width={80} >
-                                <HeaderCell>Precio(T)</HeaderCell>
-                                <Cell dataKey="Precio(T)" />
-                            </Column>
-                            <Column width={80} >
-                                <HeaderCell>Comodin</HeaderCell>
-                                <Cell dataKey="Comodin" />
-                            </Column>
-                            <Column width={80} >
-                                <HeaderCell>km(R)</HeaderCell>
-                                <Cell dataKey="km(R)" />
-                            </Column>
-                            <Column width={80} >
-                                <HeaderCell>gal(C)</HeaderCell>
-                                <Cell dataKey="gal(C)" />
-                            </Column>
-                            <Column width={80} >
-                                <HeaderCell>km/gal</HeaderCell>
-                                <Cell dataKey="km/gal" />
-                            </Column>
-                            <Column width={80} >
-                                <HeaderCell>Dif. gal</HeaderCell>
-                                <Cell dataKey="Dif. gal" />
-                            </Column>
-                            <Column width={80} >
-                                <HeaderCell>Dscto. gal</HeaderCell>
-                                <Cell dataKey="Dscto. gal" />
-                            </Column>
-                            <Column width={80} >
-                                <HeaderCell>Dscto. (S/)</HeaderCell>
-                                <Cell dataKey="Dscto. (S/)" />
-                            </Column>
+                                }}
+                            >
+                                <Column width={80} fixed>
+                                    <HeaderCell>Placa</HeaderCell>
+                                    <Cell dataKey="Placa" />
+                                </Column>
+                                <Column width={72} >
+                                    <HeaderCell>Tipo</HeaderCell>
+                                    <Cell dataKey="Tipo" />
+                                </Column>
+                                <Column width={72} >
+                                    <HeaderCell>gal</HeaderCell>
+                                    <Cell dataKey="gal" />
+                                </Column>
+                                <Column width={72} >
+                                    <HeaderCell>Precio(U)</HeaderCell>
+                                    <Cell dataKey="Precio(U)" />
+                                </Column>
+                                <Column width={80} >
+                                    <HeaderCell>Valor(V)</HeaderCell>
+                                    <Cell dataKey="Valor(V)" />
+                                </Column>
+                                <Column width={80} >
+                                    <HeaderCell>Precio(T)</HeaderCell>
+                                    <Cell dataKey="Precio(T)" />
+                                </Column>
+                                <Column width={80} >
+                                    <HeaderCell>Comodin</HeaderCell>
+                                    <Cell dataKey="Comodin" />
+                                </Column>
+                                <Column width={80} >
+                                    <HeaderCell>km(R)</HeaderCell>
+                                    <Cell dataKey="km(R)" />
+                                </Column>
+                                <Column width={80} >
+                                    <HeaderCell>gal(C)</HeaderCell>
+                                    <Cell dataKey="gal(C)" />
+                                </Column>
+                                <Column width={80} >
+                                    <HeaderCell>km/gal</HeaderCell>
+                                    <Cell dataKey="km/gal" />
+                                </Column>
+                                <Column width={80} >
+                                    <HeaderCell>Dif. gal</HeaderCell>
+                                    <Cell dataKey="Dif. gal" />
+                                </Column>
+                                <Column width={80} >
+                                    <HeaderCell>Dscto. gal</HeaderCell>
+                                    <Cell dataKey="Dscto. gal" />
+                                </Column>
+                                <Column width={80} >
+                                    <HeaderCell>Dscto. (S/)</HeaderCell>
+                                    <Cell dataKey="Dscto. (S/)" />
+                                </Column>
 
 
 
-                        </Table>
+                            </Table>
+                        </Panel>
                     </div>
 
                 </Content>
