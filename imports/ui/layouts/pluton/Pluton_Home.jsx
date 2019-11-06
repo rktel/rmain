@@ -331,7 +331,9 @@ const Home = () => {
                     <div>
                         <FlexboxGrid justify="end">
                             <ButtonToolbar>
-                                <Button>Descargar</Button>
+                                <Button color="blue" >
+                                    <Icon icon="file-excel-o" /> Descargar
+                                </Button>
                             </ButtonToolbar>
                         </FlexboxGrid>
                         <Nav pullRight>
