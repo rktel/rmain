@@ -29,8 +29,8 @@ const Home = () => {
     /* HOOKS */
     useEffect(_ => {
         // console.log('In useEffect')
-        rstream.on('Antapaccay', data => {
-            if (data.length > 0) {
+        rstream.on('Antapaccay', (rid, data) => {
+            if (data.length > 0 && rid == randomId) {
                 Notification['success']({
                     title: 'Aviso',
                     placement: 'topRight',
@@ -58,13 +58,16 @@ const Home = () => {
     const [dateStart, setDateStart] = useState(defaultDateStart())
     const [dateEnd, setDateEnd] = useState(defaultDateEnd())
     const [loadingBtn, setLoadingBtn] = useState(false)
+    const [randomId, setRandomId] = useState(0)
 
     const handleVehiclesSelected = (value) => {
         setVehiclesSelected(value)
     }
     const handleClickQueryBtn = () => {
         if (vehiclesSelected.length > 0) {
-            Meteor.call('Antapaccay_queryReport', vehiclesSelected, dateStart.toISOString(), dateEnd.toISOString())
+            const auxRandomId = new Date().getTime()
+            setRandomId(auxRandomId)
+            Meteor.call('Antapaccay_queryReport', auxRandomId ,vehiclesSelected, dateStart.toISOString(), dateEnd.toISOString())
             setLoadingBtn(true)
             setTimeout(_ => {
                 setLoadingBtn(false)

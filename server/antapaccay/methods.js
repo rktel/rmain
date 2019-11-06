@@ -4,7 +4,7 @@ import { rstream } from '../../imports/api/streamers'
 //FUNCTIONS HELPERS ANTAPACCAY .... 
 
 
-function createReport(data) {
+function createReport(randomId, data) {
 
     let Rows = []
     data.map(item => {
@@ -133,10 +133,10 @@ function createReport(data) {
 
         })
 
-        rstream.emit('Antapaccay', RowsReport)
+        rstream.emit('Antapaccay', randomId, RowsReport)
         console.log('Documentos Creados: ', RowsReport.length)
     } else {
-        rstream.emit('Antapaccay', RowsReport)
+        rstream.emit('Antapaccay', randomId, RowsReport)
         console.log('No hay data')
     }
 
@@ -178,7 +178,7 @@ function getTimeMillis(dateTime) {
 
 
 Meteor.methods({
-    Antapaccay_queryReport(vehiclesSelected, dateStart, dateEnd) {
+    Antapaccay_queryReport(randomId, vehiclesSelected, dateStart, dateEnd) {
         console.log('........................ANTAPACCAY...............................')
         // console.log('dateStart', dateStart, 'dateEnd', dateEnd)
         // console.log('Usuario: ', Meteor.user().username)
@@ -191,7 +191,7 @@ Meteor.methods({
             .sort({ 'events.vehicle': 1 })
             .toArray((error, data) => {
                 if (!error && data)
-                    createReport(data)
+                    createReport(randomId, data)
 
             })
     },
