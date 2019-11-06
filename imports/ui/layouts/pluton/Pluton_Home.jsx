@@ -331,7 +331,7 @@ const Home = () => {
                 </Sidebar>
                 <Content >
                     <div>
-                        <Panel bordered style={{ padding: '4px' }}>
+                        <Panel bordered bodyFill>
                             <FlexboxGrid justify="end">
                                 <ButtonToolbar>
                                     <Button color="green" appearance="subtle" onClick={handleClickDownloadBtn}>
@@ -340,7 +340,7 @@ const Home = () => {
                                 </ButtonToolbar>
                             </FlexboxGrid>
                         </Panel>
-                        <Panel bordered style={{ padding: '4px' }}>
+                        <Panel bordered bodyFill>
                             <Table
                                 height={400}
                                 data={resultList}
@@ -401,9 +401,6 @@ const Home = () => {
                                     <HeaderCell>Dscto. (S/)</HeaderCell>
                                     <Cell dataKey="Dscto. (S/)" />
                                 </Column>
-
-
-
                             </Table>
                         </Panel>
                     </div>
