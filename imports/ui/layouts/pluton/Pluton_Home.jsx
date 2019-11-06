@@ -331,7 +331,7 @@ const Home = () => {
                 </Sidebar>
                 <Content >
                     <div>
-                        <Panel>
+                        <Panel bodyFill style={{padding:'2px'}}>
                             <FlexboxGrid justify="end">
                                 <ButtonToolbar>
                                     <Button color="green" appearance="ghost" onClick={handleClickDownloadBtn}>
