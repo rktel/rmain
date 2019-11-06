@@ -31,22 +31,24 @@ const Home = () => {
         // console.log('In useEffect')
         rstream.on('Antapaccay', (rid, data) => {
             console.log(rid, randomId)
-            if (data.length > 0 && rid == randomId) {
-                Notification['success']({
-                    title: 'Aviso',
-                    placement: 'topRight',
-                    description: `Data encontrada`
-                })
-                data = XLSX.utils.json_to_sheet(data)
-                const workbook = XLSX.utils.book_new()
-                XLSX.utils.book_append_sheet(workbook, data, 'Reporte')
-                XLSX.writeFile(workbook, `Reporte.xlsx`)
-            } else {
-                Notification['warning']({
-                    title: 'Aviso',
-                    placement: 'topRight',
-                    description: `No hay data`
-                })
+            if(rid == randomId){
+                if (data.length > 0 ) {
+                    Notification['success']({
+                        title: 'Aviso',
+                        placement: 'topRight',
+                        description: `Data encontrada`
+                    })
+                    data = XLSX.utils.json_to_sheet(data)
+                    const workbook = XLSX.utils.book_new()
+                    XLSX.utils.book_append_sheet(workbook, data, 'Reporte')
+                    XLSX.writeFile(workbook, `Reporte.xlsx`)
+                } else {
+                    Notification['warning']({
+                        title: 'Aviso',
+                        placement: 'topRight',
+                        description: `No hay data`
+                    })
+                }
             }
         })
         Meteor.call('Antapaccay_plates', (error, elements) => {
