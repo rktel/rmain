@@ -331,16 +331,12 @@ const Home = () => {
                     <div>
                         <FlexboxGrid justify="end">
                             <ButtonToolbar>
-                                <Button color="blue" >
+                                <Button color="blue" appearance="subtle" onClick={handleClickDownloadBtn}>
                                     <Icon icon="file-excel-o" /> Descargar
                                 </Button>
                             </ButtonToolbar>
                         </FlexboxGrid>
-                        <Nav pullRight>
-                            <Nav.Item icon={<Icon icon="file-excel-o" />} onClick={handleClickDownloadBtn} active>Descargar</Nav.Item>
-                        </Nav>
-
-                        <Table
+                         <Table
                             height={400}
                             data={resultList}
                             onRowClick={el => {
