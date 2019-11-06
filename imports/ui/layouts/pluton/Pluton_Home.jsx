@@ -329,9 +329,9 @@ const Home = () => {
                 </Sidebar>
                 <Content >
                     <div>
-                        
+
                         <Table
-                            height={400}
+                            height={600}
                             data={resultList}
                             onRowClick={el => {
                                 console.log(el);
