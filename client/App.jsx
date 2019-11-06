@@ -11,7 +11,6 @@ const App = () => {
 
     return (
         <BrowserRouter>
-
             <Switch>
                 <Route path='/ntpccy' render={_ => (
                     Meteor.userId() ? (<Antapaccay_Home />) : (<Redirect to='/login' />)
