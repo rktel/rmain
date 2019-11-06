@@ -10,7 +10,7 @@ const App = () => {
     return (
         <BrowserRouter>
             <Switch>
-                {console.log('Hello App')}
+                {console.log(Meteor.userId())}
                 <Route path='/ntpccy' exact component={Antapaccay_Home} />
                 <Route path='/pltn' exact component={Pluton_Home} />
                 <Route path='/login' component={Login} />
