@@ -28,11 +28,9 @@ const Home = () => {
     }
     /* HOOKS */
     useEffect(_ => {
-        // console.log('In useEffect')
         rstream.on('Antapaccay', (rid, data) => {
-            console.log(rid, randomId)
-            if(rid == randomId){
-                if (data.length > 0 ) {
+            if (rid == randomId) {
+                if (data.length > 0) {
                     Notification['success']({
                         title: 'Aviso',
                         placement: 'topRight',
