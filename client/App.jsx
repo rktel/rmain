@@ -14,10 +14,10 @@ const App = () => {
 
             <Switch>
                 <Route path='/ntpccy' render={_ => (
-                    Meteor.userId() ? (<Antapaccay_Home />) : (<Login />)
+                    Meteor.userId() ? (<Antapaccay_Home />) : (<Redirect to='/login' />)
                 )} />
                 <Route path='/pltn' render={_ => (
-                    Meteor.userId() ? (<Pluton_Home />) : (<Login />)
+                    Meteor.userId() ? (<Pluton_Home />) : (<Redirect to='/login' />)
                 )} />
                 <Route path='/login' component={Login} />
             </Switch>
