@@ -331,13 +331,15 @@ const Home = () => {
                 </Sidebar>
                 <Content >
                     <div>
-                        <FlexboxGrid justify="end">
-                            <ButtonToolbar>
-                                <Button color="green" appearance="subtle" onClick={handleClickDownloadBtn}>
-                                    <Icon icon="file-excel-o" /> Descargar
+                        <Panel bordered>
+                            <FlexboxGrid justify="end">
+                                <ButtonToolbar>
+                                    <Button color="green" appearance="subtle" onClick={handleClickDownloadBtn}>
+                                        <Icon icon="file-excel-o" /> Descargar
                                 </Button>
-                            </ButtonToolbar>
-                        </FlexboxGrid>
+                                </ButtonToolbar>
+                            </FlexboxGrid>
+                        </Panel>
                         <Table
                             height={400}
                             data={resultList}
