@@ -9,7 +9,9 @@ import Pluton_Home from '../imports/ui/layouts/pluton/Pluton_Home'
 
 const App = () => {
     if(!Meteor.userId()){
-        <Redirect to="/login" /> 
+        console.log(Meteor.userId())
+        return
+        <Redirect to='/login' /> 
     }
     return (
         <BrowserRouter>
