@@ -12,11 +12,15 @@ const App = () => {
     return (
         <BrowserRouter>
 
-            {!Meteor.userId() ? <Redirect to='/login' component={Login}/> : <Switch>
-                <Route path='/ntpccy'  component={Antapaccay_Home} />
-                <Route path='/pltn'  component={Pluton_Home} />
-                <Route path='/login'  component={Login} />
-            </Switch>}
+            <Switch>
+                <Route path='/ntpccy' render={_ => (
+                    Meteor.userId() ? (<Antapaccay_Home />) : (<Login />)
+                )} />
+                <Route path='/pltn' render={_ => (
+                    Meteor.userId() ? (<Pluton_Home />) : (<Login />)
+                )} />
+                <Route path='/login' component={Login} />
+            </Switch>
         </BrowserRouter>
     )
 }
