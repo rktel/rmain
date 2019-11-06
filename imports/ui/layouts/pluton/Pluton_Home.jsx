@@ -332,6 +332,15 @@ const Home = () => {
                 </Sidebar>
                 <Content >
                     <div>
+                    <Navbar appearance="inverse">
+                    <Navbar.Header>
+                    </Navbar.Header>
+                    <Navbar.Body>
+                          <Nav pullRight>
+                            <Nav.Item icon={<Icon icon="file-excel-o" />} onClick={handleClickDownloadBtn} >Descargar</Nav.Item>
+                        </Nav>
+                    </Navbar.Body>
+                </Navbar>
                         <Table
                             height={600}
                             data={resultList}
