@@ -15,10 +15,11 @@ const App = () => {
                 <Route path='/ntpccy' exact component={Antapaccay_Home} />
                 <Route path='/pltn' exact component={Pluton_Home} />
                 <Route path='/login' component={Login} />
-                { 1 ? <div>Pepa</div>: <div>George</div>}
+                {!Meteor.userId() ? <Redirect to="/login" /> : false}
             </Switch>
         </BrowserRouter>
     )
 }
 
 export default App
+
