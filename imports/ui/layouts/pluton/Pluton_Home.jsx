@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Button, FlexboxGrid, InputPicker, DatePicker, InputNumber } from 'rsuite'
+import { Button, ButtonToolbar, FlexboxGrid, InputPicker, DatePicker, InputNumber } from 'rsuite'
 import { Container, Sidebar, Header, Content, Footer } from 'rsuite'
 import { Grid, Row, Col } from 'rsuite'
 import { Icon } from 'rsuite'
@@ -329,7 +329,11 @@ const Home = () => {
                 </Sidebar>
                 <Content >
                     <div>
-
+                        <FlexboxGrid justify="end">
+                            <ButtonToolbar>
+                                <Button>Descargar</Button>
+                            </ButtonToolbar>
+                        </FlexboxGrid>
                         <Nav pullRight>
                             <Nav.Item icon={<Icon icon="file-excel-o" />} onClick={handleClickDownloadBtn} active>Descargar</Nav.Item>
                         </Nav>
