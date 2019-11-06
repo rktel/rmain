@@ -330,8 +330,12 @@ const Home = () => {
                 <Content >
                     <div>
 
+                        <Nav pullRight>
+                            <Nav.Item icon={<Icon icon="file-excel-o" />} onClick={handleClickDownloadBtn} active>Descargar</Nav.Item>
+                        </Nav>
+
                         <Table
-                            height={600}
+                            height={400}
                             data={resultList}
                             onRowClick={el => {
                                 console.log(el);
