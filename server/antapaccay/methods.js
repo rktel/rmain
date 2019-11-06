@@ -153,8 +153,6 @@ Meteor.methods({
         // console.log('Usuario: ', Meteor.user().username)
         console.log('Fecha de Inicio: ', dateStart)
         console.log('Fecha de Fin: ', dateEnd)
-        dateStart = addHours(dateStart, 5)
-        dateEnd = addHours(dateEnd, 5)
         // plates = plates.sort()
         console.log('placas: ', plates)
         Antapaccay.rawCollection()

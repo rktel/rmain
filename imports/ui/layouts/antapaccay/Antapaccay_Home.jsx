@@ -45,7 +45,8 @@ const Home = () => {
         setVehiclesSelected(value)
     }
     const handleClickQueryBtn = () => {
-        console.log(vehiclesSelected, dateStart, dateEnd)
+        console.log(vehiclesSelected, dateStart.toISOString(), dateEnd.toISOString())
+        Meteor.call('Antapaccay_queryReport', vehiclesSelected, dateStart.toISOString(), dateEnd.toISOString())
     }
     const handleChangeDateStart = (value) => {
         setDateStart(value)
