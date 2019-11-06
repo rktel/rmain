@@ -1,7 +1,7 @@
 import { Antapaccay, Plates } from '../../imports/api/collections'
 import { rstream } from '../../imports/api/streamers'
 
-//FUNCTIONS HELPERS ANTAPACCAY .... console.log(item.events[0].id, item.events[0].created, item.events[0].vehicle)
+//FUNCTIONS HELPERS ANTAPACCAY .... 
 
 
 function createReport(data) {
@@ -143,7 +143,38 @@ function createReport(data) {
 
 }
 
-
+function addHours(datetime, hours) {
+    let date1 = new Date(datetime);
+    date1.setHours(date1.getHours() + hours);
+    return date1.toISOString()
+}
+function addZero(data) {
+    return data < 10 ? '0' + data : data
+}
+function getDateAndTime(dateTime_) {
+    const millis = getTimeMillis(dateTime_)
+    const dateTime = new Date(millis)
+    const year = dateTime.getFullYear()
+    const month = addZero(dateTime.getMonth() + 1)
+    const day = addZero(dateTime.getDate())
+    const hour = addZero(dateTime.getHours())
+    const minute = addZero(dateTime.getMinutes())
+    return {
+        date: day + '/' + month + '/' + year,
+        time: hour + ':' + minute
+    }
+}
+function addMinutes(dateTime, number) {
+    const addMillis = getTimeMillis(dateTime) + number * (60 * 1000)
+    return new Date(addMillis)
+}
+function getMinutesDiff(dateTimeMax, dateTimeMin) {
+    const diff = getTimeMillis(dateTimeMax) - getTimeMillis(dateTimeMin)
+    return parseInt(diff / (60 * 1000))
+}
+function getTimeMillis(dateTime) {
+    return (new Date(dateTime)).getTime()
+}
 
 
 Meteor.methods({
