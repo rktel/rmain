@@ -7,10 +7,17 @@ import Antapaccay_Home from '../imports/ui/layouts/antapaccay/Antapaccay_Home'
 import Pluton_Home from '../imports/ui/layouts/pluton/Pluton_Home'
 
 const App = () => {
+    const ironRoute = ()=>{
+        return(
+            <div>
+                Peppa pig
+            </div>
+        )
+    }
     return (
         <BrowserRouter>
             <Switch>
-                {console.log(Meteor.userId())}
+            {ironRoute()}
                 <Route path='/ntpccy' exact component={Antapaccay_Home} />
                 <Route path='/pltn' exact component={Pluton_Home} />
                 <Route path='/login' component={Login} />
