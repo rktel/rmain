@@ -174,9 +174,6 @@ const Home = () => {
                         <Nav>
                             <Nav.Item>YOUR BUSINESS HERE</Nav.Item>
                         </Nav>
-                        <Nav pullRight>
-                            <Nav.Item icon={<Icon icon="file-excel-o" />} onClick={handleClickDownloadBtn} >Descargar</Nav.Item>
-                        </Nav>
                     </Navbar.Body>
                 </Navbar>
             </Header>
@@ -332,7 +329,7 @@ const Home = () => {
                 </Sidebar>
                 <Content >
                     <div>
-                    <Navbar appearance="inverse">
+                    <Navbar>
                     <Navbar.Header>
                     </Navbar.Header>
                     <Navbar.Body>
@@ -342,7 +339,7 @@ const Home = () => {
                     </Navbar.Body>
                 </Navbar>
                         <Table
-                            height={600}
+                            height={400}
                             data={resultList}
                             onRowClick={el => {
                                 console.log(el);
