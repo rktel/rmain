@@ -12,10 +12,10 @@ const App = () => {
     return (
         <BrowserRouter>
             <Switch>
+                {!Meteor.userId() ? <Redirect to="/login" /> : false}
                 <Route path='/ntpccy' exact component={Antapaccay_Home} />
                 <Route path='/pltn' exact component={Pluton_Home} />
                 <Route path='/login' component={Login} />
-                {!Meteor.userId() ? <Redirect to="/login" /> : false}
             </Switch>
         </BrowserRouter>
     )
