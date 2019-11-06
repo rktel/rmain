@@ -20,6 +20,7 @@ const App = () => {
                     Meteor.userId() ? (<Pluton_Home />) : (<Redirect to='/login' />)
                 )} />
                 <Route path='/login' component={Login} />
+                <Route render={_=>(<Redirect to='/login' />)} />
             </Switch>
         </BrowserRouter>
     )
