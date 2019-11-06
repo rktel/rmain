@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Button, ButtonToolbar, FlexboxGrid, InputPicker, DatePicker, InputNumber } from 'rsuite'
+import { Button, ButtonToolbar, FlexboxGrid, InputPicker, DatePicker, InputNumber, Panel } from 'rsuite'
 import { Container, Sidebar, Header, Content, Footer } from 'rsuite'
 import { Grid, Row, Col } from 'rsuite'
 import { Icon } from 'rsuite'
@@ -180,152 +180,154 @@ const Home = () => {
 
             <Container style={{ marginTop: '2px' }}>
                 <Sidebar style={{ flex: '0 0 340px', paddingRight: '8px' }}>
-                    <Grid fluid>
-                        <Row>
-                            <Col xs={9}>
-                                <Button appearance="subtle">Vehiculos:</Button>
-                            </Col>
-                            <Col xs={15}>
+                    <Panel bordered>
+                        <Grid fluid>
+                            <Row>
+                                <Col xs={9}>
+                                    <Button appearance="subtle">Vehiculos:</Button>
+                                </Col>
+                                <Col xs={15}>
 
 
-                                <InputPicker
-                                    value={vehicleSelected}
-                                    onChange={handleChangeVehicleSelected}
-                                    data={plates}
+                                    <InputPicker
+                                        value={vehicleSelected}
+                                        onChange={handleChangeVehicleSelected}
+                                        data={plates}
 
-                                    placeholder="Selecciona unidad"
-                                />
-                            </Col>
-                        </Row>
-                        <Row>
-                            <Col xs={9}>
-                                <Button appearance="subtle">Fecha inicio:</Button>
-                            </Col>
-                            <Col xs={15}>
-                                <DatePicker
-                                    value={dateStart}
-                                    onChange={handleChangeDateStart}
-                                    format="YYYY-MM-DD HH:mm:ss"
-                                    ranges={[]}
+                                        placeholder="Selecciona unidad"
+                                    />
+                                </Col>
+                            </Row>
+                            <Row>
+                                <Col xs={9}>
+                                    <Button appearance="subtle">Fecha inicio:</Button>
+                                </Col>
+                                <Col xs={15}>
+                                    <DatePicker
+                                        value={dateStart}
+                                        onChange={handleChangeDateStart}
+                                        format="YYYY-MM-DD HH:mm:ss"
+                                        ranges={[]}
 
-                                />
-                            </Col>
-                        </Row>
-                        <Row>
-                            <Col xs={9}>
-                                <Button appearance="subtle">Fecha fin:</Button>
-                            </Col>
-                            <Col xs={15}>
-                                <DatePicker
-                                    value={dateEnd}
-                                    onChange={handleChangeDateEnd}
-                                    format="YYYY-MM-DD HH:mm:ss"
-                                    ranges={[]}
+                                    />
+                                </Col>
+                            </Row>
+                            <Row>
+                                <Col xs={9}>
+                                    <Button appearance="subtle">Fecha fin:</Button>
+                                </Col>
+                                <Col xs={15}>
+                                    <DatePicker
+                                        value={dateEnd}
+                                        onChange={handleChangeDateEnd}
+                                        format="YYYY-MM-DD HH:mm:ss"
+                                        ranges={[]}
 
-                                />
-                            </Col>
-                        </Row>
-                        <Row>
-                            <Col xs={9}>
-                                <Button appearance="subtle">Tipo combustible:</Button>
-                            </Col>
-                            <Col xs={15}>
-                                <InputPicker
-                                    value={fuelSelected}
-                                    onChange={handleChangeFuelSelected}
-                                    data={fuelList}
+                                    />
+                                </Col>
+                            </Row>
+                            <Row>
+                                <Col xs={9}>
+                                    <Button appearance="subtle">Tipo combustible:</Button>
+                                </Col>
+                                <Col xs={15}>
+                                    <InputPicker
+                                        value={fuelSelected}
+                                        onChange={handleChangeFuelSelected}
+                                        data={fuelList}
 
-                                    placeholder="Seleccione combustible"
-                                />
-                            </Col>
-                        </Row>
-                        <Row>
-                            <Col xs={9}>
-                                <Button appearance="subtle">Galones:</Button>
-                            </Col>
-                            <Col xs={15}>
-                                <InputNumber
-                                    value={gallonsSelected}
-                                    onChange={handleChangeGallonsSelected}
+                                        placeholder="Seleccione combustible"
+                                    />
+                                </Col>
+                            </Row>
+                            <Row>
+                                <Col xs={9}>
+                                    <Button appearance="subtle">Galones:</Button>
+                                </Col>
+                                <Col xs={15}>
+                                    <InputNumber
+                                        value={gallonsSelected}
+                                        onChange={handleChangeGallonsSelected}
 
-                                    placeholder="Ingrese galones"
-                                    step={0.01}
-                                />
-                            </Col>
-                        </Row>
-                        <Row>
-                            <Col xs={9}>
-                                <Button appearance="subtle">Precio unitario:</Button>
-                            </Col>
-                            <Col xs={15}>
-                                <InputNumber
-                                    value={priceUnitarySelected}
-                                    onChange={handleChangePriceUnitarySelected}
+                                        placeholder="Ingrese galones"
+                                        step={0.01}
+                                    />
+                                </Col>
+                            </Row>
+                            <Row>
+                                <Col xs={9}>
+                                    <Button appearance="subtle">Precio unitario:</Button>
+                                </Col>
+                                <Col xs={15}>
+                                    <InputNumber
+                                        value={priceUnitarySelected}
+                                        onChange={handleChangePriceUnitarySelected}
 
-                                    placeholder="Ingrese precio "
-                                    step={0.01}
-                                />
-                            </Col>
-                        </Row>
-                        <Row>
-                            <Col xs={9}>
-                                <Button appearance="subtle">Valor venta:</Button>
-                            </Col>
-                            <Col xs={15}>
-                                <InputNumber
-                                    value={valueSalesSelected}
-                                    onChange={handleChangeValueSalesSelected}
+                                        placeholder="Ingrese precio "
+                                        step={0.01}
+                                    />
+                                </Col>
+                            </Row>
+                            <Row>
+                                <Col xs={9}>
+                                    <Button appearance="subtle">Valor venta:</Button>
+                                </Col>
+                                <Col xs={15}>
+                                    <InputNumber
+                                        value={valueSalesSelected}
+                                        onChange={handleChangeValueSalesSelected}
 
-                                    placeholder="Ingrese valor venta"
-                                    step={0.01}
-                                />
-                            </Col>
-                        </Row>
-                        <Row>
-                            <Col xs={9}>
-                                <Button appearance="subtle">Precio total:</Button>
-                            </Col>
-                            <Col xs={15}>
-                                <InputNumber
-                                    value={totalPriceSelected}
-                                    onChange={handleChangeTotalPriceSelected}
+                                        placeholder="Ingrese valor venta"
+                                        step={0.01}
+                                    />
+                                </Col>
+                            </Row>
+                            <Row>
+                                <Col xs={9}>
+                                    <Button appearance="subtle">Precio total:</Button>
+                                </Col>
+                                <Col xs={15}>
+                                    <InputNumber
+                                        value={totalPriceSelected}
+                                        onChange={handleChangeTotalPriceSelected}
 
-                                    placeholder="Ingrese precio total"
-                                    step={0.01}
-                                />
-                            </Col>
-                        </Row>
-                        <Row>
-                            <Col xs={9}>
-                                <Button appearance="subtle">Factor comodin:</Button>
-                            </Col>
-                            <Col xs={15}>
-                                <InputNumber
-                                    value={jokerFactorSelected}
-                                    onChange={handleChangeJokerFactorSelected}
+                                        placeholder="Ingrese precio total"
+                                        step={0.01}
+                                    />
+                                </Col>
+                            </Row>
+                            <Row>
+                                <Col xs={9}>
+                                    <Button appearance="subtle">Factor comodin:</Button>
+                                </Col>
+                                <Col xs={15}>
+                                    <InputNumber
+                                        value={jokerFactorSelected}
+                                        onChange={handleChangeJokerFactorSelected}
 
-                                    placeholder="Ingrese factor comodin"
-                                    step={0.001}
-                                />
-                            </Col>
-                        </Row>
-                        <Row>
-                            <Col xs={9}>
-                                <Button appearance="subtle">Accion:</Button>
-                            </Col>
-                            <Col xs={15}>
-                                <FlexboxGrid justify="space-around">
-                                    <FlexboxGrid.Item>
-                                        <Button onClick={handleClickAddBtn} color="blue" size="sm">Buscar</Button>
-                                    </FlexboxGrid.Item>
-                                    <FlexboxGrid.Item>
-                                        <Button onClick={handleClickClearBtn} appearance="ghost" color="orange" size="sm">Limpiar</Button>
-                                    </FlexboxGrid.Item>
-                                </FlexboxGrid>
-                            </Col>
-                        </Row>
+                                        placeholder="Ingrese factor comodin"
+                                        step={0.001}
+                                    />
+                                </Col>
+                            </Row>
+                            <Row>
+                                <Col xs={9}>
+                                    <Button appearance="subtle">Accion:</Button>
+                                </Col>
+                                <Col xs={15}>
+                                    <FlexboxGrid justify="space-around">
+                                        <FlexboxGrid.Item>
+                                            <Button onClick={handleClickAddBtn} color="blue" size="sm">Buscar</Button>
+                                        </FlexboxGrid.Item>
+                                        <FlexboxGrid.Item>
+                                            <Button onClick={handleClickClearBtn} appearance="ghost" color="orange" size="sm">Limpiar</Button>
+                                        </FlexboxGrid.Item>
+                                    </FlexboxGrid>
+                                </Col>
+                            </Row>
 
-                    </Grid>
+                        </Grid>
+                    </Panel>
                 </Sidebar>
                 <Content >
                     <div>
@@ -336,7 +338,7 @@ const Home = () => {
                                 </Button>
                             </ButtonToolbar>
                         </FlexboxGrid>
-                         <Table
+                        <Table
                             height={400}
                             data={resultList}
                             onRowClick={el => {
