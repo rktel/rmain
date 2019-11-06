@@ -30,13 +30,13 @@ const Home = () => {
     useEffect(_ => {
         // console.log('In useEffect')
         rstream.on('Antapaccay', data => {
-            if(data.length>0){
+            if (data.length > 0) {
                 Notification['success']({
                     title: 'Aviso',
                     placement: 'bottomRight',
                     description: `Data encontrada`
                 })
-            }else{
+            } else {
                 Notification['warning']({
                     title: 'Aviso',
                     placement: 'bottomRight',
@@ -59,12 +59,13 @@ const Home = () => {
         setVehiclesSelected(value)
     }
     const handleClickQueryBtn = () => {
-        if(vehiclesSelected.length>0)
-        Meteor.call('Antapaccay_queryReport', vehiclesSelected, dateStart.toISOString(), dateEnd.toISOString())
-        setLoadingBtn(true)
-        setTimeout(_=>{
-            setLoadingBtn(false)
-        }, 1750)
+        if (vehiclesSelected.length > 0) {
+            Meteor.call('Antapaccay_queryReport', vehiclesSelected, dateStart.toISOString(), dateEnd.toISOString())
+            setLoadingBtn(true)
+            setTimeout(_ => {
+                setLoadingBtn(false)
+            }, 1750)
+        }
 
     }
     const handleChangeDateStart = (value) => {
