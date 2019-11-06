@@ -3,8 +3,8 @@ import { rstream } from '../../imports/api/streamers'
 
 //FUNCTIONS HELPERS ANTAPACCAY .... console.log(item.events[0].id, item.events[0].created, item.events[0].vehicle)
 
-/*
-function createReport(userID, data) {
+
+function createReport(data) {
 
     let Rows = []
     data.map(item => {
@@ -27,7 +27,7 @@ function createReport(userID, data) {
     })
     const rowsTotal = Rows.length
     console.log('Documentos Consultados: ', rowsTotal)
-  
+
     let RowsReport = []
     if (rowsTotal > 0) {
         Rows.map((row, index, rowArray) => {
@@ -37,7 +37,7 @@ function createReport(userID, data) {
                 const date4 = dateTime4.date
                 const time4 = dateTime4.time
                 RowsReport.push({
-                 
+
                     fecha: date4,
                     hora: time4,
                     estado: row.estado ? 'En movimiento' : 'Detenido',
@@ -60,7 +60,7 @@ function createReport(userID, data) {
                             const date0 = dateTime0.date
                             const time0 = dateTime0.time
                             RowsReport.push({
-                     
+
                                 fecha: date0,
                                 hora: time0,
                                 estado: beforeRow.estado ? 'En movimiento' : 'Detenido',
@@ -78,7 +78,7 @@ function createReport(userID, data) {
                         const date1 = dateTime1.date
                         const time1 = dateTime1.time
                         RowsReport.push({
-                     
+
                             fecha: date1,
                             hora: time1,
                             estado: row.estado ? 'En movimiento' : 'Detenido',
@@ -96,7 +96,7 @@ function createReport(userID, data) {
                         const date2 = dateTime2.date
                         const time2 = dateTime2.time
                         RowsReport.push({
-                
+
                             fecha: date2,
                             hora: time2,
                             estado: row.estado ? 'En movimiento' : 'Detenido',
@@ -115,7 +115,7 @@ function createReport(userID, data) {
                     const date3 = dateTime3.date
                     const time3 = dateTime3.time
                     RowsReport.push({
-                 
+
                         fecha: date3,
                         hora: time3,
                         estado: row.estado ? 'En movimiento' : 'Detenido',
@@ -132,17 +132,17 @@ function createReport(userID, data) {
             }
 
         })
-  
-        stNTPCCY.emit('Rows', userID, RowsReport)
+
+        rstream.emit('Antapaccay', RowsReport)
         console.log('Documentos Creados: ', RowsReport.length)
     } else {
-        stNTPCCY.emit('NoData', userID, 0)
+        rstream.emit('Antapaccay', RowsReport)
         console.log('No hay data')
     }
 
 
 }
-*/
+
 
 
 
@@ -159,9 +159,9 @@ Meteor.methods({
             .find({ 'events': { $elemMatch: { 'vehicle': { $in: vehiclesSelected }, 'created': { $gte: dateStart, $lte: dateEnd } } } })
             .sort({ 'events.vehicle': 1 })
             .toArray((error, data) => {
-                if (!error) {
-                    rstream.emit('Antapaccay', data)
-                }
+                if (!error && data)
+                    createReport(data)
+
             })
     },
     async Antapaccay_createPlates() {
