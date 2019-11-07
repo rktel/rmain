@@ -204,11 +204,17 @@ const Home = () => {
                                     name="checkPicker"
                                     accepter={CheckPicker}
                                     data={[
-                                        { label: 'Eugenia', value: 'Eugenia' },
-                                        { label: 'Kariane', value: 'Kariane' },
-                                        { label: 'Louisa', value: 'Louisa' }
+                                        { label: 'Eugenia1', value: 'Eugenia1' },
+                                        { label: 'Kariane2', value: 'Kariane2' },
+                                        { label: 'Louisa3', value: 'Louisa3' },
+                                        { label: 'Eugenia4', value: 'Eugenia4' },
+                                        { label: 'Kariane5', value: 'Kariane5' },
+                                        { label: 'Louisa6', value: 'Louisa6' },
+                                        { label: 'Eugenia7', value: 'Eugenia7' },
+                                        { label: 'Kariane8', value: 'Kariane8' },
+                                        { label: 'Louisa9', value: 'Louisa9' },
                                     ]}
-                                    style={{ display: 'inline-block', width: 200 }}
+                                    style={{width: '100%'}}
                                 />
                             </FormGroup>
                         </Form>
