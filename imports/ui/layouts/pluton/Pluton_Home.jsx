@@ -42,7 +42,7 @@ const Home = () => {
 
     useLayoutEffect(_=>{
         console.log(window.innerWidth, window.innerHeight)
-    }, [])
+    })
 
     const [plates, setPlates] = useState([])
     const [vehicleSelected, setVehicleSelected] = useState('')
