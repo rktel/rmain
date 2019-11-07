@@ -185,8 +185,8 @@ const Home = () => {
             </Header>
             <FlexboxGrid justify="start">
                 <FlexboxGrid.Item componentClass={Col} colspan={24} md={6}>
-                    <Panel bordered>
-                        <Form formValue={formValue} onChange={formValue => {
+                    <Panel bordered bodyFill>
+                        <Form layout="horizontal" formValue={formValue} onChange={formValue => {
                             console.log(formValue)
                             setFormValue(formValue)
                         }}>
