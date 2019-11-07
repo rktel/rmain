@@ -186,7 +186,7 @@ const Home = () => {
             <FlexboxGrid justify="start">
                 <FlexboxGrid.Item componentClass={Col} colspan={24} md={6}>
                     <Panel bordered bodyFill>
-                        <Form layout="horizontal" formValue={formValue} onChange={formValue => {
+                        <Form fluid layout="horizontal" formValue={formValue} onChange={formValue => {
                             console.log(formValue)
                             setFormValue(formValue)
                         }}>
@@ -195,7 +195,7 @@ const Home = () => {
                                 <FormControl
                                     name="datePicker"
                                     accepter={DatePicker}
-                                    block
+                                    
                                 />
                             </FormGroup>
                             <FormGroup>
@@ -208,7 +208,7 @@ const Home = () => {
                                         { label: 'Kariane', value: 'Kariane' },
                                         { label: 'Louisa', value: 'Louisa' }
                                     ]}
-                                    block
+                                    
                                 />
                             </FormGroup>
                         </Form>
