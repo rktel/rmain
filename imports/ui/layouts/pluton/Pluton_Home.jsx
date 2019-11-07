@@ -40,7 +40,7 @@ const Home = () => {
         })
     }, [])
 
-    useLayoutEffect(_=>{
+    useLayoutEffect(_ => {
         console.log(window.innerWidth, window.innerHeight)
     })
 
@@ -176,6 +176,8 @@ const Home = () => {
         InputNumberGallons: 0.01,
         InputNumberUnitaryPrice: 0.01,
         InputNumberSalesValue: 0.01,
+        InputNumberTotalPrice: 0.01,
+        InputNumberJoker: 0.001,
     })
     const handleChangeForm = (formValue) => {
         setFormValue(formValue)
@@ -199,8 +201,7 @@ const Home = () => {
             <FlexboxGrid justify="start">
                 <FlexboxGrid.Item componentClass={Col} colspan={24} md={6}>
                     <Panel header="FORMULARIO" className="card" bordered >
-             
-                        <Form fluid formValue={formValue} onChange={handleChangeForm} className="scrollbar" style={{height: 500, overflowY:'scroll'}}>
+                        <Form fluid formValue={formValue} onChange={handleChangeForm} className="scrollbar" style={{ height: 500, overflowY: 'scroll' }}>
                             <FormGroup>
                                 <ControlLabel>Vehiculos</ControlLabel>
                                 <FormControl
@@ -249,7 +250,7 @@ const Home = () => {
                                     style={{ width: '100%' }}
                                     step={0.01}
                                     placeholder="Ingrese galones"
-                                 />
+                                />
                             </FormGroup>
                             <FormGroup>
                                 <ControlLabel>Precio unitario</ControlLabel>
@@ -259,7 +260,7 @@ const Home = () => {
                                     style={{ width: '100%' }}
                                     step={0.01}
                                     placeholder="Ingrese precio"
-                                 />
+                                />
                             </FormGroup>
                             <FormGroup>
                                 <ControlLabel>Valor venta</ControlLabel>
@@ -269,10 +270,37 @@ const Home = () => {
                                     style={{ width: '100%' }}
                                     placeholder="Ingrese valor venta"
                                     step={0.01}
-                                 />
+                                />
+                            </FormGroup>
+                            <FormGroup>
+                                <ControlLabel>Precio total</ControlLabel>
+                                <FormControl
+                                    name="InputNumberTotalPrice"
+                                    accepter={InputNumber}
+                                    style={{ width: '100%' }}
+                                    placeholder="Ingrese precio total"
+                                    step={0.01}
+                                />
+                            </FormGroup>
+                            <FormGroup>
+                                <ControlLabel>Factor comodin</ControlLabel>
+                                <FormControl
+                                    name="InputNumberJoker"
+                                    accepter={InputNumber}
+                                    style={{ width: '100%' }}
+                                    placeholder="Ingrese factor comodin"
+                                    step={0.001}
+                                />
+                            </FormGroup>
+                            <FormGroup>
+                                <ControlLabel>Accion</ControlLabel>
+                                <ButtonToolbar>
+                                    <Button appearance="primary">Submit</Button>
+                                    <Button appearance="default">Cancel</Button>
+                                </ButtonToolbar>
                             </FormGroup>
                         </Form>
-               
+
 
                     </Panel>
                 </FlexboxGrid.Item>
