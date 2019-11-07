@@ -167,7 +167,8 @@ const Home = () => {
     /** TEST FORM API */
     const [formValue, setFormValue] = useState({
         checkPickerVehicles: [],
-        DatePickerStart: defaultDateStart()
+        DatePickerStart: defaultDateStart(),
+        DatePickerEnd: defaultDateStart(),
     })
     const handleChangeForm = (formValue) =>{
         setFormValue(formValue)
@@ -206,6 +207,16 @@ const Home = () => {
                                 <ControlLabel>Inicio</ControlLabel>
                                 <FormControl
                                     name="DatePickerStart"
+                                    accepter={DatePicker}
+                                    style={{width: '100%'}}
+                                    format="YYYY-MM-DD HH:mm:ss"
+                                    ranges={[]}
+                                />
+                            </FormGroup>
+                            <FormGroup>
+                                <ControlLabel>Fin</ControlLabel>
+                                <FormControl
+                                    name="DatePickerEnd"
                                     accepter={DatePicker}
                                     style={{width: '100%'}}
                                     format="YYYY-MM-DD HH:mm:ss"
