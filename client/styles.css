@@ -9,10 +9,6 @@
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
-.rs-form:not(.rs-form-inline) .rs-form-group:not(:last-child) {
-    margin-bottom: 12px;
-}
-
 .rs-row>.rs-col {
     padding: 5px 2px;
 }
