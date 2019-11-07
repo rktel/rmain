@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useLayoutEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Button, ButtonToolbar, FlexboxGrid, InputPicker, DatePicker, InputNumber, Panel, CheckPicker } from 'rsuite'
 import { Container, Sidebar, Header, Content, Footer } from 'rsuite'
 import { Grid, Row, Col } from 'rsuite'
@@ -16,14 +16,14 @@ import XLSX from 'xlsx'
 const Home = () => {
     /* HELPS FUNCTION */
     const defaultDateStart = () => {
-        const date = new Date();
-        date.setHours(0, 0, 0, 0)
-        return date
+        let xdate = new Date();
+        xdate.setHours(0, 0, 0, 0)
+        return xdate
     }
     const defaultDateEnd = () => {
-        const date = new Date();
-        date.setHours(23, 59, 59, 999)
-        return date
+        let ydate = new Date();
+        ydate.setHours(23, 59, 59, 999)
+        return ydate
     }
     /* HELPS DATA */
     const fuelList = [
@@ -39,10 +39,6 @@ const Home = () => {
             setPlates(elements)
         })
     }, [])
-
-    useLayoutEffect(_ => {
-        console.log(window.innerWidth, window.innerHeight)
-    })
 
     const [plates, setPlates] = useState([])
     const [vehicleSelected, setVehicleSelected] = useState('')
@@ -171,8 +167,8 @@ const Home = () => {
     /** TEST FORM API */
     const [formValue, setFormValue] = useState({
         CheckPickerVehicles: [],
-        DatePickerStart: new Date(),
-        DatePickerEnd: new Date(),
+        DatePickerStart: defaultDateStart(),
+        DatePickerEnd: defaultDateEnd(),
         InputNumberGallons: 0.01,
         InputNumberUnitaryPrice: 0.01,
         InputNumberSalesValue: 0.01,
