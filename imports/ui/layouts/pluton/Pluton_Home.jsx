@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useLayoutEffect } from 'react'
 import { Button, ButtonToolbar, FlexboxGrid, InputPicker, DatePicker, InputNumber, Panel, CheckPicker } from 'rsuite'
 import { Container, Sidebar, Header, Content, Footer } from 'rsuite'
 import { Grid, Row, Col } from 'rsuite'
@@ -38,6 +38,10 @@ const Home = () => {
         Meteor.call('Pluton_plates', (error, elements) => {
             setPlates(elements)
         })
+    }, [])
+
+    useLayoutEffect(_=>{
+        console.log(window.innerWidth, window.innerHeight)
     }, [])
 
     const [plates, setPlates] = useState([])
