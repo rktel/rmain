@@ -169,7 +169,8 @@ const Home = () => {
         checkPickerVehicles: [],
         DatePickerStart: defaultDateStart(),
         DatePickerEnd: defaultDateStart(),
-        InputNumberGallons: 0.01
+        InputNumberGallons: 0.01,
+        InputNumberUnitaryPrice: 0.01,
     })
     const handleChangeForm = (formValue) => {
         setFormValue(formValue)
@@ -242,6 +243,16 @@ const Home = () => {
                                     style={{ width: '100%' }}
                                     step={0.01}
                                     placeholder="Ingrese galones"
+                                 />
+                            </FormGroup>
+                            <FormGroup>
+                                <ControlLabel>Precio unitario</ControlLabel>
+                                <FormControl
+                                    name="InputNumberUnitaryPrice"
+                                    accepter={InputNumber}
+                                    style={{ width: '100%' }}
+                                    step={0.01}
+                                    placeholder="Ingrese precio"
                                  />
                             </FormGroup>
                         </Form>
