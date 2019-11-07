@@ -172,7 +172,7 @@ const Home = () => {
     const [formValue, setFormValue] = useState({
         CheckPickerVehicles: [],
         DatePickerStart: new Date().setHours(0, 0, 0, 0),
-        DatePickerEnd: new Date().setHours(23, 59, 59, 999),
+        DatePickerEnd: new Date(),
         InputNumberGallons: 0.01,
         InputNumberUnitaryPrice: 0.01,
         InputNumberSalesValue: 0.01,
