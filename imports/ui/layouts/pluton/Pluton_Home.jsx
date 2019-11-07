@@ -208,6 +208,8 @@ const Home = () => {
                                     name="DatePickerStart"
                                     accepter={DatePicker}
                                     style={{width: '100%'}}
+                                    format="YYYY-MM-DD HH:mm:ss"
+                                    ranges={[]}
                                 />
                             </FormGroup>
                         </Form>
