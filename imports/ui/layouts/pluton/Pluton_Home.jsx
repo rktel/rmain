@@ -170,7 +170,7 @@ const Home = () => {
         DatePickerStart: defaultDateStart(),
         DatePickerEnd: defaultDateStart(),
     })
-    const handleChangeForm = (formValue) =>{
+    const handleChangeForm = (formValue) => {
         setFormValue(formValue)
         console.log(formValue)
     }
@@ -191,24 +191,24 @@ const Home = () => {
             </Header>
             <FlexboxGrid justify="start">
                 <FlexboxGrid.Item componentClass={Col} colspan={24} md={6}>
-                    <Panel  header="FORMULARIO" className="card" bordered>
+                    <Panel header="FORMULARIO" className="card" bordered>
                         <Form fluid formValue={formValue} onChange={handleChangeForm}>
                             <FormGroup>
                                 <ControlLabel>Vehiculos</ControlLabel>
                                 <FormControl
                                     name="checkPickerVehicles"
                                     accepter={CheckPicker}
-                                    style={{width: '100%'}}
+                                    style={{ width: '100%' }}
                                     data={plates}
                                     placeholder="Seleccione unidad"
-                                 />
+                                />
                             </FormGroup>
                             <FormGroup>
                                 <ControlLabel>Inicio</ControlLabel>
                                 <FormControl
                                     name="DatePickerStart"
                                     accepter={DatePicker}
-                                    style={{width: '100%'}}
+                                    style={{ width: '100%' }}
                                     format="YYYY-MM-DD HH:mm:ss"
                                     ranges={[]}
                                 />
@@ -218,9 +218,19 @@ const Home = () => {
                                 <FormControl
                                     name="DatePickerEnd"
                                     accepter={DatePicker}
-                                    style={{width: '100%'}}
+                                    style={{ width: '100%' }}
                                     format="YYYY-MM-DD HH:mm:ss"
                                     ranges={[]}
+                                />
+                            </FormGroup>
+                            <FormGroup>
+                                <ControlLabel>Combustible</ControlLabel>
+                                <FormControl
+                                    name="InputPickerFuel"
+                                    accepter={InputPicker}
+                                    style={{ width: '100%' }}
+                                    data={fuelList}
+                                    placeholder="Seleccione combustible"
                                 />
                             </FormGroup>
                         </Form>
@@ -228,7 +238,7 @@ const Home = () => {
                 </FlexboxGrid.Item>
                 <FlexboxGrid.Item componentClass={Col} colspan={24} md={18}>
                     <Panel header="TABLA DE RESULTADOS" className="card" bordered>
-                        
+
                     </Panel>
                 </FlexboxGrid.Item>
             </FlexboxGrid>
