@@ -19,7 +19,7 @@ const Login = () => {
 
             <FlexboxGrid justify="center">
                 <FlexboxGrid.Item componentClass={Col} colspan={20} md={6}>
-                    <Panel header={<h3>Login</h3>} bordered>
+                    <Panel header={<h3>Login</h3>} className="card" bordered>
                         <Form fluid>
                             <FormGroup>
                                 <ControlLabel>Usuario</ControlLabel>
