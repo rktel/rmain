@@ -31,7 +31,7 @@ const Login = () => {
                             </FormGroup>
                             <FormGroup>
                                 <ButtonToolbar>
-                                    <Button appearance="ghost" color="blue" block>Ingresar</Button>
+                                    <Button color="blue" block>Ingresar</Button>
                                 </ButtonToolbar>
                             </FormGroup>
                         </Form>
