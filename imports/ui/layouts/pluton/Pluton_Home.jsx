@@ -208,7 +208,7 @@ const Home = () => {
                                         { label: 'Kariane', value: 'Kariane' },
                                         { label: 'Louisa', value: 'Louisa' }
                                     ]}
-                                    
+                                    style={{ display: 'inline-block', width: 200 }}
                                 />
                             </FormGroup>
                         </Form>
