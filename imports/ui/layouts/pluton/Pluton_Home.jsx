@@ -195,7 +195,7 @@ const Home = () => {
                                 <FormControl
                                     name="datePicker"
                                     accepter={DatePicker}
-                                    
+                                    style={{width: '100%'}}
                                 />
                             </FormGroup>
                             <FormGroup>
