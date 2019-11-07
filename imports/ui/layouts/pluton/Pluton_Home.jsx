@@ -294,10 +294,6 @@ const Home = () => {
                             </FormGroup>
                             <FormGroup>
                                 <ControlLabel>Accion</ControlLabel>
-                                <ButtonToolbar>
-                                    <Button appearance="primary">Submit</Button>
-                                    <Button appearance="default">Cancel</Button>
-                                </ButtonToolbar>
                                 <FlexboxGrid justify="space-around">
                                         <FlexboxGrid.Item>
                                             <Button onClick={handleClickAddBtn} appearance="primary" size="sm">Buscar</Button>
