@@ -195,7 +195,7 @@ const Home = () => {
                                 <FormControl
                                     name="datePicker"
                                     accepter={DatePicker}
-
+                                    block
                                 />
                             </FormGroup>
                             <FormGroup>
@@ -208,6 +208,7 @@ const Home = () => {
                                         { label: 'Kariane', value: 'Kariane' },
                                         { label: 'Louisa', value: 'Louisa' }
                                     ]}
+                                    block
                                 />
                             </FormGroup>
                         </Form>
