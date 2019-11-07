@@ -172,7 +172,7 @@ const Home = () => {
     const [formValue, setFormValue] = useState({
         CheckPickerVehicles: [],
         DatePickerStart: defaultDateStart(),
-        DatePickerEnd: defaultDateStart(),
+        DatePickerEnd: new Date(),
         InputNumberGallons: 0.01,
         InputNumberUnitaryPrice: 0.01,
         InputNumberSalesValue: 0.01,
