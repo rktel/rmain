@@ -169,6 +169,7 @@ const Home = () => {
         checkPickerVehicles: [],
         DatePickerStart: defaultDateStart(),
         DatePickerEnd: defaultDateStart(),
+        InputNumberGallons: 0.01
     })
     const handleChangeForm = (formValue) => {
         setFormValue(formValue)
@@ -232,6 +233,16 @@ const Home = () => {
                                     data={fuelList}
                                     placeholder="Seleccione combustible"
                                 />
+                            </FormGroup>
+                            <FormGroup>
+                                <ControlLabel>Galones</ControlLabel>
+                                <FormControl
+                                    name="InputNumberGallons"
+                                    accepter={InputNumber}
+                                    style={{ width: '100%' }}
+                                    step={0.01}
+                                    placeholder="Ingrese galones"
+                                 />
                             </FormGroup>
                         </Form>
                     </Panel>
