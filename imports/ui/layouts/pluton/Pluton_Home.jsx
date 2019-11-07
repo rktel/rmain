@@ -186,7 +186,7 @@ const Home = () => {
             <FlexboxGrid justify="start">
                 <FlexboxGrid.Item componentClass={Col} colspan={24} md={6}>
                     <Panel bordered>
-                        <Form layout="horizontal"  formValue={formValue} onChange={formValue => setFormValue(formValue)}>
+                        <Form   formValue={formValue} onChange={formValue => setFormValue(formValue)}>
                             <FormGroup>
                                 <ControlLabel>DatePicker</ControlLabel>
                                 <FormControl
