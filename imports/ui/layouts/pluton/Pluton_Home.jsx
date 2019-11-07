@@ -171,8 +171,8 @@ const Home = () => {
     /** TEST FORM API */
     const [formValue, setFormValue] = useState({
         CheckPickerVehicles: [],
-        DatePickerStart: defaultDateStart(),
-        DatePickerEnd: new Date(),
+        DatePickerStart: new Date().setHours(0, 0, 0, 0),
+        DatePickerEnd: new Date().setHours(23, 59, 59, 999),
         InputNumberGallons: 0.01,
         InputNumberUnitaryPrice: 0.01,
         InputNumberSalesValue: 0.01,
@@ -219,7 +219,7 @@ const Home = () => {
                                     accepter={DatePicker}
                                     style={{ width: '100%' }}
                                     format="YYYY-MM-DD HH:mm:ss"
-                                    
+                                    ranges={[]}
                                 />
                             </FormGroup>
                             <FormGroup>
