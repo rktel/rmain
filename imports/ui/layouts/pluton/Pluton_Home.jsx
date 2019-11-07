@@ -171,6 +171,7 @@ const Home = () => {
         DatePickerEnd: defaultDateStart(),
         InputNumberGallons: 0.01,
         InputNumberUnitaryPrice: 0.01,
+        InputNumberSalesValue: 0.01,
     })
     const handleChangeForm = (formValue) => {
         setFormValue(formValue)
@@ -253,6 +254,16 @@ const Home = () => {
                                     style={{ width: '100%' }}
                                     step={0.01}
                                     placeholder="Ingrese precio"
+                                 />
+                            </FormGroup>
+                            <FormGroup>
+                                <ControlLabel>Valor venta</ControlLabel>
+                                <FormControl
+                                    name="InputNumberSalesValue"
+                                    accepter={InputNumber}
+                                    style={{ width: '100%' }}
+                                    placeholder="Ingrese valor venta"
+                                    step={0.01}
                                  />
                             </FormGroup>
                         </Form>
