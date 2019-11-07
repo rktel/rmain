@@ -7,7 +7,7 @@
     margin-top: 4px;
 }
 
-.layout-login{
+.flex-column-space-between{
     height: 100vh;
     display: -ms-flexbox;
     display: -webkit-flex;

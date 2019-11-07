@@ -8,7 +8,7 @@ import { Container, Header, Footer, Navbar } from 'rsuite'
 const Login = () => {
     return (
 
-        <Container className="layout-login">
+        <Container className="flex-column-space-between">
             <Header>
                 <Navbar appearance="inverse">
                     <Navbar.Header>

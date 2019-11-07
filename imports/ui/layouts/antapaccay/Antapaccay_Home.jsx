@@ -79,7 +79,7 @@ const Home = () => {
         setDateEnd(value)
     }
     return (
-        <Container className="layout-login">
+        <Container className="flex-column-space-between">
             <Header>
                 <Navbar appearance="inverse">
                     <Navbar.Header>
@@ -100,7 +100,7 @@ const Home = () => {
                                     data={plates}
                                     placeholder="Selecciona unidades"
                                     block
-                                    size="xs"
+
                                 />
                             </FormGroup>
                             <FormGroup>

@@ -161,11 +161,31 @@ const Home = () => {
         setJokerFactorSelected(value)
     }
 
+    /** TEST FORM API */
+    const [formValue, setFormValue] = useState({
+        datePicker: new Date(),
+        checkPicker: [
+            'Eugenia',
+            'Kariane',
+            'Louisa',
+            'Marty',
+            'Kenya',
+            'Hal',
+            'Julius',
+            'Travon',
+            'Vincenza',
+            'Dominic',
+            'Pearlie',
+            'Tyrel',
+            'Jaylen',
+            'Rogelio'
+          ],
+    })
 
     /** RENDER**/
     return (
 
-        <Container>
+        <Container className="flex-column-space-between">
             <Header>
                 <Navbar appearance="inverse">
                     <Navbar.Header>
@@ -177,237 +197,38 @@ const Home = () => {
                     </Navbar.Body>
                 </Navbar>
             </Header>
-
-            <Container style={{ marginTop: '2px' }}>
-                <Sidebar style={{ flex: '0 0 340px', paddingRight: '8px' }}>
+            <FlexboxGrid justify="start">
+                <FlexboxGrid.Item componentClass={Col} colspan={24} md={6}>
                     <Panel bordered>
-                        <Grid fluid>
-                            <Row>
-                                <Col xs={9}>
-                                    <Button appearance="subtle">Vehiculos:</Button>
-                                </Col>
-                                <Col xs={15}>
-
-
-                                    <InputPicker
-                                        value={vehicleSelected}
-                                        onChange={handleChangeVehicleSelected}
-                                        data={plates}
-
-                                        placeholder="Selecciona unidad"
-                                    />
-                                </Col>
-                            </Row>
-                            <Row>
-                                <Col xs={9}>
-                                    <Button appearance="subtle">Fecha inicio:</Button>
-                                </Col>
-                                <Col xs={15}>
-                                    <DatePicker
-                                        value={dateStart}
-                                        onChange={handleChangeDateStart}
-                                        format="YYYY-MM-DD HH:mm:ss"
-                                        ranges={[]}
-
-                                    />
-                                </Col>
-                            </Row>
-                            <Row>
-                                <Col xs={9}>
-                                    <Button appearance="subtle">Fecha fin:</Button>
-                                </Col>
-                                <Col xs={15}>
-                                    <DatePicker
-                                        value={dateEnd}
-                                        onChange={handleChangeDateEnd}
-                                        format="YYYY-MM-DD HH:mm:ss"
-                                        ranges={[]}
-
-                                    />
-                                </Col>
-                            </Row>
-                            <Row>
-                                <Col xs={9}>
-                                    <Button appearance="subtle">Tipo combustible:</Button>
-                                </Col>
-                                <Col xs={15}>
-                                    <InputPicker
-                                        value={fuelSelected}
-                                        onChange={handleChangeFuelSelected}
-                                        data={fuelList}
-
-                                        placeholder="Seleccione combustible"
-                                    />
-                                </Col>
-                            </Row>
-                            <Row>
-                                <Col xs={9}>
-                                    <Button appearance="subtle">Galones:</Button>
-                                </Col>
-                                <Col xs={15}>
-                                    <InputNumber
-                                        value={gallonsSelected}
-                                        onChange={handleChangeGallonsSelected}
-
-                                        placeholder="Ingrese galones"
-                                        step={0.01}
-                                    />
-                                </Col>
-                            </Row>
-                            <Row>
-                                <Col xs={9}>
-                                    <Button appearance="subtle">Precio unitario:</Button>
-                                </Col>
-                                <Col xs={15}>
-                                    <InputNumber
-                                        value={priceUnitarySelected}
-                                        onChange={handleChangePriceUnitarySelected}
-
-                                        placeholder="Ingrese precio "
-                                        step={0.01}
-                                    />
-                                </Col>
-                            </Row>
-                            <Row>
-                                <Col xs={9}>
-                                    <Button appearance="subtle">Valor venta:</Button>
-                                </Col>
-                                <Col xs={15}>
-                                    <InputNumber
-                                        value={valueSalesSelected}
-                                        onChange={handleChangeValueSalesSelected}
-
-                                        placeholder="Ingrese valor venta"
-                                        step={0.01}
-                                    />
-                                </Col>
-                            </Row>
-                            <Row>
-                                <Col xs={9}>
-                                    <Button appearance="subtle">Precio total:</Button>
-                                </Col>
-                                <Col xs={15}>
-                                    <InputNumber
-                                        value={totalPriceSelected}
-                                        onChange={handleChangeTotalPriceSelected}
-
-                                        placeholder="Ingrese precio total"
-                                        step={0.01}
-                                    />
-                                </Col>
-                            </Row>
-                            <Row>
-                                <Col xs={9}>
-                                    <Button appearance="subtle">Factor comodin:</Button>
-                                </Col>
-                                <Col xs={15}>
-                                    <InputNumber
-                                        value={jokerFactorSelected}
-                                        onChange={handleChangeJokerFactorSelected}
-
-                                        placeholder="Ingrese factor comodin"
-                                        step={0.001}
-                                    />
-                                </Col>
-                            </Row>
-                            <Row>
-                                <Col xs={9}>
-                                    <Button appearance="subtle">Accion:</Button>
-                                </Col>
-                                <Col xs={15}>
-                                    <FlexboxGrid justify="space-around">
-                                        <FlexboxGrid.Item>
-                                            <Button onClick={handleClickAddBtn} color="blue" size="sm">Buscar</Button>
-                                        </FlexboxGrid.Item>
-                                        <FlexboxGrid.Item>
-                                            <Button onClick={handleClickClearBtn} appearance="ghost" color="orange" size="sm">Limpiar</Button>
-                                        </FlexboxGrid.Item>
-                                    </FlexboxGrid>
-                                </Col>
-                            </Row>
-
-                        </Grid>
+                        <Form layout="horizontal" fluid formValue={formValue} onChange={formValue => setFormValue(formValue)}>
+                            <FormGroup>
+                                <ControlLabel>DatePicker</ControlLabel>
+                                <FormControl
+                                    name="datePicker"
+                                    accepter={DatePicker}
+                            
+                                />
+                            </FormGroup>
+                            <FormGroup>
+                                <ControlLabel>CheckPicker</ControlLabel>
+                                <FormControl
+                                    name="checkPicker"
+                                    accepter={CheckPicker}
+                                    data={pickerData}
+                            
+                                />
+                            </FormGroup>
+                        </Form>
                     </Panel>
-                </Sidebar>
-                <Content >
-                    <div>
-                        <Panel bodyFill style={{padding:'2px'}}>
-                            <FlexboxGrid justify="end">
-                                <ButtonToolbar>
-                                    <Button color="green" appearance="ghost" onClick={handleClickDownloadBtn}>
-                                        <Icon icon="file-excel-o" /> Descargar
-                                </Button>
-                                </ButtonToolbar>
-                            </FlexboxGrid>
-                        </Panel>
-                        <Panel bordered bodyFill>
-                            <Table
-                                height={400}
-                                data={resultList}
-                                onRowClick={el => {
-                                    console.log(el);
+                </FlexboxGrid.Item>
+                <FlexboxGrid.Item componentClass={Col} colspan={24} md={18}>
+                    <Panel bordered>
+                        <h1>Peppa Pig</h1>
+                    </Panel>
+                </FlexboxGrid.Item>
+            </FlexboxGrid>
 
-                                }}
-                            >
-                                <Column width={80} fixed>
-                                    <HeaderCell>Placa</HeaderCell>
-                                    <Cell dataKey="Placa" />
-                                </Column>
-                                <Column width={72} >
-                                    <HeaderCell>Tipo</HeaderCell>
-                                    <Cell dataKey="Tipo" />
-                                </Column>
-                                <Column width={72} >
-                                    <HeaderCell>gal</HeaderCell>
-                                    <Cell dataKey="gal" />
-                                </Column>
-                                <Column width={72} >
-                                    <HeaderCell>Precio(U)</HeaderCell>
-                                    <Cell dataKey="Precio(U)" />
-                                </Column>
-                                <Column width={80} >
-                                    <HeaderCell>Valor(V)</HeaderCell>
-                                    <Cell dataKey="Valor(V)" />
-                                </Column>
-                                <Column width={80} >
-                                    <HeaderCell>Precio(T)</HeaderCell>
-                                    <Cell dataKey="Precio(T)" />
-                                </Column>
-                                <Column width={80} >
-                                    <HeaderCell>Comodin</HeaderCell>
-                                    <Cell dataKey="Comodin" />
-                                </Column>
-                                <Column width={80} >
-                                    <HeaderCell>km(R)</HeaderCell>
-                                    <Cell dataKey="km(R)" />
-                                </Column>
-                                <Column width={80} >
-                                    <HeaderCell>gal(C)</HeaderCell>
-                                    <Cell dataKey="gal(C)" />
-                                </Column>
-                                <Column width={80} >
-                                    <HeaderCell>km/gal</HeaderCell>
-                                    <Cell dataKey="km/gal" />
-                                </Column>
-                                <Column width={80} >
-                                    <HeaderCell>Dif. gal</HeaderCell>
-                                    <Cell dataKey="Dif. gal" />
-                                </Column>
-                                <Column width={80} >
-                                    <HeaderCell>Dscto. gal</HeaderCell>
-                                    <Cell dataKey="Dscto. gal" />
-                                </Column>
-                                <Column width={80} >
-                                    <HeaderCell>Dscto. (S/)</HeaderCell>
-                                    <Cell dataKey="Dscto. (S/)" />
-                                </Column>
-                            </Table>
-                        </Panel>
-                    </div>
 
-                </Content>
-
-            </Container>
             <Footer className="login-copyright"><small>&copy; Copyright {new Date().getFullYear()}, Securitas-Perú</small></Footer>
         </Container>
 
