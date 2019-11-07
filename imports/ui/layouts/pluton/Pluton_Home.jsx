@@ -170,7 +170,7 @@ const Home = () => {
 
     /** TEST FORM API */
     const [formValue, setFormValue] = useState({
-        checkPickerVehicles: [],
+        CheckPickerVehicles: [],
         DatePickerStart: defaultDateStart(),
         DatePickerEnd: defaultDateStart(),
         InputNumberGallons: 0.01,
@@ -205,7 +205,7 @@ const Home = () => {
                             <FormGroup>
                                 <ControlLabel>Vehiculos</ControlLabel>
                                 <FormControl
-                                    name="checkPickerVehicles"
+                                    name="CheckPickerVehicles"
                                     accepter={CheckPicker}
                                     style={{ width: '100%' }}
                                     data={plates}
@@ -219,7 +219,7 @@ const Home = () => {
                                     accepter={DatePicker}
                                     style={{ width: '100%' }}
                                     format="YYYY-MM-DD HH:mm:ss"
-                                    ranges={[]}
+                                    
                                 />
                             </FormGroup>
                             <FormGroup>
