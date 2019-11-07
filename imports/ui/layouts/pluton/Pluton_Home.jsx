@@ -199,7 +199,7 @@ const Home = () => {
                                     accepter={CheckPicker}
                                     style={{width: '100%'}}
                                     data={plates}
-                                    placement="topEnd"
+                                    placement="rightEnd"
                                 />
                             </FormGroup>
                             <FormGroup>
