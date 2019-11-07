@@ -167,7 +167,7 @@ const Home = () => {
     /** TEST FORM API */
     const [formValue, setFormValue] = useState({
         checkPickerVehicles: [],
-        checkPicker: []
+        DatePickerStart: defaultDateStart()
     })
     const handleChangeForm = (formValue) =>{
         setFormValue(formValue)
@@ -199,25 +199,14 @@ const Home = () => {
                                     accepter={CheckPicker}
                                     style={{width: '100%'}}
                                     data={plates}
-                                    placement="top"
-                                />
+                                    placeholder="Seleccione unidad"
+                                 />
                             </FormGroup>
                             <FormGroup>
-                                <ControlLabel>CheckPicker</ControlLabel>
+                                <ControlLabel>Inicio</ControlLabel>
                                 <FormControl
-                                    name="checkPicker"
-                                    accepter={CheckPicker}
-                                    data={[
-                                        { label: 'Eugenia1', value: 'Eugenia1' },
-                                        { label: 'Kariane2', value: 'Kariane2' },
-                                        { label: 'Louisa3', value: 'Louisa3' },
-                                        { label: 'Eugenia4', value: 'Eugenia4' },
-                                        { label: 'Kariane5', value: 'Kariane5' },
-                                        { label: 'Louisa6', value: 'Louisa6' },
-                                        { label: 'Eugenia7', value: 'Eugenia7' },
-                                        { label: 'Kariane8', value: 'Kariane8' },
-                                        { label: 'Louisa9', value: 'Louisa9' },
-                                    ]}
+                                    name="DatePickerStart"
+                                    accepter={DatePicker}
                                     style={{width: '100%'}}
                                 />
                             </FormGroup>
