@@ -200,21 +200,10 @@ const Home = () => {
                                 <FormControl
                                     name="checkPicker"
                                     accepter={CheckPicker}
-                                    data={[
-                                        'Eugenia',
-                                        'Kariane',
-                                        'Louisa',
-                                        'Marty',
-                                        'Kenya',
-                                        'Hal',
-                                        'Julius',
-                                        'Travon',
-                                        'Vincenza',
-                                        'Dominic',
-                                        'Pearlie',
-                                        'Tyrel',
-                                        'Jaylen',
-                                        'Rogelio'
+                                    data={[ 
+                                        {label: 'Eugenia'},
+                                        {label: 'Kariane'},
+                                        {label: 'Louisa'}
                                       ]}                   
                                 />
                             </FormGroup>
