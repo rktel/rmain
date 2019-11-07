@@ -171,13 +171,13 @@ const Home = () => {
     /** TEST FORM API */
     const [formValue, setFormValue] = useState({
         CheckPickerVehicles: [],
-        DatePickerStart: new Date().setHours(0, 0, 0, 0),
+        DatePickerStart: new Date(),
         DatePickerEnd: new Date(),
         InputNumberGallons: 0.01,
         InputNumberUnitaryPrice: 0.01,
         InputNumberSalesValue: 0.01,
         InputNumberTotalPrice: 0.01,
-        InputNumberJoker: 0.001,
+        InputNumberJoker: 0.025,
     })
     const handleChangeForm = (formValue) => {
         setFormValue(formValue)
