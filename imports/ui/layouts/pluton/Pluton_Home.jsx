@@ -165,7 +165,7 @@ const Home = () => {
     /** TEST FORM API */
     const [formValue, setFormValue] = useState({
         datePicker: new Date(),
-        checkPicker: ''
+        checkPicker: []
     })
 
     /** RENDER**/
