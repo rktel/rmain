@@ -298,6 +298,14 @@ const Home = () => {
                                     <Button appearance="primary">Submit</Button>
                                     <Button appearance="default">Cancel</Button>
                                 </ButtonToolbar>
+                                <FlexboxGrid justify="space-around">
+                                        <FlexboxGrid.Item>
+                                            <Button onClick={handleClickAddBtn} appearance="primary" size="sm">Buscar</Button>
+                                        </FlexboxGrid.Item>
+                                        <FlexboxGrid.Item>
+                                            <Button onClick={handleClickClearBtn} appearance="default" size="sm">Limpiar</Button>
+                                        </FlexboxGrid.Item>
+                                    </FlexboxGrid>
                             </FormGroup>
                         </Form>
 
