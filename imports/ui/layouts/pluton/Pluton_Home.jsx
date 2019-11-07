@@ -167,7 +167,10 @@ const Home = () => {
         datePicker: new Date(),
         checkPicker: []
     })
-
+    const handleChangeForm = (formValue) =>{
+        setFormValue(formValue)
+        console.log(formValue)
+    }
     /** RENDER**/
     return (
 
@@ -186,10 +189,7 @@ const Home = () => {
             <FlexboxGrid justify="start">
                 <FlexboxGrid.Item componentClass={Col} colspan={24} md={6}>
                     <Panel  header="FORMULARIO" className="card" bordered>
-                        <Form fluid formValue={formValue} onChange={formValue => {
-                            console.log(formValue)
-                            setFormValue(formValue)
-                        }}>
+                        <Form fluid formValue={formValue} onChange={handleChangeForm}>
                             <FormGroup>
                                 <ControlLabel>DatePicker</ControlLabel>
                                 <FormControl
