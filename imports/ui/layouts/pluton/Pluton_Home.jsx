@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Button, ButtonToolbar, FlexboxGrid, InputPicker, DatePicker, InputNumber, Panel } from 'rsuite'
+import { Button, ButtonToolbar, FlexboxGrid, InputPicker, DatePicker, InputNumber, Panel, CheckPicker } from 'rsuite'
 import { Container, Sidebar, Header, Content, Footer } from 'rsuite'
 import { Grid, Row, Col } from 'rsuite'
 import { Icon } from 'rsuite'
