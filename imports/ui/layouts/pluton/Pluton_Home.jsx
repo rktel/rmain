@@ -200,7 +200,7 @@ const Home = () => {
                 <FlexboxGrid.Item componentClass={Col} colspan={24} md={6}>
                     <Panel header="FORMULARIO" className="card" bordered >
              
-                        <Form fluid formValue={formValue} onChange={handleChangeForm} className="scrollbar" style={{height: 500}}>
+                        <Form fluid formValue={formValue} onChange={handleChangeForm} className="scrollbar" style={{height: 500, overflowY:'scroll'}}>
                             <FormGroup>
                                 <ControlLabel>Vehiculos</ControlLabel>
                                 <FormControl
