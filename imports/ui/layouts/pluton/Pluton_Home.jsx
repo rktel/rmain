@@ -5,7 +5,7 @@ import { Grid, Row, Col } from 'rsuite'
 import { Icon } from 'rsuite'
 import { Navbar, Nav } from 'rsuite'
 import { Notification } from 'rsuite';
-import { Form, FormGroup, ControlLabel,FormControl } from 'rsuite'
+import { Form, FormGroup, ControlLabel, FormControl } from 'rsuite'
 import { Table } from 'rsuite'
 const { Column, HeaderCell, Cell } = Table
 
@@ -186,13 +186,16 @@ const Home = () => {
             <FlexboxGrid justify="start">
                 <FlexboxGrid.Item componentClass={Col} colspan={24} md={6}>
                     <Panel bordered>
-                        <Form   formValue={formValue} onChange={formValue => setFormValue(formValue)}>
+                        <Form formValue={formValue} onChange={formValue => {
+                            console.log(formValue)
+                            setFormValue(formValue)
+                        }}>
                             <FormGroup>
                                 <ControlLabel>DatePicker</ControlLabel>
                                 <FormControl
                                     name="datePicker"
                                     accepter={DatePicker}
-                            
+
                                 />
                             </FormGroup>
                             <FormGroup>
@@ -200,11 +203,11 @@ const Home = () => {
                                 <FormControl
                                     name="checkPicker"
                                     accepter={CheckPicker}
-                                    data={[ 
-                                        {label: 'Eugenia', value: 'Eugenia'},
-                                        {label: 'Kariane', value: 'Kariane'},
-                                        {label: 'Louisa', value: 'Louisa'}
-                                      ]}                   
+                                    data={[
+                                        { label: 'Eugenia', value: 'Eugenia' },
+                                        { label: 'Kariane', value: 'Kariane' },
+                                        { label: 'Louisa', value: 'Louisa' }
+                                    ]}
                                 />
                             </FormGroup>
                         </Form>
