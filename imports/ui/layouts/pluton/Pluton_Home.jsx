@@ -165,22 +165,7 @@ const Home = () => {
     /** TEST FORM API */
     const [formValue, setFormValue] = useState({
         datePicker: new Date(),
-        checkPicker: [
-            'Eugenia',
-            'Kariane',
-            'Louisa',
-            'Marty',
-            'Kenya',
-            'Hal',
-            'Julius',
-            'Travon',
-            'Vincenza',
-            'Dominic',
-            'Pearlie',
-            'Tyrel',
-            'Jaylen',
-            'Rogelio'
-          ],
+        checkPicker: ''
     })
 
     /** RENDER**/
@@ -201,7 +186,7 @@ const Home = () => {
             <FlexboxGrid justify="start">
                 <FlexboxGrid.Item componentClass={Col} colspan={24} md={6}>
                     <Panel bordered>
-                        <Form layout="horizontal" fluid formValue={formValue} onChange={formValue => setFormValue(formValue)}>
+                        <Form layout="horizontal"  formValue={formValue} onChange={formValue => setFormValue(formValue)}>
                             <FormGroup>
                                 <ControlLabel>DatePicker</ControlLabel>
                                 <FormControl
@@ -215,8 +200,22 @@ const Home = () => {
                                 <FormControl
                                     name="checkPicker"
                                     accepter={CheckPicker}
-                               
-                            
+                                    data={[
+                                        'Eugenia',
+                                        'Kariane',
+                                        'Louisa',
+                                        'Marty',
+                                        'Kenya',
+                                        'Hal',
+                                        'Julius',
+                                        'Travon',
+                                        'Vincenza',
+                                        'Dominic',
+                                        'Pearlie',
+                                        'Tyrel',
+                                        'Jaylen',
+                                        'Rogelio'
+                                      ]}                   
                                 />
                             </FormGroup>
                         </Form>
