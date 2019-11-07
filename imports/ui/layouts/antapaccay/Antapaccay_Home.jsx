@@ -100,6 +100,7 @@ const Home = () => {
                                     data={plates}
                                     placeholder="Selecciona unidades"
                                     block
+                                    size="xs"
                                 />
                             </FormGroup>
                             <FormGroup>
