@@ -164,7 +164,7 @@ const Home = () => {
 
     /** TEST FORM API */
     const [formValue, setFormValue] = useState({
-        datePicker: new Date(),
+        checkPickerVehicles: [],
         checkPicker: []
     })
     const handleChangeForm = (formValue) =>{
@@ -191,11 +191,12 @@ const Home = () => {
                     <Panel  header="FORMULARIO" className="card" bordered>
                         <Form fluid formValue={formValue} onChange={handleChangeForm}>
                             <FormGroup>
-                                <ControlLabel>DatePicker</ControlLabel>
+                                <ControlLabel>Vehiculos</ControlLabel>
                                 <FormControl
-                                    name="datePicker"
-                                    accepter={DatePicker}
+                                    name="checkPickerVehicles"
+                                    accepter={CheckPicker}
                                     style={{width: '100%'}}
+                                    data={plates}
                                 />
                             </FormGroup>
                             <FormGroup>
