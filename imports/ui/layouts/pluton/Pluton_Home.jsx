@@ -11,6 +11,8 @@ const { Column, HeaderCell, Cell } = Table
 
 import XLSX from 'xlsx'
 
+
+
 const Home = () => {
     /* HELPS FUNCTION */
     const defaultDateStart = () => {
@@ -197,6 +199,7 @@ const Home = () => {
                                     accepter={CheckPicker}
                                     style={{width: '100%'}}
                                     data={plates}
+                                    placement="topEnd"
                                 />
                             </FormGroup>
                             <FormGroup>
