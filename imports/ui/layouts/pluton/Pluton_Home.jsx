@@ -215,7 +215,7 @@ const Home = () => {
                                 <FormControl
                                     name="checkPicker"
                                     accepter={CheckPicker}
-                                    data={pickerData}
+                               
                             
                                 />
                             </FormGroup>
