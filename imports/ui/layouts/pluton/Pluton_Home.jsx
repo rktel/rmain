@@ -158,10 +158,10 @@ const Home = () => {
                                     <ControlLabel>Acciones</ControlLabel>
                                     <section className="flex-row-space-between" style={{ width: 222 }}>
                                         <Button color="blue" size="xs">
-                                            <Icon icon="plus-circle"/>Agregar
+                                            <Icon icon="plus-circle"/> Agregar
                                         </Button>
                                         <Button  size="xs">
-                                            <Icon icon="close-circle"/>Limpiar
+                                            <Icon icon="close-circle"/> Limpiar
                                         </Button>
                                     </section>
                                 </FormGroup>
