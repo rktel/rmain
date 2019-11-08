@@ -40,7 +40,7 @@ const Home = () => {
     })
     const handleOnChangeFormElements = elements => {
         setFormElements(elements)
-        setTimeout(()=>{  console.log(formElements) }, 150)
+        setTimeout(()=>{  console.log(formElements) }, 1500)
         console.log(formElements)
     }
     return (<>
