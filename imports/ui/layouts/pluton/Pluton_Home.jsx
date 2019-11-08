@@ -10,8 +10,8 @@ const Home = () => {
     return (<>
         <Form formValue={formElements} onChange={
             (elements)=>{
-                console.log('change', formElements)
                 setFormElements(elements)
+                console.log('change', formElements)
             }
         }>
             <FormGroup>
@@ -19,7 +19,7 @@ const Home = () => {
                 <FormControl
                     name="inputTextName"
                 />
-                <HelpBlock>Mensaje de ayuda</HelpBlock>
+                <HelpBlock tooltip>Mensaje de ayuda</HelpBlock>
             </FormGroup>
         </Form>
     </>)
