@@ -4,7 +4,7 @@ import { Form, FormControl, ControlLabel, FormGroup, HelpBlock } from 'rsuite'
 import { InputPicker, DatePicker, InputNumber } from 'rsuite'
 import { Button } from 'rsuite'
 import { Container, Header, Content, Footer } from 'rsuite'
-import { FlexboxGrid , Panel} from 'rsuite'
+import { FlexboxGrid , Panel, Col} from 'rsuite'
 
 const Home = () => {
     /* HELPS FUNCTION */
