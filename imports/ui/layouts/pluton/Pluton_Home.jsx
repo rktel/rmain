@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 
 import { Form, FormControl, ControlLabel, FormGroup, HelpBlock } from 'rsuite'
 import { InputPicker, DatePicker , InputNumber} from 'rsuite'
+import { Button } from 'rsuite'
 
 const Home = () => {
     /* HELPS FUNCTION */
@@ -78,6 +79,7 @@ const Home = () => {
                     name="inputPickerFuel"
                     accepter={InputPicker}
                     data={fuelList}
+                    placeholder="Seleccione combustible"
                 />
             </FormGroup>
             <FormGroup>
@@ -119,6 +121,13 @@ const Home = () => {
                     accepter={InputNumber}
                     step={0.001}
                 />
+            </FormGroup>
+            <FormGroup>
+                <ControlLabel>Acciones</ControlLabel>
+                <section className="flex-row-space-between">
+                    <Button appearance="primary" size="sm">Buscar</Button>
+                    <Button appearance="default" size="sm">Limpiar</Button>
+                </section>
             </FormGroup>
         </Form>
     </>)
