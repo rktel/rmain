@@ -97,6 +97,7 @@ const Home = () => {
                                         name="inputNumberGallons"
                                         accepter={InputNumber}
                                         step={0.01}
+                                        style={{width:200}}
                                     />
                                 </FormGroup>
                                 <FormGroup>
