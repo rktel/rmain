@@ -24,7 +24,7 @@ const Home = () => {
     ]
     /* HOOKS */
     useEffect(() => { Meteor.call('Pluton_plates', (error, elements) => setPlates(elements)) }, [])
-    
+
     const [plates, setPlates] = useState([])
 
     const [formElements, setFormElements] = useState({
@@ -40,6 +40,7 @@ const Home = () => {
     })
     const handleOnChangeFormElements = elements => {
         setFormElements(elements)
+        setTimeout(()=>{  console.log(formElements) }, 50)
         console.log(formElements)
     }
     return (<>
