@@ -94,7 +94,7 @@ const Home = () => {
         setDateEnd(value)
     }
     const handleClickAddBtn = () => {
-        console.log(formValue)
+        // console.log(formValue)
 /*
         (vehicleSelected && fuelSelected) ?
             Meteor.call('Pluton_queryVehicleForDates',
@@ -175,7 +175,7 @@ const Home = () => {
         InputNumberUnitaryPrice: 0.01,
         InputNumberSalesValue: 0.01,
         InputNumberTotalPrice: 0.01,
-        InputNumberJoker: 0.025,
+        InputNumberJoker: 0.025
     })
 
     /** RENDER**/
@@ -307,7 +307,7 @@ const Home = () => {
                             height={400}
                             data={resultList}
                             onRowClick={el => { console.log(el); }}
-                            renderEmpty={_=><div className="flex-center">Aun sin datos</div>}
+                            
                         >
                             <Column width={80} fixed>
                                 <HeaderCell>Placa</HeaderCell>
