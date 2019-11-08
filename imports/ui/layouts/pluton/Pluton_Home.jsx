@@ -33,7 +33,7 @@ const Home = () => {
         { label: 'GLP', value: 'GLP' },
     ]
     /* HOOKS */
-    useEffect(_ => {
+    useEffect(() => {
         // console.log('In useEffect')
         Meteor.call('Pluton_plates', (error, elements) => {
             setPlates(elements)
@@ -170,7 +170,7 @@ const Home = () => {
         CheckPickerVehicles: [],
         DatePickerStart: defaultDateStart(),
         DatePickerEnd: defaultDateEnd(),
-
+        InputPickerFuel: 'Peppa',
         InputNumberGallons: 0.01,
         InputNumberUnitaryPrice: 0.01,
         InputNumberSalesValue: 0.01,
