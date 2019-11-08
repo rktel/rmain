@@ -33,7 +33,7 @@ const Home = () => {
     const [plates, setPlates] = useState([])
 
     const [formElements, setFormElements] = useState({
-        inputPickerVehicles: [],
+        inputPickerVehicles: null,
         datePickerStart: defaultDateStart(),
         datePickerEnd: defaultDateEnd(),
         inputPickerFuel: '',
@@ -46,7 +46,11 @@ const Home = () => {
     const handleOnChangeFormElements = elements => setFormElements(elements)
 
     const [resultList, setResultList] = useState([])
-
+    const handleOnClickAddBtn = () =>{
+        //const {} = formElements
+    }
+    const handleOnClickCleanBtn = () =>{}
+    const handleOnClickDownloadBtn = () =>{}
     return (<>
 
         <Container className="flex-column-space-between">
@@ -157,10 +161,10 @@ const Home = () => {
                                 <FormGroup>
                                     <ControlLabel>Acciones</ControlLabel>
                                     <section className="flex-row-space-between" style={{ width: 222 }}>
-                                        <Button color="blue" size="xs">
+                                        <Button color="blue" size="xs" onClick={handleOnClickAddBtn}>
                                             <Icon icon="plus-circle"/> Agregar
                                         </Button>
-                                        <Button  size="xs">
+                                        <Button  size="xs" onClick={handleOnClickCleanBtn}>
                                             <Icon icon="close-circle"/> Limpiar
                                         </Button>
                                     </section>
@@ -172,7 +176,7 @@ const Home = () => {
                         <Panel header="TABLA DE RESULTADOS" className="card" bordered>
                             <FlexboxGrid justify="end" style={{padding:'4px 0'}}>
                                 <ButtonToolbar>
-                                    <Button color="green" color="green" size="xs">
+                                    <Button color="green" color="green" size="xs" onClick={handleOnClickDownloadBtn}>
                                         <Icon icon="file-excel-o" /> Descargar
                                     </Button>
                                 </ButtonToolbar>
