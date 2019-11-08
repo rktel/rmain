@@ -73,7 +73,7 @@ const Home = () => {
                                         accepter={InputPicker}
                                         data={plates}
                                         placeholder="Seleccione unidad"
-                                        style={{ width: 200 }}
+                                        style={{ width: 212 }}
                                     />
                                     <HelpBlock tooltip>Solo una unidad seleccionable a la vez</HelpBlock>
                                 </FormGroup>
@@ -84,7 +84,7 @@ const Home = () => {
                                         accepter={DatePicker}
                                         format="YYYY-MM-DD HH:mm:ss"
                                         ranges={[]}
-                                        style={{ width: 200 }}
+                                        style={{ width: 212 }}
                                     />
                                     <HelpBlock tooltip>Presionar 'Ok' al finalizar</HelpBlock>
                                 </FormGroup>
@@ -95,7 +95,7 @@ const Home = () => {
                                         accepter={DatePicker}
                                         format="YYYY-MM-DD HH:mm:ss"
                                         ranges={[]}
-                                        style={{ width: 200 }}
+                                        style={{ width: 212 }}
                                     />
                                     <HelpBlock tooltip>Presionar 'Ok' al finalizar</HelpBlock>
                                 </FormGroup>
@@ -106,7 +106,7 @@ const Home = () => {
                                         accepter={InputPicker}
                                         data={fuelList}
                                         placeholder="Seleccione combustible"
-                                        style={{ width: 200 }}
+                                        style={{ width: 212 }}
                                     />
                                 </FormGroup>
                                 <FormGroup>
@@ -115,7 +115,7 @@ const Home = () => {
                                         name="inputNumberGallons"
                                         accepter={InputNumber}
                                         step={0.01}
-                                        style={{ width: 200 }}
+                                        style={{ width: 212 }}
                                     />
                                 </FormGroup>
                                 <FormGroup>
@@ -124,7 +124,7 @@ const Home = () => {
                                         name="inputNumberUnitaryPrice"
                                         accepter={InputNumber}
                                         step={0.01}
-                                        style={{ width: 200 }}
+                                        style={{ width: 212 }}
                                     />
                                 </FormGroup>
                                 <FormGroup>
@@ -133,7 +133,7 @@ const Home = () => {
                                         name="inputNumberSalesValue"
                                         accepter={InputNumber}
                                         step={0.01}
-                                        style={{ width: 200 }}
+                                        style={{ width: 212 }}
                                     />
                                 </FormGroup>
                                 <FormGroup>
@@ -142,7 +142,7 @@ const Home = () => {
                                         name="inputNumberTotalPrice"
                                         accepter={InputNumber}
                                         step={0.01}
-                                        style={{ width: 200 }}
+                                        style={{ width: 212 }}
                                     />
                                 </FormGroup>
                                 <FormGroup>
@@ -151,12 +151,12 @@ const Home = () => {
                                         name="inputNumberJoker"
                                         accepter={InputNumber}
                                         step={0.001}
-                                        style={{ width: 200 }}
+                                        style={{ width: 212 }}
                                     />
                                 </FormGroup>
                                 <FormGroup>
                                     <ControlLabel>Acciones</ControlLabel>
-                                    <section className="flex-row-space-between" style={{ width: 200 }}>
+                                    <section className="flex-row-space-between" style={{ width: 212 }}>
                                         <Button appearance="primary" size="xs">Agregar</Button>
                                         <Button appearance="default" size="xs">Limpiar</Button>
                                     </section>
