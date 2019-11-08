@@ -60,7 +60,7 @@ const Home = () => {
                                         data={plates}
                                         placeholder="Seleccione unidad"
                                     />
-                                    <HelpBlock>Solo una unidad seleccionable a la vez</HelpBlock>
+                                    <HelpBlock tooltip>Solo una unidad seleccionable a la vez</HelpBlock>
                                 </FormGroup>
                                 <FormGroup>
                                     <ControlLabel>Fecha de inicio</ControlLabel>
@@ -70,7 +70,7 @@ const Home = () => {
                                         format="YYYY-MM-DD HH:mm:ss"
                                         ranges={[]}
                                     />
-                                    <HelpBlock>Presionar 'Ok' al finalizar</HelpBlock>
+                                    <HelpBlock tooltip>Presionar 'Ok' al finalizar</HelpBlock>
                                 </FormGroup>
                                 <FormGroup>
                                     <ControlLabel>Fecha de termino</ControlLabel>
@@ -80,7 +80,7 @@ const Home = () => {
                                         format="YYYY-MM-DD HH:mm:ss"
                                         ranges={[]}
                                     />
-                                    <HelpBlock>Presionar 'Ok' al finalizar</HelpBlock>
+                                    <HelpBlock tooltip>Presionar 'Ok' al finalizar</HelpBlock>
                                 </FormGroup>
                                 <FormGroup>
                                     <ControlLabel>Tipo de combustible</ControlLabel>
