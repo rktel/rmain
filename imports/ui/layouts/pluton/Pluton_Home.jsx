@@ -57,9 +57,9 @@ const Home = () => {
                     </Navbar.Body>
                 </Navbar>
             </Header>
-      
-            <h1>Pepa</h1>
- 
+            <Content>
+                    <h1>George pig</h1>
+            </Content>
             <Footer className="login-copyright"><small>&copy; Copyright {new Date().getFullYear()}, Securitas-Perú</small></Footer>
         </Container>
 
