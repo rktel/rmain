@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 
 import { Form, FormControl, ControlLabel, FormGroup, HelpBlock } from 'rsuite'
-import { CheckPicker } from 'rsuite'
+import { InputPicker } from 'rsuite'
 
 const Home = () => {
     /* HELPS FUNCTION */
@@ -28,7 +28,7 @@ const Home = () => {
     const [plates, setPlates] = useState([])
 
     const [formElements, setFormElements] = useState({
-        checkPickerVehicles: [],
+        inputPickerVehicles: [],
         datePickerStart: defaultDateStart(),
         datePickerEnd: defaultDateEnd(),
         inputPickerFuel: 'Peppa',
@@ -38,21 +38,18 @@ const Home = () => {
         inputNumberTotalPrice: 0.01,
         inputNumberJoker: 0.025
     })
-    const handleOnChangeFormElements = elements => {
-        setFormElements(elements)
-        setTimeout(()=>{  console.log(formElements) }, 1500)
-        console.log(formElements)
-    }
+    const handleOnChangeFormElements = elements => setFormElements(elements)
+
     return (<>
         <Form formValue={formElements} onChange={handleOnChangeFormElements}>
             <FormGroup>
-                <ControlLabel>Texto de prueba</ControlLabel>
+                <ControlLabel>Unidades</ControlLabel>
                 <FormControl
-                    name="checkPickerVehicles"
-                    accepter={CheckPicker}
+                    name="inputPickerVehicles"
+                    accepter={InputPicker}
                     data={plates}
                 />
-                <HelpBlock tooltip>Mensaje de ayuda</HelpBlock>
+                <HelpBlock tooltip>Lista de unidades</HelpBlock>
             </FormGroup>
         </Form>
     </>)
