@@ -59,7 +59,17 @@ const Home = () => {
                     format="YYYY-MM-DD HH:mm:ss"
                     ranges={[]}
                 />
-                <HelpBlock tooltip>Debe presionar 'Ok' para realizar la seleccion</HelpBlock>
+                <HelpBlock tooltip>Presionar 'Ok' al finalizar</HelpBlock>
+            </FormGroup>
+            <FormGroup>
+                <ControlLabel>Fecha de termino</ControlLabel>
+                <FormControl
+                    name="datePickerEnd"
+                    accepter={DatePicker}
+                    format="YYYY-MM-DD HH:mm:ss"
+                    ranges={[]}
+                />
+                <HelpBlock tooltip>Presionar 'Ok' al finalizar</HelpBlock>
             </FormGroup>
         </Form>
     </>)
