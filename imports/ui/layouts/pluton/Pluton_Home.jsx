@@ -166,7 +166,7 @@ const Home = () => {
     }
 
     /** TEST FORM API */
-    const [formValue, setFormValue] = useState({
+    const [formElements, setFormElements] = useState({
         CheckPickerVehicles: [],
         /*
         DatePickerStart: defaultDateStart(),
@@ -198,7 +198,7 @@ const Home = () => {
             <FlexboxGrid justify="start">
                 <FlexboxGrid.Item componentClass={Col} colspan={24} md={6}>
                     <Panel header="FORMULARIO" className="card" bordered >
-                        <Form fluid formValue={formValue} onChange={() => setFormValue(formValue)} className="scrollbar" style={{ height: 500, overflowY: 'scroll' }}>
+                        <Form fluid formValue={formElements} onChange={() => setFormElements(formElements)} className="scrollbar" style={{ height: 500, overflowY: 'scroll' }}>
                             <FormGroup>
                                 <ControlLabel>Vehiculos</ControlLabel>
                                 <FormControl
