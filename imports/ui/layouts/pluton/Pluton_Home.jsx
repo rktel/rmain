@@ -106,6 +106,7 @@ const Home = () => {
                                         name="inputNumberUnitaryPrice"
                                         accepter={InputNumber}
                                         step={0.01}
+                                        style={{width:200}}
                                     />
                                 </FormGroup>
                                 <FormGroup>
@@ -114,6 +115,7 @@ const Home = () => {
                                         name="inputNumberSalesValue"
                                         accepter={InputNumber}
                                         step={0.01}
+                                        style={{width:200}}
                                     />
                                 </FormGroup>
                                 <FormGroup>
@@ -122,6 +124,7 @@ const Home = () => {
                                         name="inputNumberTotalPrice"
                                         accepter={InputNumber}
                                         step={0.01}
+                                        style={{width:200}}
                                     />
                                 </FormGroup>
                                 <FormGroup>
@@ -130,11 +133,12 @@ const Home = () => {
                                         name="inputNumberJoker"
                                         accepter={InputNumber}
                                         step={0.001}
+                                        style={{width:200}}
                                     />
                                 </FormGroup>
                                 <FormGroup>
                                     <ControlLabel>Acciones</ControlLabel>
-                                    <section className="flex-row-space-between">
+                                    <section className="flex-row-space-between" style={{width:200}}>
                                         <Button appearance="primary" size="xs">Buscar</Button>
                                         <Button appearance="default" size="xs">Limpiar</Button>
                                     </section>
