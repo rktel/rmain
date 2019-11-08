@@ -63,7 +63,7 @@ const Home = () => {
             </Header>
             <section>
                 <FlexboxGrid>
-                    <FlexboxGrid.Item componentClass={Col} colspan={24} md={6}>
+                    <FlexboxGrid.Item componentClass={Col} colspan={24} md={5}>
                         <Panel header="FORMULARIO" className="card" bordered >
                             <Form formValue={formElements} onChange={handleOnChangeFormElements} style={{ height: 460, overflowY: 'scroll' }}>
                                 <FormGroup>
@@ -160,7 +160,7 @@ const Home = () => {
                             </Form>
                         </Panel>
                     </FlexboxGrid.Item>
-                    <FlexboxGrid.Item componentClass={Col} colspan={24} md={18}>
+                    <FlexboxGrid.Item componentClass={Col} colspan={24} md={19}>
                         <Panel header="TABLA DE RESULTADOS" className="card" bordered>
                             <FlexboxGrid justify="end" style={{padding:'4px 0'}}>
                                 <ButtonToolbar>
@@ -170,7 +170,7 @@ const Home = () => {
                                 </ButtonToolbar>
                             </FlexboxGrid>
                             <Table
-                                height={400}
+                                height={428}
                                 data={resultList}
                                 renderEmpty={() => <div className="flex-center">Aun sin datos</div>}
                             >
