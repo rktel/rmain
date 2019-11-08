@@ -94,7 +94,8 @@ const Home = () => {
         setDateEnd(value)
     }
     const handleClickAddBtn = () => {
-
+        console.log(formValue)
+/*
         (vehicleSelected && fuelSelected) ?
             Meteor.call('Pluton_queryVehicleForDates',
                 vehicleSelected,
@@ -140,7 +141,7 @@ const Home = () => {
                     description: `Llenar campo vehiculos y Tipo combustible`
                 });
 
-
+*/
     }
     const handleChangeVehicleSelected = (value) => {
         setVehicleSelected(value)
@@ -169,16 +170,14 @@ const Home = () => {
         CheckPickerVehicles: [],
         DatePickerStart: defaultDateStart(),
         DatePickerEnd: defaultDateEnd(),
+        InputPickerFuel : '',
         InputNumberGallons: 0.01,
         InputNumberUnitaryPrice: 0.01,
         InputNumberSalesValue: 0.01,
         InputNumberTotalPrice: 0.01,
         InputNumberJoker: 0.025,
     })
-    const handleChangeForm = (formValue) => {
-        setFormValue(formValue)
-        console.log(formValue)
-    }
+
     /** RENDER**/
     return (
 
@@ -197,7 +196,7 @@ const Home = () => {
             <FlexboxGrid justify="start">
                 <FlexboxGrid.Item componentClass={Col} colspan={24} md={6}>
                     <Panel header="FORMULARIO" className="card" bordered >
-                        <Form fluid formValue={formValue} onChange={handleChangeForm} className="scrollbar" style={{ height: 500, overflowY: 'scroll' }}>
+                        <Form fluid formValue={formValue} onChange={_ => setFormValue(formValue)} className="scrollbar" style={{ height: 500, overflowY: 'scroll' }}>
                             <FormGroup>
                                 <ControlLabel>Vehiculos</ControlLabel>
                                 <FormControl
@@ -291,22 +290,77 @@ const Home = () => {
                             <FormGroup>
                                 <ControlLabel>Accion</ControlLabel>
                                 <FlexboxGrid justify="space-around">
-                                        <FlexboxGrid.Item>
-                                            <Button onClick={handleClickAddBtn} appearance="primary" size="sm">Buscar</Button>
-                                        </FlexboxGrid.Item>
-                                        <FlexboxGrid.Item>
-                                            <Button onClick={handleClickClearBtn} appearance="default" size="sm">Limpiar</Button>
-                                        </FlexboxGrid.Item>
-                                    </FlexboxGrid>
+                                    <FlexboxGrid.Item>
+                                        <Button onClick={handleClickAddBtn} appearance="primary" size="sm">Buscar</Button>
+                                    </FlexboxGrid.Item>
+                                    <FlexboxGrid.Item>
+                                        <Button onClick={handleClickClearBtn} appearance="default" size="sm">Limpiar</Button>
+                                    </FlexboxGrid.Item>
+                                </FlexboxGrid>
                             </FormGroup>
                         </Form>
-
-
                     </Panel>
                 </FlexboxGrid.Item>
                 <FlexboxGrid.Item componentClass={Col} colspan={24} md={18}>
                     <Panel header="TABLA DE RESULTADOS" className="card" bordered>
-
+                        <Table
+                            height={400}
+                            data={resultList}
+                            onRowClick={el => { console.log(el); }}
+                        >
+                            <Column width={80} fixed>
+                                <HeaderCell>Placa</HeaderCell>
+                                <Cell dataKey="Placa" />
+                            </Column>
+                            <Column width={72} >
+                                <HeaderCell>Tipo</HeaderCell>
+                                <Cell dataKey="Tipo" />
+                            </Column>
+                            <Column width={72} >
+                                <HeaderCell>gal</HeaderCell>
+                                <Cell dataKey="gal" />
+                            </Column>
+                            <Column width={72} >
+                                <HeaderCell>Precio(U)</HeaderCell>
+                                <Cell dataKey="Precio(U)" />
+                            </Column>
+                            <Column width={80} >
+                                <HeaderCell>Valor(V)</HeaderCell>
+                                <Cell dataKey="Valor(V)" />
+                            </Column>
+                            <Column width={80} >
+                                <HeaderCell>Precio(T)</HeaderCell>
+                                <Cell dataKey="Precio(T)" />
+                            </Column>
+                            <Column width={80} >
+                                <HeaderCell>Comodin</HeaderCell>
+                                <Cell dataKey="Comodin" />
+                            </Column>
+                            <Column width={80} >
+                                <HeaderCell>km(R)</HeaderCell>
+                                <Cell dataKey="km(R)" />
+                            </Column>
+                            <Column width={80} >
+                                <HeaderCell>gal(C)</HeaderCell>
+                                <Cell dataKey="gal(C)" />
+                            </Column>
+                            <Column width={80} >
+                                <HeaderCell>km/gal</HeaderCell>
+                                <Cell dataKey="km/gal" />
+                            </Column>
+                            <Column width={80} >
+                                <HeaderCell>Dif. gal</HeaderCell>
+                                <Cell dataKey="Dif. gal" />
+                            </Column>
+                            <Column width={80} >
+                                <HeaderCell>Dscto. gal</HeaderCell>
+                                <Cell dataKey="Dscto. gal" />
+                            </Column>
+                            <Column width={80} >
+                                <HeaderCell>Dscto. (S/)</HeaderCell>
+                                <Cell dataKey="Dscto. (S/)" />
+                            </Column>
+                        </Table>
                     </Panel>
                 </FlexboxGrid.Item>
             </FlexboxGrid>
