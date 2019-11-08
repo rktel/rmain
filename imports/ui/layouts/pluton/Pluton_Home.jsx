@@ -79,10 +79,40 @@ const Home = () => {
                 parseFloat(inputNumberGallons * inputNumberJoker).toFixed(2),
                 (error, result) => {
                     if (error) console.log(error)
-                    else{
+                    else {
                         console.log(result)
-                    }
+                        if (result) {
+                            setResultList([...resultList, result])
+                            Notification['success']({
+                                title: 'Aviso',
+                                placement: 'bottomRight',
+                                description: `Se encontraron datos para la unidad con placa ${inputPickerVehicles}`
+                            });
+                        } else {
+                            Notification['error']({
+                                title: 'Aviso',
+                                placement: 'bottomRight',
+                                description: `Sin datos para la unidad con placa ${inputPickerVehicles}`
+                            });
+                        }
+                        let auxPlates = plates
+                        auxPlates.map((el, index) => {
+                            if (el.label === inputPickerVehicles) {
+                                auxPlates.splice(index, 1)
+                            }
+                        })
+                        setPlates(auxPlates)
+                        setFormElements({
+                            inputPickerVehicles: null
+                        })
+                      }
                 })
+        }else{
+            Notification['warning']({
+                title: 'Aviso',
+                placement: 'bottomRight',
+                description: `Llenar campo "Lista de unidades" y "Tipo de combustible"`
+            })
         }
     }
     const handleOnClickCleanBtn = () => {
