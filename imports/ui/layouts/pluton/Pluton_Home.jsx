@@ -66,7 +66,7 @@ const Home = () => {
 
     const handleOnClickAddBtn = () => {
         const { inputPickerVehicles, datePickerStart, datePickerEnd, inputPickerFuel, inputNumberGallons, inputNumberUnitaryPrice, inputNumberSalesValue, inputNumberTotalPrice, inputNumberJoker } = formElements
-        if (inputPickerVehicles && inputPickerFuel) {
+        if (inputPickerVehicles && datePickerStart && datePickerEnd && inputPickerFuel && inputNumberGallons && inputNumberUnitaryPrice && inputNumberSalesValue && inputNumberTotalPrice && inputNumberJoker) {
             Meteor.call('Pluton_queryVehicleForDates',
                 inputPickerVehicles,
                 datePickerStart.toISOString(),
@@ -103,15 +103,23 @@ const Home = () => {
                         })
                         setPlates(auxPlates)
                         setFormElements({
-                            inputPickerVehicles: null
+                            inputPickerVehicles: null,
+                            datePickerStart: datePickerStart,
+                            datePickerEnd: datePickerEnd,
+                            inputPickerFuel: inputPickerFuel,
+                            inputNumberGallons: inputNumberGallons,
+                            inputNumberUnitaryPrice: inputNumberUnitaryPrice,
+                            inputNumberSalesValue: inputNumberSalesValue,
+                            inputNumberTotalPrice: inputNumberTotalPrice,
+                            inputNumberJoker: inputNumberJoker
                         })
-                      }
+                    }
                 })
-        }else{
+        } else {
             Notification['warning']({
                 title: 'Aviso',
                 placement: 'bottomRight',
-                description: `Llenar campo "Lista de unidades" y "Tipo de combustible"`
+                description: `Llenar todos los campos`
             })
         }
     }
