@@ -162,9 +162,9 @@ const Home = () => {
                     </FlexboxGrid.Item>
                     <FlexboxGrid.Item componentClass={Col} colspan={24} md={18}>
                         <Panel header="TABLA DE RESULTADOS" className="card" bordered>
-                            <FlexboxGrid justify="end">
+                            <FlexboxGrid justify="end" style={{padding:'4px 0'}}>
                                 <ButtonToolbar>
-                                    <Button color="green" appearance="ghost">
+                                    <Button color="green" color="green" size="xs">
                                         <Icon icon="file-excel-o" /> Descargar
                                     </Button>
                                 </ButtonToolbar>
