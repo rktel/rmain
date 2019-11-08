@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react'
 
 import { Form, FormControl, ControlLabel, FormGroup, HelpBlock } from 'rsuite'
 import { InputPicker, DatePicker, InputNumber } from 'rsuite'
-import { Button } from 'rsuite'
+import { Button, Navbar } from 'rsuite'
 import { Container, Header, Content, Footer } from 'rsuite'
-import { FlexboxGrid , Panel, Col} from 'rsuite'
+import { FlexboxGrid, Panel, Col } from 'rsuite'
 
 const Home = () => {
     /* HELPS FUNCTION */
@@ -46,7 +46,17 @@ const Home = () => {
     return (<>
 
         <Container className="flex-column-space-between">
-            <Header>Header</Header>
+            <Header>
+                <Navbar appearance="inverse">
+                    <Navbar.Header>
+                    </Navbar.Header>
+                    <Navbar.Body>
+                        <Nav>
+                            <Nav.Item>YOUR BUSINESS HERE</Nav.Item>
+                        </Nav>
+                    </Navbar.Body>
+                </Navbar>
+            </Header>
             <Content>
                 <FlexboxGrid justify="start">
                     <FlexboxGrid.Item componentClass={Col} colspan={24} md={6}>
@@ -97,7 +107,7 @@ const Home = () => {
                                         name="inputNumberGallons"
                                         accepter={InputNumber}
                                         step={0.01}
-                                        style={{width:200}}
+                                        style={{ width: 200 }}
                                     />
                                 </FormGroup>
                                 <FormGroup>
@@ -106,7 +116,7 @@ const Home = () => {
                                         name="inputNumberUnitaryPrice"
                                         accepter={InputNumber}
                                         step={0.01}
-                                        style={{width:200}}
+                                        style={{ width: 200 }}
                                     />
                                 </FormGroup>
                                 <FormGroup>
@@ -115,7 +125,7 @@ const Home = () => {
                                         name="inputNumberSalesValue"
                                         accepter={InputNumber}
                                         step={0.01}
-                                        style={{width:200}}
+                                        style={{ width: 200 }}
                                     />
                                 </FormGroup>
                                 <FormGroup>
@@ -124,7 +134,7 @@ const Home = () => {
                                         name="inputNumberTotalPrice"
                                         accepter={InputNumber}
                                         step={0.01}
-                                        style={{width:200}}
+                                        style={{ width: 200 }}
                                     />
                                 </FormGroup>
                                 <FormGroup>
@@ -133,13 +143,13 @@ const Home = () => {
                                         name="inputNumberJoker"
                                         accepter={InputNumber}
                                         step={0.001}
-                                        style={{width:200}}
+                                        style={{ width: 200 }}
                                     />
                                 </FormGroup>
                                 <FormGroup>
                                     <ControlLabel>Acciones</ControlLabel>
-                                    <section className="flex-row-space-between" style={{width:200}}>
-                                        <Button appearance="primary" size="xs">Buscar</Button>
+                                    <section className="flex-row-space-between" style={{ width: 200 }}>
+                                        <Button appearance="primary" size="xs">Agregar</Button>
                                         <Button appearance="default" size="xs">Limpiar</Button>
                                     </section>
                                 </FormGroup>
@@ -153,7 +163,7 @@ const Home = () => {
                     </FlexboxGrid.Item>
                 </FlexboxGrid>
             </Content>
-            <Footer>Footer</Footer>
+            <Footer className="login-copyright"><small>&copy; Copyright {new Date().getFullYear()}, Securitas-Perú</small></Footer>
         </Container>
 
 
