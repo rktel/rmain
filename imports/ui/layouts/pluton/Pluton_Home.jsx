@@ -36,6 +36,7 @@ const Home = () => {
     useEffect(() => {
         // console.log('In useEffect')
         Meteor.call('Pluton_plates', (error, elements) => {
+            console.log(elements)
             setPlates(elements)
         })
     }, [])
@@ -209,97 +210,7 @@ const Home = () => {
                                     placeholder="Seleccione unidad"
                                 />
                             </FormGroup>
-                            <FormGroup>
-                                <ControlLabel>Inicio</ControlLabel>
-                                <FormControl
-                                    name="DatePickerStart"
-                                    accepter={DatePicker}
-                                    style={{ width: '100%' }}
-                                    format="YYYY-MM-DD HH:mm:ss"
-                                    ranges={[]}
-                                />
-                            </FormGroup>
-                            <FormGroup>
-                                <ControlLabel>Fin</ControlLabel>
-                                <FormControl
-                                    name="DatePickerEnd"
-                                    accepter={DatePicker}
-                                    style={{ width: '100%' }}
-                                    format="YYYY-MM-DD HH:mm:ss"
-                                    ranges={[]}
-                                />
-                            </FormGroup>
-                            <FormGroup>
-                                <ControlLabel>Combustible</ControlLabel>
-                                <FormControl
-                                    name="InputPickerFuel"
-                                    accepter={InputPicker}
-                                    style={{ width: '100%' }}
-                                    data={fuelList}
-                                    placeholder="Seleccione combustible"
-                                />
-                            </FormGroup>
-                            <FormGroup>
-                                <ControlLabel>Galones</ControlLabel>
-                                <FormControl
-                                    name="InputNumberGallons"
-                                    accepter={InputNumber}
-                                    style={{ width: '100%' }}
-                                    step={0.01}
-                                    placeholder="Ingrese galones"
-                                />
-                            </FormGroup>
-                            <FormGroup>
-                                <ControlLabel>Precio unitario</ControlLabel>
-                                <FormControl
-                                    name="InputNumberUnitaryPrice"
-                                    accepter={InputNumber}
-                                    style={{ width: '100%' }}
-                                    step={0.01}
-                                    placeholder="Ingrese precio"
-                                />
-                            </FormGroup>
-                            <FormGroup>
-                                <ControlLabel>Valor venta</ControlLabel>
-                                <FormControl
-                                    name="InputNumberSalesValue"
-                                    accepter={InputNumber}
-                                    style={{ width: '100%' }}
-                                    placeholder="Ingrese valor venta"
-                                    step={0.01}
-                                />
-                            </FormGroup>
-                            <FormGroup>
-                                <ControlLabel>Precio total</ControlLabel>
-                                <FormControl
-                                    name="InputNumberTotalPrice"
-                                    accepter={InputNumber}
-                                    style={{ width: '100%' }}
-                                    placeholder="Ingrese precio total"
-                                    step={0.01}
-                                />
-                            </FormGroup>
-                            <FormGroup>
-                                <ControlLabel>Factor comodin</ControlLabel>
-                                <FormControl
-                                    name="InputNumberJoker"
-                                    accepter={InputNumber}
-                                    style={{ width: '100%' }}
-                                    placeholder="Ingrese factor comodin"
-                                    step={0.001}
-                                />
-                            </FormGroup>
-                            <FormGroup>
-                                <ControlLabel>Accion</ControlLabel>
-                                <FlexboxGrid justify="space-around">
-                                    <FlexboxGrid.Item>
-                                        <Button onClick={handleClickAddBtn} appearance="primary" size="sm">Buscar</Button>
-                                    </FlexboxGrid.Item>
-                                    <FlexboxGrid.Item>
-                                        <Button onClick={handleClickClearBtn} appearance="default" size="sm">Limpiar</Button>
-                                    </FlexboxGrid.Item>
-                                </FlexboxGrid>
-                            </FormGroup>
+ 
                         </Form>
                     </Panel>
                 </FlexboxGrid.Item>
