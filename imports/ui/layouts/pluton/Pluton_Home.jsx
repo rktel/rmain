@@ -51,7 +51,7 @@ const Home = () => {
                 <FlexboxGrid justify="start">
                     <FlexboxGrid.Item componentClass={Col} colspan={24} md={6}>
                         <Panel header="FORMULARIO" className="card" bordered >
-                            <Form formValue={formElements} onChange={handleOnChangeFormElements} style={{ height: 500, overflowY: 'scroll' }} fluid>
+                            <Form formValue={formElements} onChange={handleOnChangeFormElements} style={{ height: 500, overflowY: 'scroll' }}>
                                 <FormGroup>
                                     <ControlLabel>Lista de unidades</ControlLabel>
                                     <FormControl
