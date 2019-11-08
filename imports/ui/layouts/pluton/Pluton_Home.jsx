@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 
 import { Form, FormControl, ControlLabel, FormGroup, HelpBlock } from 'rsuite'
-import { InputPicker, DatePicker } from 'rsuite'
+import { InputPicker, DatePicker , InputNumber} from 'rsuite'
 
 const Home = () => {
     /* HELPS FUNCTION */
@@ -31,7 +31,7 @@ const Home = () => {
         inputPickerVehicles: [],
         datePickerStart: defaultDateStart(),
         datePickerEnd: defaultDateEnd(),
-        inputPickerFuel: 'Peppa',
+        inputPickerFuel: '',
         inputNumberGallons: 0.01,
         inputNumberUnitaryPrice: 0.01,
         inputNumberSalesValue: 0.01,
@@ -48,6 +48,7 @@ const Home = () => {
                     name="inputPickerVehicles"
                     accepter={InputPicker}
                     data={plates}
+                    placement="Seleccione unidad"
                 />
                 <HelpBlock tooltip>Solo una unidad seleccionable a la vez</HelpBlock>
             </FormGroup>
@@ -70,6 +71,54 @@ const Home = () => {
                     ranges={[]}
                 />
                 <HelpBlock tooltip>Presionar 'Ok' al finalizar</HelpBlock>
+            </FormGroup>
+            <FormGroup>
+                <ControlLabel>Tipo de combustible</ControlLabel>
+                <FormControl
+                    name="inputPickerFuel"
+                    accepter={InputPicker}
+                    data={fuelList}
+                />
+            </FormGroup>
+            <FormGroup>
+                <ControlLabel>Galones</ControlLabel>
+                <FormControl
+                    name="inputNumberGallons"
+                    accepter={InputNumber}
+                    step={0.01}
+                />
+            </FormGroup>
+            <FormGroup>
+                <ControlLabel>Precio unitario</ControlLabel>
+                <FormControl
+                    name="inputNumberUnitaryPrice"
+                    accepter={InputNumber}
+                    step={0.01}
+                />
+            </FormGroup>
+            <FormGroup>
+                <ControlLabel>Valor venta</ControlLabel>
+                <FormControl
+                    name="inputNumberSalesValue"
+                    accepter={InputNumber}
+                    step={0.01}
+                />
+            </FormGroup>
+            <FormGroup>
+                <ControlLabel>Precio total</ControlLabel>
+                <FormControl
+                    name="inputNumberTotalPrice"
+                    accepter={InputNumber}
+                    step={0.01}
+                />
+            </FormGroup>
+            <FormGroup>
+                <ControlLabel>Factor comodin</ControlLabel>
+                <FormControl
+                    name="inputNumberJoker"
+                    accepter={InputNumber}
+                    step={0.001}
+                />
             </FormGroup>
         </Form>
     </>)
