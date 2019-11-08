@@ -170,7 +170,7 @@ const Home = () => {
         CheckPickerVehicles: [],
         DatePickerStart: defaultDateStart(),
         DatePickerEnd: defaultDateEnd(),
-        InputPickerFuel : '',
+      
         InputNumberGallons: 0.01,
         InputNumberUnitaryPrice: 0.01,
         InputNumberSalesValue: 0.01,
