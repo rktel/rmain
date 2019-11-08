@@ -42,7 +42,7 @@ const Home = () => {
     const handleOnChangeFormElements = elements => setFormElements(elements)
 
     return (<>
-        <Form formValue={formElements} onChange={handleOnChangeFormElements}>
+        <Form formValue={formElements} onChange={handleOnChangeFormElements} fluid>
             <FormGroup>
                 <ControlLabel>Lista de unidades</ControlLabel>
                 <FormControl
@@ -125,8 +125,8 @@ const Home = () => {
             <FormGroup>
                 <ControlLabel>Acciones</ControlLabel>
                 <section className="flex-row-space-between">
-                    <Button appearance="primary" size="sm">Buscar</Button>
-                    <Button appearance="default" size="sm">Limpiar</Button>
+                    <Button appearance="primary" size="xs">Buscar</Button>
+                    <Button appearance="default" size="xs">Limpiar</Button>
                 </section>
             </FormGroup>
         </Form>
