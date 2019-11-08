@@ -171,7 +171,6 @@ const Home = () => {
                             <Table
                                 height={400}
                                 data={resultList}
-                                onRowClick={el => console.log(el)}
                                 renderEmpty={() => <div className="flex-center">Aun sin datos</div>}
                             >
                                 <Column width={80} fixed>
