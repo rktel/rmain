@@ -48,7 +48,7 @@ const Home = () => {
                     name="inputPickerVehicles"
                     accepter={InputPicker}
                     data={plates}
-                    placement="Seleccione unidad"
+                    placeholder="Seleccione unidad"
                 />
                 <HelpBlock tooltip>Solo una unidad seleccionable a la vez</HelpBlock>
             </FormGroup>
