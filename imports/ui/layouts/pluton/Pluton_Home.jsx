@@ -307,7 +307,7 @@ const Home = () => {
                             height={400}
                             data={resultList}
                             onRowClick={el => { console.log(el); }}
-                            renderEmpty={_=><div>Hello</div>}
+                            renderEmpty={_=><div style={{height:'100%', display:'flex', flexDirection: 'column', justifyContent:'center', alignItems:'center'}}>Hello</div>}
                         >
                             <Column width={80} fixed>
                                 <HeaderCell>Placa</HeaderCell>
