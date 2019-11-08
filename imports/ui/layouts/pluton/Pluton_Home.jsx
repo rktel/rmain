@@ -95,53 +95,53 @@ const Home = () => {
     }
     const handleClickAddBtn = () => {
         // console.log(formValue)
-/*
-        (vehicleSelected && fuelSelected) ?
-            Meteor.call('Pluton_queryVehicleForDates',
-                vehicleSelected,
-                dateStart.toISOString(),
-                dateEnd.toISOString(),
-                fuelSelected,
-                gallonsSelected,
-                priceUnitarySelected,
-                valueSalesSelected,
-                totalPriceSelected,
-                parseFloat(gallonsSelected * jokerFactorSelected).toFixed(2), (error, result) => {
-                    if (error) {
-                        console.log(error)
-                    } else {
-                        console.log(result)
-                        if (result) {
-                            setResultList([...resultList, result])
-                            Notification['success']({
-                                title: 'Aviso',
-                                placement: 'bottomRight',
-                                description: `Se encontraron datos para el vehiculo con placa ${vehicleSelected}`
-                            });
-                        } else {
-                            Notification['error']({
-                                title: 'Aviso',
-                                placement: 'bottomRight',
-                                description: `Sin datos para el vehiculo con placa ${vehicleSelected}`
-                            });
-                        }
-                        let auxPlates = plates
-                        auxPlates.map((el, index) => {
-                            if (el.label === vehicleSelected) {
-                                auxPlates.splice(index, 1)
+        /*
+                (vehicleSelected && fuelSelected) ?
+                    Meteor.call('Pluton_queryVehicleForDates',
+                        vehicleSelected,
+                        dateStart.toISOString(),
+                        dateEnd.toISOString(),
+                        fuelSelected,
+                        gallonsSelected,
+                        priceUnitarySelected,
+                        valueSalesSelected,
+                        totalPriceSelected,
+                        parseFloat(gallonsSelected * jokerFactorSelected).toFixed(2), (error, result) => {
+                            if (error) {
+                                console.log(error)
+                            } else {
+                                console.log(result)
+                                if (result) {
+                                    setResultList([...resultList, result])
+                                    Notification['success']({
+                                        title: 'Aviso',
+                                        placement: 'bottomRight',
+                                        description: `Se encontraron datos para el vehiculo con placa ${vehicleSelected}`
+                                    });
+                                } else {
+                                    Notification['error']({
+                                        title: 'Aviso',
+                                        placement: 'bottomRight',
+                                        description: `Sin datos para el vehiculo con placa ${vehicleSelected}`
+                                    });
+                                }
+                                let auxPlates = plates
+                                auxPlates.map((el, index) => {
+                                    if (el.label === vehicleSelected) {
+                                        auxPlates.splice(index, 1)
+                                    }
+                                })
+                                setPlates(auxPlates)
+                                setVehicleSelected('')
                             }
-                        })
-                        setPlates(auxPlates)
-                        setVehicleSelected('')
-                    }
-
-                }) : Notification['warning']({
-                    title: 'Aviso',
-                    placement: 'bottomRight',
-                    description: `Llenar campo vehiculos y Tipo combustible`
-                });
-
-*/
+        
+                        }) : Notification['warning']({
+                            title: 'Aviso',
+                            placement: 'bottomRight',
+                            description: `Llenar campo vehiculos y Tipo combustible`
+                        });
+        
+        */
     }
     const handleChangeVehicleSelected = (value) => {
         setVehicleSelected(value)
@@ -170,7 +170,7 @@ const Home = () => {
         CheckPickerVehicles: [],
         DatePickerStart: defaultDateStart(),
         DatePickerEnd: defaultDateEnd(),
-      
+
         InputNumberGallons: 0.01,
         InputNumberUnitaryPrice: 0.01,
         InputNumberSalesValue: 0.01,
@@ -196,7 +196,7 @@ const Home = () => {
             <FlexboxGrid justify="start">
                 <FlexboxGrid.Item componentClass={Col} colspan={24} md={6}>
                     <Panel header="FORMULARIO" className="card" bordered >
-                        <Form fluid formValue={formValue} onChange={_ => console.log(formValue)} className="scrollbar" style={{ height: 500, overflowY: 'scroll' }}>
+                        <Form fluid formValue={formValue} onChange={() => console.log(formValue)} className="scrollbar" style={{ height: 500, overflowY: 'scroll' }}>
                             <FormGroup>
                                 <ControlLabel>Vehiculos</ControlLabel>
                                 <FormControl
@@ -307,7 +307,7 @@ const Home = () => {
                             height={400}
                             data={resultList}
                             onRowClick={el => { console.log(el); }}
-                            renderEmpty={_=><div className="flex-center">Aun sin datos</div>}
+                            renderEmpty={() => <div className="flex-center">Aun sin datos</div>}
                         >
                             <Column width={80} fixed>
                                 <HeaderCell>Placa</HeaderCell>
