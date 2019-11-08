@@ -73,6 +73,7 @@ const Home = () => {
                                         accepter={InputPicker}
                                         data={plates}
                                         placeholder="Seleccione unidad"
+                                        style={{ width: 200 }}
                                     />
                                     <HelpBlock tooltip>Solo una unidad seleccionable a la vez</HelpBlock>
                                 </FormGroup>
@@ -83,6 +84,7 @@ const Home = () => {
                                         accepter={DatePicker}
                                         format="YYYY-MM-DD HH:mm:ss"
                                         ranges={[]}
+                                        style={{ width: 200 }}
                                     />
                                     <HelpBlock tooltip>Presionar 'Ok' al finalizar</HelpBlock>
                                 </FormGroup>
@@ -93,6 +95,7 @@ const Home = () => {
                                         accepter={DatePicker}
                                         format="YYYY-MM-DD HH:mm:ss"
                                         ranges={[]}
+                                        style={{ width: 200 }}
                                     />
                                     <HelpBlock tooltip>Presionar 'Ok' al finalizar</HelpBlock>
                                 </FormGroup>
@@ -103,6 +106,7 @@ const Home = () => {
                                         accepter={InputPicker}
                                         data={fuelList}
                                         placeholder="Seleccione combustible"
+                                        style={{ width: 200 }}
                                     />
                                 </FormGroup>
                                 <FormGroup>
