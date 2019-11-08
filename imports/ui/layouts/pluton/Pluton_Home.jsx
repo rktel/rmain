@@ -4,12 +4,29 @@ import { Form, FormControl, ControlLabel, FormGroup, HelpBlock } from 'rsuite'
 import { InputPicker, DatePicker, InputNumber } from 'rsuite'
 import { Button, ButtonToolbar, Navbar, Nav, Icon } from 'rsuite'
 import { Container, Header, Footer } from 'rsuite'
-import { FlexboxGrid, Panel, Col } from 'rsuite'
+import { FlexboxGrid, Panel, Col, Notification } from 'rsuite'
 import { Table } from 'rsuite'
 const { Column, HeaderCell, Cell } = Table
 
+import XLSX from 'xlsx'
+
 const Home = () => {
     /* HELPS FUNCTION */
+    const createExcel = (filename) => {
+        if (resultList.length > 0) {
+            let data = XLSX.utils.json_to_sheet(resultList)
+            const workbook = XLSX.utils.book_new()
+            XLSX.utils.book_append_sheet(workbook, data, filename)
+            XLSX.writeFile(workbook, `${filename}.xlsx`)
+        } else {
+            Notification['warning']({
+                title: 'Aviso',
+                placement: 'bottomRight',
+                description: `Aun no hay datos en la tabla`
+            })
+        }
+
+    }
     const defaultDateStart = () => {
         let xdate = new Date();
         xdate.setHours(0, 0, 0, 0)
@@ -36,7 +53,7 @@ const Home = () => {
         inputPickerVehicles: null,
         datePickerStart: defaultDateStart(),
         datePickerEnd: defaultDateEnd(),
-        inputPickerFuel: '',
+        inputPickerFuel: null,
         inputNumberGallons: 0.01,
         inputNumberUnitaryPrice: 0.01,
         inputNumberSalesValue: 0.01,
@@ -46,11 +63,44 @@ const Home = () => {
     const handleOnChangeFormElements = elements => setFormElements(elements)
 
     const [resultList, setResultList] = useState([])
-    const handleOnClickAddBtn = () =>{
-        //const {} = formElements
+
+    const handleOnClickAddBtn = () => {
+        const { inputPickerVehicles, datePickerStart, datePickerEnd, inputPickerFuel, inputNumberGallons, inputNumberUnitaryPrice, inputNumberSalesValue, inputNumberTotalPrice, inputNumberJoker } = formElements
+        if (inputPickerVehicles && inputPickerFuel) {
+            Meteor.call('Pluton_queryVehicleForDates',
+                inputPickerVehicles,
+                datePickerStart.toISOString(),
+                datePickerEnd.toISOString(),
+                inputPickerFuel,
+                inputNumberGallons,
+                inputNumberUnitaryPrice,
+                inputNumberSalesValue,
+                inputNumberTotalPrice,
+                parseFloat(inputNumberGallons * inputNumberJoker).toFixed(2),
+                (error, result) => {
+                    if (error) console.log(error)
+                    else{
+                        console.log(result)
+                    }
+                })
+        }
     }
-    const handleOnClickCleanBtn = () =>{}
-    const handleOnClickDownloadBtn = () =>{}
+    const handleOnClickCleanBtn = () => {
+        setFormElements({
+            inputPickerVehicles: null,
+            datePickerStart: defaultDateStart(),
+            datePickerEnd: defaultDateEnd(),
+            inputPickerFuel: null,
+            inputNumberGallons: 0.01,
+            inputNumberUnitaryPrice: 0.01,
+            inputNumberSalesValue: 0.01,
+            inputNumberTotalPrice: 0.01,
+            inputNumberJoker: 0.025
+        })
+    }
+    const handleOnClickDownloadBtn = () => {
+        createExcel('Reporte')
+    }
     return (<>
 
         <Container className="flex-column-space-between">
@@ -162,10 +212,10 @@ const Home = () => {
                                     <ControlLabel>Acciones</ControlLabel>
                                     <section className="flex-row-space-between" style={{ width: 222 }}>
                                         <Button color="blue" size="xs" onClick={handleOnClickAddBtn}>
-                                            <Icon icon="plus-circle"/> Agregar
+                                            <Icon icon="plus-circle" /> Agregar
                                         </Button>
-                                        <Button  size="xs" onClick={handleOnClickCleanBtn}>
-                                            <Icon icon="close-circle"/> Limpiar
+                                        <Button size="xs" onClick={handleOnClickCleanBtn}>
+                                            <Icon icon="close-circle" /> Limpiar
                                         </Button>
                                     </section>
                                 </FormGroup>
@@ -174,7 +224,7 @@ const Home = () => {
                     </FlexboxGrid.Item>
                     <FlexboxGrid.Item componentClass={Col} colspan={24} md={18}>
                         <Panel header="TABLA DE RESULTADOS" className="card" bordered>
-                            <FlexboxGrid justify="end" style={{padding:'4px 0'}}>
+                            <FlexboxGrid justify="end" style={{ padding: '4px 0' }}>
                                 <ButtonToolbar>
                                     <Button color="green" color="green" size="xs" onClick={handleOnClickDownloadBtn}>
                                         <Icon icon="file-excel-o" /> Descargar
