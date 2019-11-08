@@ -57,7 +57,7 @@ const Home = () => {
                     </Navbar.Body>
                 </Navbar>
             </Header>
-            <Content>
+      
                 <FlexboxGrid justify="start">
                     <FlexboxGrid.Item componentClass={Col} colspan={24} md={6}>
                         <Panel header="FORMULARIO" className="card" bordered >
@@ -162,7 +162,7 @@ const Home = () => {
                         </Panel>
                     </FlexboxGrid.Item>
                 </FlexboxGrid>
-            </Content>
+ 
             <Footer className="login-copyright"><small>&copy; Copyright {new Date().getFullYear()}, Securitas-Perú</small></Footer>
         </Container>
 
