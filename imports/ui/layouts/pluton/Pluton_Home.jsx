@@ -5,7 +5,8 @@ import { InputPicker, DatePicker, InputNumber } from 'rsuite'
 import { Button, ButtonToolbar, Navbar, Nav, Icon } from 'rsuite'
 import { Container, Header, Footer } from 'rsuite'
 import { FlexboxGrid, Panel, Col } from 'rsuite'
-import { Table, Column, HeaderCell, Cell } from 'rsuite'
+import { Table } from 'rsuite'
+const { Column, HeaderCell, Cell } = Table
 
 const Home = () => {
     /* HELPS FUNCTION */
