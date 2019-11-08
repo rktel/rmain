@@ -196,7 +196,7 @@ const Home = () => {
             <FlexboxGrid justify="start">
                 <FlexboxGrid.Item componentClass={Col} colspan={24} md={6}>
                     <Panel header="FORMULARIO" className="card" bordered >
-                        <Form fluid formValue={formValue} onChange={_ => setFormValue(formValue)} className="scrollbar" style={{ height: 500, overflowY: 'scroll' }}>
+                        <Form fluid formValue={formValue} onChange={_ => console.log(formValue)} className="scrollbar" style={{ height: 500, overflowY: 'scroll' }}>
                             <FormGroup>
                                 <ControlLabel>Vehiculos</ControlLabel>
                                 <FormControl
@@ -307,7 +307,7 @@ const Home = () => {
                             height={400}
                             data={resultList}
                             onRowClick={el => { console.log(el); }}
-                            
+                            renderEmpty={_=><div className="flex-center">Aun sin datos</div>}
                         >
                             <Column width={80} fixed>
                                 <HeaderCell>Placa</HeaderCell>
