@@ -168,6 +168,7 @@ const Home = () => {
     /** TEST FORM API */
     const [formValue, setFormValue] = useState({
         CheckPickerVehicles: [],
+        /*
         DatePickerStart: defaultDateStart(),
         DatePickerEnd: defaultDateEnd(),
         InputPickerFuel: 'Peppa',
@@ -176,6 +177,7 @@ const Home = () => {
         InputNumberSalesValue: 0.01,
         InputNumberTotalPrice: 0.01,
         InputNumberJoker: 0.025
+        */
     })
 
     /** RENDER**/
