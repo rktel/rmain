@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 
 import { Form, FormControl, ControlLabel, FormGroup, HelpBlock } from 'rsuite'
-import { InputPicker } from 'rsuite'
+import { InputPicker, DatePicker } from 'rsuite'
 
 const Home = () => {
     /* HELPS FUNCTION */
@@ -43,13 +43,23 @@ const Home = () => {
     return (<>
         <Form formValue={formElements} onChange={handleOnChangeFormElements}>
             <FormGroup>
-                <ControlLabel>Unidades</ControlLabel>
+                <ControlLabel>Lista de unidades</ControlLabel>
                 <FormControl
                     name="inputPickerVehicles"
                     accepter={InputPicker}
                     data={plates}
                 />
-                <HelpBlock tooltip>Lista de unidades</HelpBlock>
+                <HelpBlock tooltip>Solo una unidad seleccionable a la vez</HelpBlock>
+            </FormGroup>
+            <FormGroup>
+                <ControlLabel>Fecha de inicio</ControlLabel>
+                <FormControl
+                    name="datePickerStart"
+                    accepter={DatePicker}
+                    format="YYYY-MM-DD HH:mm:ss"
+                    ranges={[]}
+                />
+                <HelpBlock tooltip>Debe presionar 'Ok' para realizar la seleccion</HelpBlock>
             </FormGroup>
         </Form>
     </>)
