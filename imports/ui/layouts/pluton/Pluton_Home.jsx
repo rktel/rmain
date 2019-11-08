@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { Form, FormControl, ControlLabel, FormGroup, HelpBlock } from 'rsuite'
 import { InputPicker, DatePicker , InputNumber} from 'rsuite'
 import { Button } from 'rsuite'
+import { Container, Header, Content, Footer} from 'rsuite'
 
 const Home = () => {
     /* HELPS FUNCTION */
@@ -42,6 +43,13 @@ const Home = () => {
     const handleOnChangeFormElements = elements => setFormElements(elements)
 
     return (<>
+
+    <Container>
+      <Header>Header</Header>
+      <Content>Content</Content>
+      <Footer>Footer</Footer>
+    </Container>    
+
         <Form formValue={formElements} onChange={handleOnChangeFormElements} fluid>
             <FormGroup>
                 <ControlLabel>Lista de unidades</ControlLabel>
@@ -51,7 +59,7 @@ const Home = () => {
                     data={plates}
                     placeholder="Seleccione unidad"
                 />
-                <HelpBlock tooltip>Solo una unidad seleccionable a la vez</HelpBlock>
+                <HelpBlock>Solo una unidad seleccionable a la vez</HelpBlock>
             </FormGroup>
             <FormGroup>
                 <ControlLabel>Fecha de inicio</ControlLabel>
@@ -61,7 +69,7 @@ const Home = () => {
                     format="YYYY-MM-DD HH:mm:ss"
                     ranges={[]}
                 />
-                <HelpBlock tooltip>Presionar 'Ok' al finalizar</HelpBlock>
+                <HelpBlock>Presionar 'Ok' al finalizar</HelpBlock>
             </FormGroup>
             <FormGroup>
                 <ControlLabel>Fecha de termino</ControlLabel>
@@ -71,7 +79,7 @@ const Home = () => {
                     format="YYYY-MM-DD HH:mm:ss"
                     ranges={[]}
                 />
-                <HelpBlock tooltip>Presionar 'Ok' al finalizar</HelpBlock>
+                <HelpBlock>Presionar 'Ok' al finalizar</HelpBlock>
             </FormGroup>
             <FormGroup>
                 <ControlLabel>Tipo de combustible</ControlLabel>
