@@ -4,7 +4,7 @@ import { Personal } from '../../imports/api/collections'
 // HELPER FUNCTIONS
 
 const createCredentials = (personal) => {
-    const { username, password } = createCredentials(personal)
+    const { firstname, lastname } = createCredentials(personal)
     const firstLetterUsername = firstname.substr(0, 1).toLowerCase()
     const moreLetterUsername = lastname.split(' ') ? lastname.split(' ')[0].toLowerCase().replace(/[aeiouáéíóú]/ig, '') : lastname.toLowerCase().replace(/[aeiouáéíóú]/ig, '')
     const username = firstLetterUsername + moreLetterUsername
