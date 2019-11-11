@@ -8,14 +8,21 @@ import { Container, Header, Footer, Navbar } from 'rsuite'
 const Login = () => {
 
     const [formLogin, setformLogin] = useState({
-        username: null,
-        password: null
+        username: '',
+        password: ''
     })
     const handleOnChangeFormLogin = elements => setformLogin(elements)
 
     const handleOnClickLoginBtn = () => {
-        const {username, password} = formLogin
-        alert(`${username}, ${password}`)
+        const { username, password } = formLogin
+        if (username && password) {
+            Meteor.loginWithPassword(username, password, error => {
+                if (!error) {
+                    // this.$router.push({ name: "Home" });
+                    console.log(Meteor.userId())
+                }
+            })
+        }
     }
 
     return (
