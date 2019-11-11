@@ -22,7 +22,10 @@ const Login = (props) => {
                     Meteor.call('getPersonal', (error2, personal) => {
                         if (!error2 && personal) {
                             const { role, spa, firstname, lastname } = personal
-                            localStorage.setItem('rmain_user', { role, spa, firstname, lastname })
+                            localStorage.setItem('rmain_user_role', role)
+                            localStorage.setItem('rmain_user_spa', spa)
+                            localStorage.setItem('rmain_user_firstname', firstname)
+                            localStorage.setItem('rmain_user_lastname', lastname)
                             // Tecnico
                             if (role && spa) {
                                 if (role == 'Tecnico' && spa == 'Antapaccay') {
