@@ -18,8 +18,11 @@ const Login = () => {
         if (username && password) {
             Meteor.loginWithPassword(username, password, error => {
                 if (!error) {
-                    // this.$router.push({ name: "Home" });
-                    console.log(Meteor.userId())
+                    Meteor.call('getPersonal', (error2, personal) => {
+                        if (!error2) {
+                            console.log(personal)
+                        }
+                    })
                 }
             })
         }
