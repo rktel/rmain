@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Redirect } from 'react-router-dom'
 import { FlexboxGrid, Col } from 'rsuite'
 import { Panel } from 'rsuite'
 import { ButtonToolbar, Button } from 'rsuite'
@@ -21,7 +22,18 @@ const Login = () => {
                     Meteor.call('getPersonal', (error2, personal) => {
                         if (!error2) {
                             const { role, spa } = personal
-                            console.log(role,spa)
+                            // Tecnico
+                            if (role && spa) {
+                                if (role == 'tecnico' && spa == 'Antapaccay') {
+                                    return<Redirect to="/ntpccy"/>
+                                 }
+                                if (role == 'tecnico' && spa == 'Pluton') { }
+                            }
+                            // admin
+                            if (role && !spa) {
+                                if (role == 'admin') { }
+                                if (role == 'Hyperadmin') { }
+                            }
                         }
                     })
                 }
