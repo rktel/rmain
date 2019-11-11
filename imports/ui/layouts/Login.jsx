@@ -24,13 +24,16 @@ const Login = () => {
                             const { role, spa } = personal
                             // Tecnico
                             if (role && spa) {
+                                console.log('role && spa')
                                 if (role == 'Tecnico' && spa == 'Antapaccay') {
+                                    console.log('Tecnico && Antapaccay')
                                     return <Redirect to="/ntpccy" />
                                 }
                                 if (role == 'Tecnico' && spa == 'Pluton') { }
                             }
                             // Admin
                             if (role && !spa) {
+                                console.log('role && !!!!spa')
                                 if (role == 'Admin') { }
                                 if (role == 'Hyperadmin') { }
                             }
