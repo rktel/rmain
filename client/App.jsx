@@ -15,7 +15,7 @@ const App = () => {
                 <Route path='/ntpccy' render={_ => {
                     Meteor.call('getPersonal', (error, personal) => {
                         console.log(personal)
-                        if (!error) {
+                        if (!error && personal) {
                             if (personal.role && personal.spa) {
                                 return <Antapaccay_Home/>
                             } else {
