@@ -16,11 +16,9 @@ const App = () => {
                     Meteor.call('getPersonal', (error, personal) => {
                         console.log(personal)
                         if (!error && personal) {
-                            if (personal.role && personal.spa) {
-                                return <Antapaccay_Home/>
-                            } else {
-                                return <Redirect to='/login' />
-                            }
+                            return <Antapaccay_Home />
+                        } else {
+                            return <Redirect to='/login' />
                         }
                     })
                 }} />
