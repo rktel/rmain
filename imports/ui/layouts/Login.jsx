@@ -20,15 +20,18 @@ const Login = (props) => {
             Meteor.loginWithPassword(username, password, error => {
                 if (!error) {
                     Meteor.call('getPersonal', (error2, personal) => {
-                        if (!error2) {
-                            const { role, spa } = personal
+                        if (!error2 && personal) {
+                            const { role, spa, firstname, lastname } = personal
+                            localStorage.setItem('rmain_user', { role, spa, firstname, lastname })
                             // Tecnico
                             if (role && spa) {
                                 if (role == 'Tecnico' && spa == 'Antapaccay') {
                                     props.history.push('/ntpccy')
+
                                 }
                                 if (role == 'Tecnico' && spa == 'Pluton') {
                                     props.history.push('/pltn')
+
                                 }
                             }
                             // Admin

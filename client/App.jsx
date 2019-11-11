@@ -8,24 +8,17 @@ import Antapaccay_Home from '../imports/ui/layouts/antapaccay/Antapaccay_Home'
 import Pluton_Home from '../imports/ui/layouts/pluton/Pluton_Home'
 
 const App = () => {
+    
+    const { role, spa } = localStorage.getItem('rmain_user') ? localStorage.getItem('rmain_user') : { role: 'null', spa: 'null' }
 
     return (
         <BrowserRouter>
             <Switch>
-                <Route path='/ntpccy' render={_ => {
-                    Meteor.call('getPersonal', (error, personal) => {
-                        console.log(personal)
-                        if (!error && personal) {
-                            console.log('<Antapaccay_Home />')
-                            render (<Antapaccay_Home />)
-                        } else {
-                            console.log('<Redirect to=/login/>')
-                            return <Redirect to='/login' />
-                        }
-                    })
-                }} />
+                <Route path='/ntpccy' render={_ => (
+                    (spa == 'Antapaccay' && role == 'Tecnico' || role == 'Admin' || role == 'Hyperadmin') ? (<Antapaccay_Home />) : (<Redirect to='/login' />)
+                )} />
                 <Route path='/pltn' render={_ => (
-                    Meteor.userId() ? (<Pluton_Home />) : (<Redirect to='/login' />)
+                    (spa == 'Pluton' && role == 'Tecnico' || role == 'Admin' || role == 'Hyperadmin') ? (<Pluton_Home />) : (<Redirect to='/login' />)
                 )} />
                 <Route path='/login' component={Login} />
                 <Route render={_ => (<Redirect to='/login' />)} />
