@@ -9,6 +9,7 @@ import { Col } from 'rsuite'
 import { CheckPicker } from 'rsuite'
 import { DatePicker } from 'rsuite'
 import { Notification } from 'rsuite';
+import { Icon, Dropdown } from 'rsuite';
 
 
 import { rstream } from '../../../api/streamers'
@@ -85,6 +86,13 @@ const Home = () => {
                     <Navbar.Header>
                         <img src="/img/seclog.png" alt="Securitas Logo" height="45" className="navbar-brand" />
                     </Navbar.Header>
+                    <Navbar.Body>
+                        <Nav pullRight>
+                            <Dropdown title={localStorage.getItem('rmain_user_firstname') + ' ' + localStorage.getItem('rmain_user_lastname')} icon={<Icon icon="user-circle-o" />}>
+                                <Dropdown.Item>Cerrar sesión</Dropdown.Item>
+                            </Dropdown>
+                        </Nav>
+                    </Navbar.Body>
                 </Navbar>
             </Header>
 

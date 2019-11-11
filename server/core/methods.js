@@ -22,8 +22,8 @@ Meteor.methods({
     createPersonal(personal) {
         const { username, password } = createCredentials(personal)
         const userId = Accounts.createUser({ username, password })
-        const { firstname, lastname, email, spa } = personal
-        Personal.insert({ firstname, lastname, email, userId, username, password, spa })
+        const { firstname, lastname, email, spa, role } = personal
+        Personal.insert({ firstname, lastname, email, userId, username, password, spa, role })
     },
     createAdmin(person) {
         const { username, password } = createCredentials(person)
