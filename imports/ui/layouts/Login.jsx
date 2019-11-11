@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { FlexboxGrid, Col } from 'rsuite'
 import { Panel } from 'rsuite'
 import { ButtonToolbar, Button } from 'rsuite'
@@ -6,6 +6,18 @@ import { Form, FormControl, FormGroup, ControlLabel } from 'rsuite'
 import { Container, Header, Footer, Navbar } from 'rsuite'
 
 const Login = () => {
+
+    const [formLogin, setformLogin] = useState({
+        username: null,
+        password: null
+    })
+    const handleOnChangeFormLogin = elements => setformLogin(elements)
+
+    const handleOnClickLoginBtn = () => {
+        const {username, password} = formLogin
+        alert(`${username}, ${password}`)
+    }
+
     return (
 
         <Container className="flex-column-space-between">
@@ -20,10 +32,10 @@ const Login = () => {
             <FlexboxGrid justify="center">
                 <FlexboxGrid.Item componentClass={Col} colspan={20} md={6}>
                     <Panel header={<h3>Login</h3>} className="card" bordered>
-                        <Form fluid>
+                        <Form fluid formValue={formLogin} onChange={handleOnChangeFormLogin}>
                             <FormGroup>
                                 <ControlLabel>Usuario</ControlLabel>
-                                <FormControl name="name" />
+                                <FormControl name="username" />
                             </FormGroup>
                             <FormGroup>
                                 <ControlLabel>Contraseña</ControlLabel>
@@ -31,7 +43,7 @@ const Login = () => {
                             </FormGroup>
                             <FormGroup>
                                 <ButtonToolbar>
-                                    <Button color="blue" block>Ingresar</Button>
+                                    <Button color="blue" block onClick={handleOnClickLoginBtn}>Ingresar</Button>
                                 </ButtonToolbar>
                             </FormGroup>
                         </Form>
