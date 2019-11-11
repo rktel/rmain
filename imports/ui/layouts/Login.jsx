@@ -27,7 +27,7 @@ const Login = (props) => {
                                 console.log('role && spa')
                                 if (role == 'Tecnico' && spa == 'Antapaccay') {
                                     console.log('Tecnico && Antapaccay')
-                                    console.log(props)
+                                    console.log(props.history.push('/ntpccy'))
                                 }
                                 if (role == 'Tecnico' && spa == 'Pluton') { }
                             }
