@@ -25,13 +25,13 @@ const Login = () => {
                             // Tecnico
                             if (role && spa) {
                                 if (role == 'Tecnico' && spa == 'Antapaccay') {
-                                    return<Redirect to="/ntpccy"/>
-                                 }
+                                    return <Redirect to="/ntpccy" />
+                                }
                                 if (role == 'Tecnico' && spa == 'Pluton') { }
                             }
-                            // admin
+                            // Admin
                             if (role && !spa) {
-                                if (role == 'admin') { }
+                                if (role == 'Admin') { }
                                 if (role == 'Hyperadmin') { }
                             }
                         }
