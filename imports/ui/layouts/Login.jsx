@@ -20,7 +20,8 @@ const Login = () => {
                 if (!error) {
                     Meteor.call('getPersonal', (error2, personal) => {
                         if (!error2) {
-                            console.log(personal)
+                            const { role, spa } = personal
+                            console.log(role,spa)
                         }
                     })
                 }
