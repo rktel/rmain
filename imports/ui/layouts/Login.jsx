@@ -24,17 +24,19 @@ const Login = (props) => {
                             const { role, spa } = personal
                             // Tecnico
                             if (role && spa) {
-                                console.log('role && spa')
                                 if (role == 'Tecnico' && spa == 'Antapaccay') {
-                                    console.log('Tecnico && Antapaccay')
-                                    console.log(props.history.push('/ntpccy'))
+                                    props.history.push('/ntpccy')
                                 }
-                                if (role == 'Tecnico' && spa == 'Pluton') { }
+                                if (role == 'Tecnico' && spa == 'Pluton') {
+                                    props.history.push('/pltn')
+                                }
                             }
                             // Admin
                             if (role && !spa) {
                                 console.log('role && !!!!spa')
-                                if (role == 'Admin') { }
+                                if (role == 'Admin') {
+                                    props.history.push('/admin')
+                                }
                                 if (role == 'Hyperadmin') { }
                             }
                         }

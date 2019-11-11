@@ -12,14 +12,23 @@ const App = () => {
     return (
         <BrowserRouter>
             <Switch>
-                <Route path='/ntpccy' render={_ => (
-                    Meteor.userId() ? (<Antapaccay_Home />) : (<Redirect to='/login' />)
-                )} />
+                <Route path='/ntpccy' render={_ => {
+                    Meteor.call('getPersonal', (error, personal) => {
+                        if (!error) {
+                            const { role, spa, firstname, lastname } = personal
+                            if (role && spa) {
+                                return <Antapaccay_Home user={{firstname, lastname}}/>
+                            } else {
+                                return <Redirect to='/login' />
+                            }
+                        }
+                    })
+                }} />
                 <Route path='/pltn' render={_ => (
                     Meteor.userId() ? (<Pluton_Home />) : (<Redirect to='/login' />)
                 )} />
                 <Route path='/login' component={Login} />
-                <Route render={_=>(<Redirect to='/login' />)} />
+                <Route render={_ => (<Redirect to='/login' />)} />
             </Switch>
         </BrowserRouter>
     )
