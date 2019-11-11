@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
-import { Redirect } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 import { FlexboxGrid, Col } from 'rsuite'
 import { Panel } from 'rsuite'
 import { ButtonToolbar, Button } from 'rsuite'
 import { Form, FormControl, FormGroup, ControlLabel } from 'rsuite'
 import { Container, Header, Footer, Navbar } from 'rsuite'
 
-const Login = () => {
+const Login = (props) => {
 
     const [formLogin, setformLogin] = useState({
         username: '',
@@ -27,7 +27,7 @@ const Login = () => {
                                 console.log('role && spa')
                                 if (role == 'Tecnico' && spa == 'Antapaccay') {
                                     console.log('Tecnico && Antapaccay')
-                                    return <Redirect to="/ntpccy" />
+                                    console.log(props)
                                 }
                                 if (role == 'Tecnico' && spa == 'Pluton') { }
                             }
@@ -83,4 +83,4 @@ const Login = () => {
     )
 }
 
-export default Login
+export default withRouter(Login)
