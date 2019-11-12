@@ -1,19 +1,14 @@
 import React from 'react'
-import { FlexboxGrid, Panel, Col } from 'rsuite'
+import { Panel, ButtonToolbar, IconButton } from 'rsuite'
 
 const AdminUsersComponent = (props) => {
     return (
         <Panel bordered bodyFill style={{ height: props.height, overflowY: 'scroll' }}>
-            <h1>Users</h1>
-            <h1>A</h1>
-            <h1>A</h1>
-            <h1>A</h1>
-            <h1>A</h1>
-            <h1>A</h1>
-            <h1>A</h1>
-            <h1>A</h1>
-            <h1>A</h1>
-            <h1>A</h1>
+            <ButtonToolbar>
+                <IconButton icon={<Icon icon="user-circle-o" />} placement="left">
+                    Nuevo
+                </IconButton>
+            </ButtonToolbar>
         </Panel>
     )
 }
