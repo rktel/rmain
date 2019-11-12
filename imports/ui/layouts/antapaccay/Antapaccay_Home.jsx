@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-
+import { withRouter } from 'react-router-dom'
 import { FlexboxGrid } from 'rsuite'
 import { Panel } from 'rsuite'
 import { ButtonToolbar, Button } from 'rsuite'
@@ -15,7 +15,7 @@ import { Icon, Dropdown } from 'rsuite';
 import { rstream } from '../../../api/streamers'
 import XLSX from 'xlsx'
 
-const Home = () => {
+const Home = (props) => {
     /* HELPS FUNCTION */
     const defaultDateStart = () => {
         const date = new Date();
@@ -79,6 +79,17 @@ const Home = () => {
     const handleChangeDateEnd = (value) => {
         setDateEnd(value)
     }
+    const handleClickLogoutBtn = () => {
+        Meteor.logout()
+        resetRmainUser()
+        props.history.push('/login')
+    }
+    const resetRmainUser = () => {
+        localStorage.removeItem('rmain_user_role')
+        localStorage.removeItem('rmain_user_spa')
+        localStorage.removeItem('rmain_user_firstname')
+        localStorage.removeItem('rmain_user_lastname')
+    }
     return (
         <Container className="flex-column-space-between">
             <Header>
@@ -89,7 +100,7 @@ const Home = () => {
                     <Navbar.Body>
                         <Nav pullRight>
                             <Dropdown title={localStorage.getItem('rmain_user_firstname') + ' ' + localStorage.getItem('rmain_user_lastname')} icon={<Icon icon="user-circle-o" />}>
-                                <Dropdown.Item>Cerrar sesión</Dropdown.Item>
+                                <Dropdown.Item onClick={handleClickLogoutBtn}>Cerrar sesión</Dropdown.Item>
                             </Dropdown>
                         </Nav>
                     </Navbar.Body>
@@ -151,4 +162,4 @@ const Home = () => {
     )
 }
 
-export default Home
+export default withRouter(Home)
