@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { withRouter } from 'react-router-dom'
 import { Container, Header, Footer, Navbar, Nav } from 'rsuite'
 import { Icon, Dropdown } from 'rsuite';
+import { FlexboxGrid, Panel, Col, Notification } from 'rsuite'
 
 const Home = (props) => {
     const [contentHeight, setContentHeight] = useState(window.innerHeight - 84)
@@ -40,13 +41,18 @@ const Home = (props) => {
                     </Navbar>
                 </Header>
                 <section style={{ backgroundColor: 'peru', height: contentHeight }} >
-                    <Nav vertical >
-                        <Nav.Item eventKey="home" icon={<Icon icon="home" />}>Home</Nav.Item>
-                        <Nav.Item eventKey="news">News</Nav.Item>
-                        <Nav.Item eventKey="solutions">Solutions</Nav.Item>
-                        <Nav.Item eventKey="products">Products</Nav.Item>
-                        <Nav.Item eventKey="about">About</Nav.Item>
-                    </Nav>
+                    <FlexboxGrid>
+                        <FlexboxGrid.Item componentClass={Col} colspan={24} md={6}>
+                            <Nav vertical>
+                                <Nav.Item icon={<Icon icon="group" />}>Usuarios</Nav.Item>
+                                <Nav.Item icon={<Icon icon="web" />}>Spa</Nav.Item>
+                            </Nav>
+                        </FlexboxGrid.Item>
+                        <FlexboxGrid.Item componentClass={Col} colspan={24} md={18}>
+
+                        </FlexboxGrid.Item>
+                    </FlexboxGrid>
+
                 </section>
                 <Footer className="login-copyright"><small>&copy; Copyright {new Date().getFullYear()}, Securitas-Perú</small></Footer>
             </Container>
