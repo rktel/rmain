@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-
+import { withRouter } from 'react-router-dom'
 import { Form, FormControl, ControlLabel, FormGroup, HelpBlock } from 'rsuite'
 import { InputPicker, DatePicker, InputNumber } from 'rsuite'
 import { Button, ButtonToolbar, Navbar, Nav, Icon } from 'rsuite'
@@ -139,6 +139,17 @@ const Home = () => {
     const handleOnClickDownloadBtn = () => {
         createExcel('Reporte')
     }
+    const handleClickLogoutBtn = () => {
+        Meteor.logout()
+        resetRmainUser()
+        props.history.push('/login')
+    }
+    const resetRmainUser = () => {
+        localStorage.removeItem('rmain_user_role')
+        localStorage.removeItem('rmain_user_spa')
+        localStorage.removeItem('rmain_user_firstname')
+        localStorage.removeItem('rmain_user_lastname')
+    }
     return (<>
 
         <Container className="flex-column-space-between">
@@ -149,6 +160,13 @@ const Home = () => {
                     <Navbar.Body>
                         <Nav>
                             <Nav.Item>YOUR BUSINESS HERE</Nav.Item>
+                        </Nav>
+                    </Navbar.Body>
+                    <Navbar.Body>
+                        <Nav pullRight>
+                            <Dropdown title={localStorage.getItem('rmain_user_firstname') + ' ' + localStorage.getItem('rmain_user_lastname')} icon={<Icon icon="user-circle-o" />}>
+                                <Dropdown.Item onClick={handleClickLogoutBtn}>Cerrar sesión</Dropdown.Item>
+                            </Dropdown>
                         </Nav>
                     </Navbar.Body>
                 </Navbar>
