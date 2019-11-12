@@ -7,7 +7,19 @@ import { Form, FormControl, FormGroup, ControlLabel } from 'rsuite'
 import { Container, Header, Footer, Navbar } from 'rsuite'
 
 const Login = (props) => {
-
+    const setRmainUserTecnical = (personal) => {
+        const { role, spa, firstname, lastname } = personal
+        localStorage.setItem('rmain_user_role', role)
+        localStorage.setItem('rmain_user_spa', spa)
+        localStorage.setItem('rmain_user_firstname', firstname)
+        localStorage.setItem('rmain_user_lastname', lastname)
+    }
+    const setRmainUserAdmin = (personal) => {
+        const { role, firstname, lastname } = personal
+        localStorage.setItem('rmain_user_role', role)
+        localStorage.setItem('rmain_user_firstname', firstname)
+        localStorage.setItem('rmain_user_lastname', lastname)
+    }
     const [formLogin, setformLogin] = useState({
         username: '',
         password: ''
@@ -21,13 +33,10 @@ const Login = (props) => {
                 if (!error) {
                     Meteor.call('getPersonal', (error2, personal) => {
                         if (!error2 && personal) {
-                            const { role, spa, firstname, lastname } = personal
-                            localStorage.setItem('rmain_user_role', role)
-                            localStorage.setItem('rmain_user_spa', spa)
-                            localStorage.setItem('rmain_user_firstname', firstname)
-                            localStorage.setItem('rmain_user_lastname', lastname)
+                            const { role, spa } = personal
                             // Tecnico
                             if (role && spa) {
+                                setRmainUserTecnical(personal)
                                 if (role == 'Tecnico' && spa == 'Antapaccay') {
                                     props.history.push('/ntpccy')
 
@@ -39,7 +48,7 @@ const Login = (props) => {
                             }
                             // Admin
                             if (role && !spa) {
-                                console.log('role && !!!!spa')
+                                setRmainUserAdmin(personal)
                                 if (role == 'Admin') {
                                     props.history.push('/admin')
                                 }

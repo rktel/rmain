@@ -10,7 +10,7 @@ const { Column, HeaderCell, Cell } = Table
 
 import XLSX from 'xlsx'
 
-const Home = () => {
+const Home = (props) => {
     /* HELPS FUNCTION */
     const createExcel = (filename) => {
         if (resultList.length > 0) {
@@ -356,4 +356,4 @@ const Home = () => {
     </>)
 }
 
-export default Home 
+export default withRouter(Home)
