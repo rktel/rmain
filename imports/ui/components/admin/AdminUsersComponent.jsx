@@ -20,7 +20,7 @@ const AdminUsersComponent = (props) => {
             </ButtonToolbar>
             <Divider />
             <Table
-                height={'100%'}
+                height={300}
                 data={users}
                 onRowClick={data => {
                     console.log(data);
