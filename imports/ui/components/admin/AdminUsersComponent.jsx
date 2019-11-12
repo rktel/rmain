@@ -1,16 +1,20 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Panel, ButtonToolbar, IconButton, Icon, Divider } from 'rsuite'
 import { Table } from 'rsuite'
 const { Column, HeaderCell, Cell } = Table
 
-const users= [
-    {
-        firstname: 'George',
-        username: 'gpig'
-    }
-]
 
 const AdminUsersComponent = (props) => {
+    const [users, setUsers] = useState([])
+
+    useEffect(_ => {
+        Meteor.call('getAllPersonal', (error, result)=>{
+            if(!error && result){
+                setUsers(result)
+            }
+        })
+    }, [])
+
     return (
         <Panel bordered bodyFill style={{ height: props.height, overflowY: 'scroll' }}>
             <ButtonToolbar>

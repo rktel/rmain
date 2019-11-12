@@ -16,6 +16,9 @@ const createCredentials = (personal) => {
 }
 
 Meteor.methods({
+    getAllPersonal(){
+        return Personal.find({}).fetch()
+    },
     getPersonal() {
         return Personal.findOne({ userId: this.userId })
     },
