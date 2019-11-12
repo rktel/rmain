@@ -4,6 +4,12 @@ import { Container, Header, Footer, Navbar, Nav } from 'rsuite'
 import { Icon, Dropdown } from 'rsuite';
 import { FlexboxGrid, Panel, Col, Notification } from 'rsuite'
 
+const Hello = ()=>{
+    return(<>
+        <h1>Hello</h1>
+    </>)
+}
+
 const Home = (props) => {
     const [contentHeight, setContentHeight] = useState(window.innerHeight - 84)
     useEffect(_ => {
@@ -52,7 +58,7 @@ const Home = (props) => {
                         </FlexboxGrid.Item>
                         <FlexboxGrid.Item componentClass={Col} colspan={24} md={20}>
 
-                            <Route path={'/admin/users/:userid'} component={<div>Pepa User</div>} />
+                            <Route path={'/admin/users/:userid'} component={Hello} />
 
                         </FlexboxGrid.Item>
                     </FlexboxGrid>
