@@ -6,12 +6,10 @@ import { Icon, Dropdown } from 'rsuite';
 const Home = (props) => {
     const [contentHeight, setContentHeight] = useState(window.innerHeight - 84)
     useEffect(_ => {
-        window.addEventListener('resize', updateDimensions )
-    },[])
+        window.addEventListener('resize', updateDimensions)
+    }, [])
     const updateDimensions = () => {
-        console.log('Update')
-        const auxContentHeight = window.innerHeight - 84
-        setContentHeight(auxContentHeight)
+        setContentHeight(window.innerHeight - 84)
     }
     const handleClickLogoutBtn = () => {
         Meteor.logout()
@@ -41,7 +39,15 @@ const Home = (props) => {
                         </Navbar.Body>
                     </Navbar>
                 </Header>
-                <section style={{ backgroundColor: 'peru', height: contentHeight }} >Section</section>
+                <section style={{ backgroundColor: 'peru', height: contentHeight }} >
+                    <Nav vertical >
+                        <Nav.Item eventKey="home" icon={<Icon icon="home" />}>Home</Nav.Item>
+                        <Nav.Item eventKey="news">News</Nav.Item>
+                        <Nav.Item eventKey="solutions">Solutions</Nav.Item>
+                        <Nav.Item eventKey="products">Products</Nav.Item>
+                        <Nav.Item eventKey="about">About</Nav.Item>
+                    </Nav>
+                </section>
                 <Footer className="login-copyright"><small>&copy; Copyright {new Date().getFullYear()}, Securitas-Perú</small></Footer>
             </Container>
         </>
