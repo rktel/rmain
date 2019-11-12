@@ -1,5 +1,5 @@
 import React from 'react'
-import { FlexboxGrid, Panel, Col } from 'rsuite'
+import { Nav, Panel } from 'rsuite'
 
 
 const AdminSpaComponent = (props) => {
