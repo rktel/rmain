@@ -1,5 +1,5 @@
 import React from 'react'
-import { Panel, ButtonToolbar, IconButton } from 'rsuite'
+import { Panel, ButtonToolbar, IconButton, Icon } from 'rsuite'
 
 const AdminUsersComponent = (props) => {
     return (
