@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { withRouter, Route } from 'react-router-dom'
 import { Container, Header, Footer, Navbar, Nav } from 'rsuite'
 import { Icon, Dropdown } from 'rsuite';
-import { FlexboxGrid, Panel, Col, Notification } from 'rsuite'
+import { FlexboxGrid, Panel, Col } from 'rsuite'
 
 import md5 from 'md5'
 import AdminUsersComponent from '../../components/admin/AdminUsersComponent'

@@ -1,8 +1,21 @@
 import React from 'react'
+import { FlexboxGrid, Panel, Col } from 'rsuite'
+
 
 const AdminSpaComponent = () => {
     return (<>
-        <h1>Spa Component</h1>
+        <Panel bordered bodyFill>
+            <h1>A</h1>
+            <h1>A</h1>
+            <h1>A</h1>
+            <h1>A</h1>
+            <h1>A</h1>
+            <h1>A</h1>
+            <h1>A</h1>
+            <h1>A</h1>
+            <h1>A</h1>
+            <h1>A</h1>
+        </Panel>
     </>)
 }
 
