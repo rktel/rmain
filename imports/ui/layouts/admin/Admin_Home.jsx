@@ -5,9 +5,11 @@ import { Icon, Dropdown } from 'rsuite';
 import { FlexboxGrid, Panel, Col, Notification } from 'rsuite'
 
 import md5 from 'md5'
+import AdminUsersComponent from '../../components/admin/AdminUsersComponent'
 
-const Hello = ()=>{
-    return(<>
+
+const Hello = () => {
+    return (<>
         <h1>Hello</h1>
     </>)
 }
@@ -53,14 +55,14 @@ const Home = (props) => {
                         <FlexboxGrid.Item componentClass={Col} colspan={24} md={4}>
                             <Panel bordered bodyFill>
                                 <Nav vertical>
-                                    <Nav.Item href={`/admin/users/${md5(Meteor.userId())}`}  icon={<Icon icon="group" />}>Usuarios</Nav.Item>
+                                    <Nav.Item href={`/admin/users/${md5(Meteor.userId())}`} icon={<Icon icon="group" />}>Usuarios</Nav.Item>
                                     <Nav.Item icon={<Icon icon="web" />}>Spa</Nav.Item>
                                 </Nav>
                             </Panel>
                         </FlexboxGrid.Item>
                         <FlexboxGrid.Item componentClass={Col} colspan={24} md={20}>
 
-                            <Route path={'/admin/users/:userid'} component={_=>(<h1>Hi All!</h1>)} />
+                            <Route path={'/admin/users/:userid'} component={<AdminUsersComponent />} />
 
                         </FlexboxGrid.Item>
                     </FlexboxGrid>
