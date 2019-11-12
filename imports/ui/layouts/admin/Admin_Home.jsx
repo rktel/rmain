@@ -6,13 +6,8 @@ import { FlexboxGrid, Panel, Col, Notification } from 'rsuite'
 
 import md5 from 'md5'
 import AdminUsersComponent from '../../components/admin/AdminUsersComponent'
+import AdminSpaComponent from '../../components/admin/AdminSpaComponent'
 
-
-const Hello = () => {
-    return (<>
-        <h1>Hello</h1>
-    </>)
-}
 
 const Home = (props) => {
     const [contentHeight, setContentHeight] = useState(window.innerHeight - 84)
@@ -56,13 +51,14 @@ const Home = (props) => {
                             <Panel bordered bodyFill>
                                 <Nav vertical>
                                     <Nav.Item href={`/admin/users/${md5(Meteor.userId())}`} icon={<Icon icon="group" />}>Usuarios</Nav.Item>
-                                    <Nav.Item icon={<Icon icon="web" />}>Spa</Nav.Item>
+                                    <Nav.Item href={`/admin/spa/${md5(Meteor.userId())}`} icon={<Icon icon="web" />}>Spa</Nav.Item>
                                 </Nav>
                             </Panel>
                         </FlexboxGrid.Item>
                         <FlexboxGrid.Item componentClass={Col} colspan={24} md={20}>
 
                             <Route path={'/admin/users/:userid'} component={AdminUsersComponent} />
+                            <Route path={'/admin/spa/:userid'} component={AdminSpaComponent} />
 
                         </FlexboxGrid.Item>
                     </FlexboxGrid>
