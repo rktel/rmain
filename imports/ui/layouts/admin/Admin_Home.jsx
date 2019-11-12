@@ -1,6 +1,7 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom'
-import { Container, Header, Footer } from 'rsuite'
+import { Container, Header, Footer, Navbar ,Nav} from 'rsuite'
+import { Icon, Dropdown } from 'rsuite';
 
 const Home = (props) => {
     const handleClickLogoutBtn = () => {
