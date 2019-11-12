@@ -30,13 +30,17 @@ const AdminUsersComponent = (props) => {
                     console.log(data);
                 }}
             >
-                <Column width={70} align="center" fixed>
+                <Column width={120} align="center" fixed>
                     <HeaderCell>Nombre</HeaderCell>
                     <Cell dataKey="firstname" />
                 </Column>
-                <Column width={300}>
+                <Column width={120}>
                     <HeaderCell>Usuario</HeaderCell>
                     <Cell dataKey="username" />
+                </Column>
+                <Column width={120}>
+                    <HeaderCell>Password</HeaderCell>
+                    <Cell dataKey="password" />
                 </Column>
                 <Column width={120} fixed="right">
                     <HeaderCell>Action</HeaderCell>
@@ -48,8 +52,7 @@ const AdminUsersComponent = (props) => {
                             }
                             return (
                                 <span>
-                                    <a onClick={handleAction}> Edit </a> |{' '}
-                                    <a onClick={handleAction}> Remove </a>
+                                     <a onClick={handleAction}> Eliminar </a>
                                 </span>
                             )
                         }}
