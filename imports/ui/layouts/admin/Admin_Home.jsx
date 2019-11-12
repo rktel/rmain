@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { withRouter } from 'react-router-dom'
+import { withRouter, Link } from 'react-router-dom'
 import { Container, Header, Footer, Navbar, Nav } from 'rsuite'
 import { Icon, Dropdown } from 'rsuite';
 import { FlexboxGrid, Panel, Col, Notification } from 'rsuite'
@@ -41,22 +41,19 @@ const Home = (props) => {
                     </Navbar>
                 </Header>
                 <section style={{ height: contentHeight }} >
-                    <FlexboxGrid style={{marginTop: 8}}>
+                    <FlexboxGrid style={{ marginTop: 8 }}>
                         <FlexboxGrid.Item componentClass={Col} colspan={24} md={4}>
                             <Panel bordered bodyFill>
                                 <Nav vertical>
-                                    <Nav.Item icon={<Icon icon="group" />}>Usuarios</Nav.Item>
+                                    <Nav.Item href={`/admin/users/${Meteor.userId()}`}  icon={<Icon icon="group" />}>Usuarios</Nav.Item>
                                     <Nav.Item icon={<Icon icon="web" />}>Spa</Nav.Item>
                                 </Nav>
                             </Panel>
                         </FlexboxGrid.Item>
                         <FlexboxGrid.Item componentClass={Col} colspan={24} md={20}>
-                            <Panel bordered bodyFill>
-                                <Nav vertical>
-                                    <Nav.Item icon={<Icon icon="group" />}>Usuarios</Nav.Item>
-                                    <Nav.Item icon={<Icon icon="web" />}>Spa</Nav.Item>
-                                </Nav>
-                            </Panel>
+
+                            <Route path='/admin/users/:userid' component={<div>Pepa User</div>} />
+
                         </FlexboxGrid.Item>
                     </FlexboxGrid>
 
