@@ -1,9 +1,17 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { withRouter } from 'react-router-dom'
-import { Container, Header, Footer, Navbar ,Nav} from 'rsuite'
+import { Container, Header, Footer, Navbar, Nav } from 'rsuite'
 import { Icon, Dropdown } from 'rsuite';
 
 const Home = (props) => {
+    const [contentHeight, setContentHeight] = useState(0)
+    useEffect(_ => {
+        window.addEventListener('resize', updateDimensions())
+    }, [])
+    const updateDimensions = () => {
+        const auxContentHeight = window.innerHeight - 84
+        setContentHeight(auxContentHeight)
+    }
     const handleClickLogoutBtn = () => {
         Meteor.logout()
         resetRmainUser()
@@ -32,7 +40,7 @@ const Home = (props) => {
                         </Navbar.Body>
                     </Navbar>
                 </Header>
-                <section>Section</section>
+                <section style={{ backgroundColor: 'peru', height: contentHeight }} >Section</section>
                 <Footer className="login-copyright"><small>&copy; Copyright {new Date().getFullYear()}, Securitas-Perú</small></Footer>
             </Container>
         </>
