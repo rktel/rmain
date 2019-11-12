@@ -49,10 +49,9 @@ const Login = (props) => {
                             // Admin
                             if (role && !spa) {
                                 setRmainUserAdmin(personal)
-                                if (role == 'Admin') {
+                                if (role == 'Admin' || role == 'Hyperadmin') {
                                     props.history.push('/admin')
                                 }
-                                if (role == 'Hyperadmin') { }
                             }
                         }
                     })
