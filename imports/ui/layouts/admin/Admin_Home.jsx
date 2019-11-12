@@ -43,7 +43,7 @@ const Home = (props) => {
                 <section style={{ height: contentHeight }} >
                     <FlexboxGrid>
                         <FlexboxGrid.Item componentClass={Col} colspan={24} md={4}>
-                            <Panel bordered>
+                            <Panel bordered bodyFill>
                                 <Nav vertical>
                                     <Nav.Item icon={<Icon icon="group" />}>Usuarios</Nav.Item>
                                     <Nav.Item icon={<Icon icon="web" />}>Spa</Nav.Item>
