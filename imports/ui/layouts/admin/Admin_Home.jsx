@@ -58,7 +58,7 @@ const Home = (props) => {
                         </FlexboxGrid.Item>
                         <FlexboxGrid.Item componentClass={Col} colspan={24} md={20}>
 
-                            <Route path={'/admin/users/:userid'} component={Hello} />
+                            <Route path={'/admin/users/:userid'} component={_=>(<h1>Hi All!</h1>)} />
 
                         </FlexboxGrid.Item>
                     </FlexboxGrid>
