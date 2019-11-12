@@ -33,7 +33,7 @@ const Home = (props) => {
                     </Navbar>
                 </Header>
                 <section>Section</section>
-                <Footer>Footer</Footer>
+                <Footer className="login-copyright"><small>&copy; Copyright {new Date().getFullYear()}, Securitas-Perú</small></Footer>
             </Container>
         </>
     )

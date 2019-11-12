@@ -14,13 +14,13 @@ const App = () => {
         <BrowserRouter>
             <Switch>
                 <Route path='/ntpccy' render={_ => (
-                    (localStorage.getItem('rmain_user_spa') == 'Antapaccay' && localStorage.getItem('rmain_user_role') == 'Tecnico' || localStorage.getItem('rmain_user_role') == 'Admin' || localStorage.getItem('rmain_user_role') == 'Hyperadmin') ? (<Antapaccay_Home />) : (<Redirect to='/login' />)
+                    (Meteor.userId() && localStorage.getItem('rmain_user_spa') == 'Antapaccay' && localStorage.getItem('rmain_user_role') == 'Tecnico' || localStorage.getItem('rmain_user_role') == 'Admin' || localStorage.getItem('rmain_user_role') == 'Hyperadmin') ? (<Antapaccay_Home />) : (<Redirect to='/login' />)
                 )} />
                 <Route path='/pltn' render={_ => (
-                    (localStorage.getItem('rmain_user_spa') == 'Pluton' && localStorage.getItem('rmain_user_role') == 'Tecnico' || localStorage.getItem('rmain_user_role') == 'Admin' || localStorage.getItem('rmain_user_role') == 'Hyperadmin') ? (<Pluton_Home />) : (<Redirect to='/login' />)
+                    (Meteor.userId() && localStorage.getItem('rmain_user_spa') == 'Pluton' && localStorage.getItem('rmain_user_role') == 'Tecnico' || localStorage.getItem('rmain_user_role') == 'Admin' || localStorage.getItem('rmain_user_role') == 'Hyperadmin') ? (<Pluton_Home />) : (<Redirect to='/login' />)
                 )} />
                 <Route path='/admin' render={_=>(
-                    (localStorage.getItem('rmain_user_role') == 'Admin' || localStorage.getItem('rmain_user_role') == 'Hyperadmin') ? (<Admin_Home />) : (<Redirect to='/login' />)                    
+                    (Meteor.userId() && localStorage.getItem('rmain_user_role') == 'Admin' || localStorage.getItem('rmain_user_role') == 'Hyperadmin') ? (<Admin_Home />) : (<Redirect to='/login' />)                    
                 )} />
                 <Route path='/login' component={Login} />
                 <Route render={_ => (<Redirect to='/login' />)} />
