@@ -4,10 +4,10 @@ import { Container, Header, Footer, Navbar, Nav } from 'rsuite'
 import { Icon, Dropdown } from 'rsuite';
 
 const Home = (props) => {
-    const [contentHeight, setContentHeight] = useState(0)
+    const [contentHeight, setContentHeight] = useState(window.innerHeight - 84)
     useEffect(_ => {
         window.addEventListener('resize', updateDimensions )
-    })
+    },[])
     const updateDimensions = () => {
         console.log('Update')
         const auxContentHeight = window.innerHeight - 84
