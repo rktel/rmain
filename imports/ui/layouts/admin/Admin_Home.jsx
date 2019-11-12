@@ -48,7 +48,7 @@ const Home = (props) => {
                 <section style={{ height: contentHeight }} >
                     <FlexboxGrid style={{ marginTop: 8 }}>
                         <FlexboxGrid.Item componentClass={Col} colspan={24} md={4}>
-                            <Panel bordered bodyFill>
+                            <Panel bordered bodyFill style={{height: contentHeight - 16}}>
                                 <Nav vertical>
                                     <Nav.Item href={`/admin/users/${md5(Meteor.userId())}`} icon={<Icon icon="group" />}>Usuarios</Nav.Item>
                                     <Nav.Item href={`/admin/spa/${md5(Meteor.userId())}`} icon={<Icon icon="web" />}>Spa</Nav.Item>
