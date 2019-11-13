@@ -10,6 +10,15 @@ const AdminUsersComponent = (props) => {
     //MODAL CREATE NEW USER COMPONENT
 
     const ModalCreateUser = () => {
+        const onCreateUser = () => {
+            if (formCreateUser.firstname && formCreateUser.lastname && formCreateUser.email && formCreateUser.role && formCreateUser.spa) {
+                Meteor.call('createPersonal', formCreateUser)
+            }
+            if (formCreateUser.firstname && formCreateUser.lastname && formCreateUser.email && formCreateUser.role && !formCreateUser.spa) {
+                Meteor.call('createAdmin', formCreateUser)
+            }
+            onCloseModalCreateUser()
+        }
         const onHandleChangeCreateUser = (elements) => {
             setFormCreateUser(elements)
         }
@@ -42,17 +51,14 @@ const AdminUsersComponent = (props) => {
                         <FormGroup>
                             <ControlLabel>Nombres</ControlLabel>
                             <FormControl name="firstname" />
-                            <HelpBlock>Requerido</HelpBlock>
                         </FormGroup>
                         <FormGroup>
                             <ControlLabel>Apellidos</ControlLabel>
                             <FormControl name="lastname" />
-                            <HelpBlock>Requerido</HelpBlock>
                         </FormGroup>
                         <FormGroup>
                             <ControlLabel>Email</ControlLabel>
                             <FormControl name="email" type="email" />
-                            <HelpBlock>Requerido</HelpBlock>
                         </FormGroup>
                         <FormGroup>
                             <ControlLabel>Rol</ControlLabel>
@@ -66,7 +72,7 @@ const AdminUsersComponent = (props) => {
                     </Form>
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button onClick={onCloseModalCreateUser} appearance="primary">
+                    <Button onClick={onCreateUser} appearance="primary">
                         Crear
                     </Button>
                     <Button onClick={onCloseModalCreateUser} appearance="subtle">
@@ -121,21 +127,12 @@ const AdminUsersComponent = (props) => {
     const [showModalCreateUser, setShowModalCreateUser] = useState(false)
 
     //MODAL CREATE USER
-    const onCreateUser = () => {
-        /*
-        if (userToCreate.spa) {
-            Meteor.call('createPersonal', userToCreate)
-        } else {
-            Meteor.call('createAdmin', userToCreate)
-        }
-        */
-    }
+
     const onOpenModalCreateUser = () => {
         setShowModalCreateUser(true)
     }
     const onCloseModalCreateUser = () => {
         setShowModalCreateUser(false)
-
     }
 
     //MODAL CONFIRM REMOVE
