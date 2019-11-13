@@ -5,6 +5,7 @@ const { Column, HeaderCell, Cell } = Table
 import { Modal } from 'rsuite'
 
 const AdminUsersComponent = (props) => {
+    // MODAL
     const ModalConfirmRemoveUser = () => {
 
         return (
@@ -51,6 +52,7 @@ const AdminUsersComponent = (props) => {
     const onClearUserToRemove = () => {
         setUserToRemove({})
     }
+    //MODAL
     const [showModalConfirmRemoveUser, setShowModalConfirmRemoveUser] = useState(false)
     const onCloseModalConfirmRemoveUser = () => {
         setShowModalConfirmRemoveUser(false)
@@ -72,7 +74,7 @@ const AdminUsersComponent = (props) => {
                 onCloseModalConfirmRemoveUser={onCloseModalConfirmRemoveUser}
                 userToRemove={userToRemove} />
             <ButtonToolbar>
-                <IconButton icon={<Icon icon="user-circle-o" />} placement="left" color='green' size='sm'>
+                <IconButton icon={<Icon icon="user-circle-o" />} placement="left" color='green' size='sm' onClick={alert('Press')}>
                     Nuevo
                 </IconButton>
             </ButtonToolbar>
