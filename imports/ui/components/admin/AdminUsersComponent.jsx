@@ -60,7 +60,7 @@ const AdminUsersComponent = (props) => {
                         </FormGroup>
                         <FormGroup>
                             <ControlLabel>Spa</ControlLabel>
-                            <FormControl name="role" accepter={InputPicker} data={userSpaList} />
+                            <FormControl name="spa" accepter={InputPicker} data={userSpaList} />
                         </FormGroup>
                     </Form>
                 </Modal.Body>
