@@ -296,7 +296,7 @@ const Home = (props) => {
                                 </ButtonToolbar>
                             </FlexboxGrid>
                             <Table
-                                height={contentHeight-32}
+                                height={contentHeight-38}
                                 data={resultList}
                                 renderEmpty={() => <div className="flex-center">Aun sin datos</div>}
                             >
