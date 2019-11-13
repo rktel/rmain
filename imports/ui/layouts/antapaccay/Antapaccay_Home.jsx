@@ -105,7 +105,7 @@ const Home = (props) => {
             <Header>
                 <Navbar appearance="inverse">
                     <Navbar.Header>
-                        <img src="/img/seclog.png" alt="Securitas Logo" height="45" className="navbar-brand" />
+                        <img src="/img/Antapaccay.png" alt="Antapaccay Logo" height="45" className="navbar-brand" />
                     </Navbar.Header>
                     <Navbar.Body>
                         <Nav pullRight>
