@@ -18,7 +18,7 @@ const ModalConfirmRemoveUser = (props) => {
                     }}
                 />
                 {'  '}
-                {`¿Esta seguro(a)? \n ¿Desea eliminar el usuario ${props.userToRemove.firstname}?`}
+                {`¿Esta seguro(a)? <br/> ¿Desea eliminar el usuario ${props.userToRemove.firstname}?`}
             </Modal.Body>
             <Modal.Footer>
                 <Button onClick={onRemoveUser} appearance="primary">
