@@ -58,10 +58,11 @@ const AdminUsersComponent = (props) => {
                             <ControlLabel>Rol</ControlLabel>
                             <FormControl name="role" accepter={InputPicker} data={userRolList} />
                         </FormGroup>
-                        <FormGroup>
-                            <ControlLabel>Spa</ControlLabel>
-                            <FormControl name="spa" accepter={InputPicker} data={userSpaList} />
-                        </FormGroup>
+                        {formCreateUser.role == 'Tecnico' &&
+                            <FormGroup>
+                                <ControlLabel>Spa</ControlLabel>
+                                <FormControl name="spa" accepter={InputPicker} data={userSpaList} />
+                            </FormGroup>}
                     </Form>
                 </Modal.Body>
                 <Modal.Footer>
