@@ -52,9 +52,9 @@ const Home = (props) => {
         Meteor.call('Pluton_plates', (error, elements) => setPlates(elements)) 
     }, [])
     const updateDimensions = () => {
-        setContentHeight(window.innerHeight - 84)
+        setContentHeight(window.innerHeight - 120)
     }
-    const [contentHeight, setContentHeight] = useState(window.innerHeight - 84)
+    const [contentHeight, setContentHeight] = useState(window.innerHeight - 120)
     const [plates, setPlates] = useState([])
 
     const [formElements, setFormElements] = useState({
