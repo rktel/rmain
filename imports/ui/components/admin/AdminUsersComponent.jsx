@@ -3,35 +3,44 @@ import { Panel, ButtonToolbar, IconButton, Icon, Button } from 'rsuite'
 import { Table } from 'rsuite'
 const { Column, HeaderCell, Cell } = Table
 import { Modal } from 'rsuite'
-const ModalConfirmRemoveUser = (props) => {
-    const onRemoveUser = () => {
-        Meteor.call('removePersonal', props.userToRemove)
-    }
-    return (
-        <Modal backdrop="static" show={props.showModalConfirmRemoveUser} onHide={props.onCloseModalConfirmRemoveUser} size="xs">
-            <Modal.Body>
-                <Icon
-                    icon="remind"
-                    style={{
-                        color: '#ffb300',
-                        fontSize: 24
-                    }}
-                />
-                {'  '}
-                {`¿Esta seguro(a)? <br/> ¿Desea eliminar el usuario ${props.userToRemove.firstname}?`}
-            </Modal.Body>
-            <Modal.Footer>
-                <Button onClick={onRemoveUser} appearance="primary">
-                    Si
-                </Button>
-                <Button onClick={props.onCloseModalConfirmRemoveUser} appearance="subtle">
-                    Cancelar
-                </Button>
-            </Modal.Footer>
-        </Modal>
-    )
-}
+
 const AdminUsersComponent = (props) => {
+    const ModalConfirmRemoveUser = () => {
+
+        return (
+            <Modal backdrop="static" show={showModalConfirmRemoveUser} onHide={onCloseModalConfirmRemoveUser} size="xs">
+                <Modal.Body>
+                    <Icon
+                        icon="remind"
+                        style={{
+                            color: '#ffb300',
+                            fontSize: 24
+                        }}
+                    />
+                    {'  '}
+                    {`¿Esta seguro(a)? ¿Desea eliminar el usuario ${userToRemove.firstname}?`}
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button onClick={onRemoveUser} appearance="primary">
+                        Si
+                    </Button>
+                    <Button onClick={onCloseModalConfirmRemoveUser} appearance="subtle">
+                        Cancelar
+                    </Button>
+                </Modal.Footer>
+            </Modal>
+        )
+    }
+    const onRemoveUser = () => {
+        Meteor.call('removePersonal', userToRemove)
+        Meteor.call('getAllPersonal', (error, result) => {
+            if (!error && result) {
+                setUsers(result.filter(it => it.role == 'Tecnico' || it.role == 'Admin'))
+            }
+        })
+        setShowModalConfirmRemoveUser(false)
+        onClearUserToRemove()
+    }
     const [userToRemove, setUserToRemove] = useState({})
     const onSetUserToRemove = (auxUserToRemove) => {
         setUserToRemove(auxUserToRemove)
