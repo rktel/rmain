@@ -4,16 +4,18 @@ import { FlexboxGrid } from 'rsuite'
 import { Panel } from 'rsuite'
 import { ButtonToolbar, Button } from 'rsuite'
 import { Form, FormGroup, ControlLabel } from 'rsuite'
-import { Container, Header, Footer, Navbar ,Nav} from 'rsuite'
+import { Container, Header, Footer, Navbar, Nav } from 'rsuite'
 import { Col } from 'rsuite'
 import { CheckPicker } from 'rsuite'
 import { DatePicker } from 'rsuite'
 import { Notification } from 'rsuite';
 import { Icon, Dropdown } from 'rsuite';
-
+import { Table } from 'rsuite'
+const { Column, HeaderCell, Cell } = Table
 
 import { rstream } from '../../../api/streamers'
 import XLSX from 'xlsx'
+
 
 const Home = (props) => {
     const [contentHeight, setContentHeight] = useState(window.innerHeight - 84)
@@ -31,6 +33,7 @@ const Home = (props) => {
         date.setHours(23, 59, 59, 999)
         return date
     }
+    const [dataReport, setDataReport] = useState([])
     /* HOOKS */
     useEffect(_ => {
         window.addEventListener('resize', updateDimensions)
@@ -42,6 +45,7 @@ const Home = (props) => {
                         placement: 'topRight',
                         description: `Data encontrada`
                     })
+                    setDataReport(data)
                     data = XLSX.utils.json_to_sheet(data)
                     const workbook = XLSX.utils.book_new()
                     XLSX.utils.book_append_sheet(workbook, data, 'Reporte')
@@ -95,6 +99,9 @@ const Home = (props) => {
         localStorage.removeItem('rmain_user_firstname')
         localStorage.removeItem('rmain_user_lastname')
     }
+    const handleOnClickDownloadBtn = () => {
+        alert('Download')
+    }
     return (
         <Container className="flex-column-space-between">
             <Header>
@@ -115,7 +122,7 @@ const Home = (props) => {
             <FlexboxGrid justify="start" style={{ marginTop: 8 }}>
                 <FlexboxGrid.Item componentClass={Col} colspan={24} md={6}>
                     <Panel header="FORMULARIO" className="card" bordered>
-                        <Form fluid style={{height: contentHeight - 120}}>
+                        <Form fluid style={{ height: contentHeight - 120 }}>
                             <FormGroup>
                                 <ControlLabel>Vehiculos</ControlLabel>
                                 <CheckPicker
@@ -157,6 +164,67 @@ const Home = (props) => {
                                 </ButtonToolbar>
                             </FormGroup>
                         </Form>
+                    </Panel>
+                </FlexboxGrid.Item>
+                <FlexboxGrid.Item componentClass={Col} colspan={24} md={18}>
+                    <Panel header="TABLA DE RESULTADOS" className="card" bordered>
+                        <FlexboxGrid justify="end" style={{ padding: '4px 0' }}>
+                            <ButtonToolbar>
+                                <Button color="green" color="green" size="xs" onClick={handleOnClickDownloadBtn}>
+                                    <Icon icon="file-excel-o" /> Descargar
+                                    </Button>
+                            </ButtonToolbar>
+                        </FlexboxGrid>
+                        <Table
+                            height={contentHeight - 40}
+                            data={dataReport}
+                            renderEmpty={() => <div className="flex-center">Aun sin datos</div>}
+                        >
+                            <Column width={80} >
+                                <HeaderCell>Fecha</HeaderCell>
+                                <Cell dataKey="fecha" />
+                            </Column>
+                            <Column width={80} >
+                                <HeaderCell>Hora</HeaderCell>
+                                <Cell dataKey="hora" />
+                            </Column>
+                            <Column width={80} >
+                                <HeaderCell>Estado</HeaderCell>
+                                <Cell dataKey="estado" />
+                            </Column>
+                            <Column width={80}>
+                                <HeaderCell>Latitud</HeaderCell>
+                                <Cell dataKey="lat" />
+                            </Column>
+                            <Column width={80}>
+                                <HeaderCell>Longitud</HeaderCell>
+                                <Cell dataKey="lon" />
+                            </Column>
+                            <Column width={80}>
+                                <HeaderCell>Velocidad</HeaderCell>
+                                <Cell dataKey="velocidad" />
+                            </Column>
+                            <Column width={80}>
+                                <HeaderCell>Odometro</HeaderCell>
+                                <Cell dataKey="Odometro" />
+                            </Column>
+                            <Column width={80}>
+                                <HeaderCell>Direccion</HeaderCell>
+                                <Cell dataKey="direccion" />
+                            </Column>
+                            <Column width={80}>
+                                <HeaderCell>Geozona</HeaderCell>
+                                <Cell dataKey="geozona" />
+                            </Column>
+                            <Column width={80}>
+                                <HeaderCell>Conductor</HeaderCell>
+                                <Cell dataKey="conductor" />
+                            </Column>
+                            <Column width={80} fixed>
+                                <HeaderCell>Placa</HeaderCell>
+                                <Cell dataKey="placa" />
+                            </Column>
+                        </Table>
                     </Panel>
                 </FlexboxGrid.Item>
             </FlexboxGrid>
