@@ -115,7 +115,7 @@ const Home = (props) => {
             <FlexboxGrid justify="start" style={{ marginTop: 8 }}>
                 <FlexboxGrid.Item componentClass={Col} colspan={24} md={6}>
                     <Panel header="FORMULARIO" className="card" bordered>
-                        <Form fluid style={{height: contentHeight - 8}}>
+                        <Form fluid style={{height: contentHeight - 40}}>
                             <FormGroup>
                                 <ControlLabel>Vehiculos</ControlLabel>
                                 <CheckPicker
