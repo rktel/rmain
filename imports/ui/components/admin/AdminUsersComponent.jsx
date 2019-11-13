@@ -8,25 +8,26 @@ import { Form, FormGroup, ControlLabel, FormControl, HelpBlock } from 'rsuite'
 
 const AdminUsersComponent = (props) => {
     //MODAL CREATE NEW USER COMPONENT
-    const onHandleChangeCreateUser = (elements) => {
-        setFormCreateUser(elements)
-    }
-    const [formCreateUser, setFormCreateUser] = useState({
-        firstname: '',
-        lastname: '',
-        email: '',
-        role: '',
-        spa: ''
-    })
-    const userRolList = [
-        { label: 'Tecnico', value: 'Tecnico' },
-        { label: 'Admin', value: 'Admin' },
-    ]
-    const userSpaList = [
-        { label: 'Antapaccay', value: 'Antapaccay' },
-        { label: 'Pluton', value: 'Pluton' },
-    ]
+
     const ModalCreateUser = () => {
+        const onHandleChangeCreateUser = (elements) => {
+            setFormCreateUser(elements)
+        }
+        const [formCreateUser, setFormCreateUser] = useState({
+            firstname: '',
+            lastname: '',
+            email: '',
+            role: '',
+            spa: ''
+        })
+        const userRolList = [
+            { label: 'Tecnico', value: 'Tecnico' },
+            { label: 'Admin', value: 'Admin' },
+        ]
+        const userSpaList = [
+            { label: 'Antapaccay', value: 'Antapaccay' },
+            { label: 'Pluton', value: 'Pluton' },
+        ]
         return (
             <Modal show={showModalCreateUser} onHide={onCloseModalCreateUser} size="xs">
                 <Modal.Header>
@@ -55,11 +56,11 @@ const AdminUsersComponent = (props) => {
                         </FormGroup>
                         <FormGroup>
                             <ControlLabel>Rol</ControlLabel>
-                            <FormControl name="role" accepter={InputPicker} data={userRolList}/>
+                            <FormControl name="role" accepter={InputPicker} data={userRolList} />
                         </FormGroup>
                         <FormGroup>
                             <ControlLabel>Spa</ControlLabel>
-                            <FormControl name="role" accepter={InputPicker} data={userSpaList}/>
+                            <FormControl name="role" accepter={InputPicker} data={userSpaList} />
                         </FormGroup>
                     </Form>
                 </Modal.Body>
