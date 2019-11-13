@@ -45,7 +45,7 @@ const Home = (props) => {
                         </Navbar.Body>
                     </Navbar>
                 </Header>
-                <section style={{ height: contentHeight }} >
+                <section  >
                     <FlexboxGrid style={{ marginTop: 8 }}>
                         <FlexboxGrid.Item componentClass={Col} colspan={24} md={4}>
                             <Panel bordered bodyFill style={{height: contentHeight - 8}}>
