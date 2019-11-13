@@ -4,6 +4,9 @@ import { Table } from 'rsuite'
 const { Column, HeaderCell, Cell } = Table
 import { Modal } from 'rsuite'
 const ModalConfirmRemoveUser = (props) => {
+    const onRemoveUser = () => {
+        Meteor.call('removePersonal', props.userToRemove)
+    }
     return (
         <Modal backdrop="static" show={props.showModalConfirmRemoveUser} onHide={props.onCloseModalConfirmRemoveUser} size="xs">
             <Modal.Body>
@@ -15,24 +18,31 @@ const ModalConfirmRemoveUser = (props) => {
                     }}
                 />
                 {'  '}
-                Once a project is disabled, there will be no update on project report, and project
-                members can access history data only. Are you sure you want to proceed?
-          </Modal.Body>
+                {`Desea eliminar el usuario ${props.userToRemove.firstname}`}
+            </Modal.Body>
             <Modal.Footer>
-                <Button onClick={props.onCloseModalConfirmRemoveUser} appearance="primary">
-                    Ok
+                <Button onClick={onRemoveUser} appearance="primary">
+                    Si
                 </Button>
                 <Button onClick={props.onCloseModalConfirmRemoveUser} appearance="subtle">
-                    Cancel
+                    Cancelar
                 </Button>
             </Modal.Footer>
         </Modal>
     )
 }
 const AdminUsersComponent = (props) => {
+    const [userToRemove, setUserToRemove] = useState({})
+    const onSetUserToRemove = (auxUserToRemove) => {
+        setUserToRemove(auxUserToRemove)
+    }
+    const onClearUserToRemove = () => {
+        setUserToRemove({})
+    }
     const [showModalConfirmRemoveUser, setShowModalConfirmRemoveUser] = useState(false)
     const onCloseModalConfirmRemoveUser = () => {
         setShowModalConfirmRemoveUser(false)
+        onClearUserToRemove()
     }
     const onOpenModalConfirmRemoveUser = () => {
         setShowModalConfirmRemoveUser(true)
@@ -49,7 +59,10 @@ const AdminUsersComponent = (props) => {
 
     return (
         <Panel bordered bodyFill style={{ height: props.height }}>
-            <ModalConfirmRemoveUser showModalConfirmRemoveUser={showModalConfirmRemoveUser} onCloseModalConfirmRemoveUser={onCloseModalConfirmRemoveUser} />
+            <ModalConfirmRemoveUser
+                showModalConfirmRemoveUser={showModalConfirmRemoveUser}
+                onCloseModalConfirmRemoveUser={onCloseModalConfirmRemoveUser}
+                userToRemove={userToRemove} />
             <ButtonToolbar>
                 <IconButton icon={<Icon icon="user-circle-o" />} placement="left" color='green' size='sm'>
                     Nuevo
@@ -85,8 +98,8 @@ const AdminUsersComponent = (props) => {
                     <Cell>
                         {item => {
                             const handleOnRemoveItem = () => {
-                                // Meteor.call('removePersonal',item)
                                 onOpenModalConfirmRemoveUser()
+                                onSetUserToRemove(item)
                             }
                             return (
                                 <span>
