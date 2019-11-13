@@ -82,19 +82,19 @@ Meteor.methods({
     },
     async Pluton_createPlates() {
         const plutonPlatesNow = await Pluton.rawCollection().distinct('events.vehicle')
-        const plutonPlatesAge = await Plates.findOne({ name: 'Chingudi' })
+        const plutonPlatesAge = await Plates.findOne({ name: 'Pluton' })
         if (!plutonPlatesAge) {
-            Plates.insert({ name: 'Chingudi', plates: plutonPlatesNow })
-            console.log('Creando lista de placas de Chingudi')
+            Plates.insert({ name: 'Pluton', plates: plutonPlatesNow })
+            console.log('Creando lista de placas de Pluton')
         }
         if (plutonPlatesAge && plutonPlatesAge.plates.length != plutonPlatesNow.length) {
-            Plates.remove({ name: 'Chingudi' })
-            Plates.insert({ name: 'Chingudi', plates: plutonPlatesNow })
-            console.log('Actualizando lista de placas de Chingudi')
+            Plates.remove({ name: 'Pluton' })
+            Plates.insert({ name: 'Pluton', plates: plutonPlatesNow })
+            console.log('Actualizando lista de placas de Pluton')
         }
     },
     async Pluton_plates() {
-        const plates = await Plates.findOne({ name: 'Chingudi' })
+        const plates = await Plates.findOne({ name: 'Pluton' })
         let proPlates = []
         plates.plates.map(el => {
             proPlates.push({
