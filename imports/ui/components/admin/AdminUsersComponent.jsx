@@ -133,6 +133,7 @@ const AdminUsersComponent = (props) => {
     }
     const onCloseModalCreateUser = () => {
         setShowModalCreateUser(false)
+        setUsersByMeteor()
     }
 
     //MODAL CONFIRM REMOVE
