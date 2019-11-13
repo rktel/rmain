@@ -47,8 +47,14 @@ const Home = (props) => {
         { label: 'GLP', value: 'GLP' },
     ]
     /* HOOKS */
-    useEffect(() => { Meteor.call('Pluton_plates', (error, elements) => setPlates(elements)) }, [])
-
+    useEffect(() => { 
+        window.addEventListener('resize', updateDimensions)
+        Meteor.call('Pluton_plates', (error, elements) => setPlates(elements)) 
+    }, [])
+    const updateDimensions = () => {
+        setContentHeight(window.innerHeight - 84)
+    }
+    const [contentHeight, setContentHeight] = useState(window.innerHeight - 84)
     const [plates, setPlates] = useState([])
 
     const [formElements, setFormElements] = useState({
@@ -174,10 +180,10 @@ const Home = (props) => {
                 </Navbar>
             </Header>
             <section>
-                <FlexboxGrid>
+                <FlexboxGrid style={{marginTop: 8}}>
                     <FlexboxGrid.Item componentClass={Col} colspan={24} md={6}>
                         <Panel header="FORMULARIO" className="card" bordered >
-                            <Form formValue={formElements} onChange={handleOnChangeFormElements} style={{ height: 460, overflowY: 'scroll' }}>
+                            <Form formValue={formElements} onChange={handleOnChangeFormElements} style={{ height: contentHeight-8, overflowY: 'scroll' }}>
                                 <FormGroup>
                                     <ControlLabel>Lista de unidades</ControlLabel>
                                     <FormControl
