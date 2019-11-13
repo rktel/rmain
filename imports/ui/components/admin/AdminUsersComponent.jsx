@@ -8,9 +8,9 @@ const AdminUsersComponent = (props) => {
     const [users, setUsers] = useState([])
 
     useEffect(_ => {
-        Meteor.call('getAllPersonal', (error, result)=>{
-            if(!error && result){
-                setUsers(result)
+        Meteor.call('getAllPersonal', (error, result) => {
+            if (!error && result) {
+                setUsers(result.filter(it => it.role == 'Tecnico' || it.role == 'Admin'))
             }
         })
     }, [])
@@ -52,7 +52,7 @@ const AdminUsersComponent = (props) => {
                             }
                             return (
                                 <span>
-                                     <a onClick={handleAction}> Eliminar </a>
+                                    <a onClick={handleAction}> Eliminar </a>
                                 </span>
                             )
                         }}
