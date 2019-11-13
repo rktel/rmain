@@ -3,11 +3,79 @@ import { Panel, ButtonToolbar, IconButton, Icon, Button } from 'rsuite'
 import { Table } from 'rsuite'
 const { Column, HeaderCell, Cell } = Table
 import { Modal } from 'rsuite'
+import { InputPicker } from 'rsuite'
+import { Form, FormGroup, ControlLabel, FormControl, HelpBlock } from 'rsuite'
 
 const AdminUsersComponent = (props) => {
-    // MODAL
+    //MODAL CREATE NEW USER COMPONENT
+    const onHandleChangeCreateUser = (elements) => {
+        setFormCreateUser(elements)
+    }
+    const [formCreateUser, setFormCreateUser] = useState({
+        firstname: '',
+        lastname: '',
+        email: '',
+        role: '',
+        spa: ''
+    })
+    const userRolList = [
+        { label: 'Tecnico', value: 'Tecnico' },
+        { label: 'Admin', value: 'Admin' },
+    ]
+    const userSpaList = [
+        { label: 'Antapaccay', value: 'Antapaccay' },
+        { label: 'Pluton', value: 'Pluton' },
+    ]
+    const ModalCreateUser = () => {
+        return (
+            <Modal show={showModalCreateUser} onHide={onCloseModalCreateUser} size="xs">
+                <Modal.Header>
+                    <Modal.Title>Nuevo Usuario</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <Form
+                        fluid
+                        onChange={onHandleChangeCreateUser}
+                        formValue={formCreateUser}
+                    >
+                        <FormGroup>
+                            <ControlLabel>Nombres</ControlLabel>
+                            <FormControl name="firstname" />
+                            <HelpBlock>Requerido</HelpBlock>
+                        </FormGroup>
+                        <FormGroup>
+                            <ControlLabel>Apellidos</ControlLabel>
+                            <FormControl name="lastname" />
+                            <HelpBlock>Requerido</HelpBlock>
+                        </FormGroup>
+                        <FormGroup>
+                            <ControlLabel>Email</ControlLabel>
+                            <FormControl name="email" type="email" />
+                            <HelpBlock>Requerido</HelpBlock>
+                        </FormGroup>
+                        <FormGroup>
+                            <ControlLabel>Rol</ControlLabel>
+                            <FormControl name="role" accepter={InputPicker} data={userRolList}/>
+                        </FormGroup>
+                        <FormGroup>
+                            <ControlLabel>Spa</ControlLabel>
+                            <FormControl name="role" accepter={InputPicker} data={userSpaList}/>
+                        </FormGroup>
+                    </Form>
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button onClick={onCloseModalCreateUser} appearance="primary">
+                        Crear
+                    </Button>
+                    <Button onClick={onCloseModalCreateUser} appearance="subtle">
+                        Cancelar
+              </Button>
+                </Modal.Footer>
+            </Modal>
+        )
+    }
+    //MODAL CONFIRM REMOVE COMPONENT
     const ModalConfirmRemoveUser = () => {
-
         return (
             <Modal backdrop="static" show={showModalConfirmRemoveUser} onHide={onCloseModalConfirmRemoveUser} size="xs">
                 <Modal.Body>
@@ -32,6 +100,11 @@ const AdminUsersComponent = (props) => {
             </Modal>
         )
     }
+    // HOOK EFFECT
+    useEffect(_ => {
+        setUsersByMeteor()
+    }, [])
+    // HELP FUNCTIONS
     const setUsersByMeteor = () => {
         Meteor.call('getAllPersonal', (error, result) => {
             if (!error && result) {
@@ -39,21 +112,38 @@ const AdminUsersComponent = (props) => {
             }
         })
     }
+    // SET STATES
+    const [users, setUsers] = useState([])
+    const [userToRemove, setUserToRemove] = useState({})
+    const [showModalConfirmRemoveUser, setShowModalConfirmRemoveUser] = useState(false)
+    const [showModalCreateUser, setShowModalCreateUser] = useState(false)
+
+    //MODAL CREATE USER
+    const onCreateUser = () => {
+        /*
+        if (userToCreate.spa) {
+            Meteor.call('createPersonal', userToCreate)
+        } else {
+            Meteor.call('createAdmin', userToCreate)
+        }
+        */
+    }
+    const onOpenModalCreateUser = () => {
+        setShowModalCreateUser(true)
+    }
+    const onCloseModalCreateUser = () => {
+        setShowModalCreateUser(false)
+
+    }
+
+    //MODAL CONFIRM REMOVE
     const onRemoveUser = () => {
         Meteor.call('removePersonal', userToRemove)
         setUsersByMeteor()
         setShowModalConfirmRemoveUser(false)
         onClearUserToRemove()
     }
-    const [userToRemove, setUserToRemove] = useState({})
-    const onSetUserToRemove = (auxUserToRemove) => {
-        setUserToRemove(auxUserToRemove)
-    }
-    const onClearUserToRemove = () => {
-        setUserToRemove({})
-    }
-    //MODAL
-    const [showModalConfirmRemoveUser, setShowModalConfirmRemoveUser] = useState(false)
+
     const onCloseModalConfirmRemoveUser = () => {
         setShowModalConfirmRemoveUser(false)
         onClearUserToRemove()
@@ -61,20 +151,21 @@ const AdminUsersComponent = (props) => {
     const onOpenModalConfirmRemoveUser = () => {
         setShowModalConfirmRemoveUser(true)
     }
-    const [users, setUsers] = useState([])
+    const onSetUserToRemove = (auxUserToRemove) => {
+        setUserToRemove(auxUserToRemove)
+    }
+    const onClearUserToRemove = () => {
+        setUserToRemove({})
+    }
 
-    useEffect(_ => {
-        setUsersByMeteor()
-    }, [])
+
 
     return (
         <Panel bordered bodyFill style={{ height: props.height }}>
-            <ModalConfirmRemoveUser
-                showModalConfirmRemoveUser={showModalConfirmRemoveUser}
-                onCloseModalConfirmRemoveUser={onCloseModalConfirmRemoveUser}
-                userToRemove={userToRemove} />
+            <ModalCreateUser />
+            <ModalConfirmRemoveUser />
             <ButtonToolbar>
-                <IconButton icon={<Icon icon="user-circle-o" />} placement="left" color='green' size='sm' onClick={_=>alert('Press')}>
+                <IconButton icon={<Icon icon="user-circle-o" />} placement="left" color='green' size='sm' onClick={onOpenModalCreateUser}>
                     Nuevo
                 </IconButton>
             </ButtonToolbar>
