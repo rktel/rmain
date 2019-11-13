@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Panel, ButtonToolbar, IconButton, Icon, Divider } from 'rsuite'
+import { Panel, ButtonToolbar, IconButton, Icon, Button } from 'rsuite'
 import { Table } from 'rsuite'
 const { Column, HeaderCell, Cell } = Table
 
@@ -22,7 +22,6 @@ const AdminUsersComponent = (props) => {
                     Nuevo
                 </IconButton>
             </ButtonToolbar>
-            <Divider />
             <Table
                 height={300}
                 data={users}
@@ -33,6 +32,10 @@ const AdminUsersComponent = (props) => {
                 <Column width={120} align="center" fixed>
                     <HeaderCell>Nombre</HeaderCell>
                     <Cell dataKey="firstname" />
+                </Column>
+                <Column width={120}>
+                    <HeaderCell>Rol</HeaderCell>
+                    <Cell dataKey="role" />
                 </Column>
                 <Column width={120}>
                     <HeaderCell>Usuario</HeaderCell>
@@ -52,7 +55,7 @@ const AdminUsersComponent = (props) => {
                             }
                             return (
                                 <span>
-                                    <a onClick={handleAction}> Eliminar </a>
+                                    <Button onClick={handleAction} size='xs' color='red'> Eliminar </Button>
                                 </span>
                             )
                         }}
