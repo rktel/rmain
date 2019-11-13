@@ -8,6 +8,7 @@ Meteor.methods({
         totalPrice,
         joker) {
         let proData = null
+        console.log('>>>>>>>>>>>>>>PLUTON<<<<<<<<<<<<<<<<<<<')
         console.log(plate, startDay, endDay)
         const plutonQuery = await Pluton.rawCollection().
             aggregate([
