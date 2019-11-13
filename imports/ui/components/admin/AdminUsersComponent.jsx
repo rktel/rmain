@@ -18,16 +18,13 @@ const AdminUsersComponent = (props) => {
     return (
         <Panel bordered bodyFill style={{ height: props.height, overflowY: 'scroll' }}>
             <ButtonToolbar>
-                <IconButton icon={<Icon icon="user-circle-o" />} placement="left" color='green' size='xs'>
+                <IconButton icon={<Icon icon="user-circle-o" />} placement="left" color='green' size='sm'>
                     Nuevo
                 </IconButton>
             </ButtonToolbar>
             <Table
-                height={300}
+                height={props.height-32}
                 data={users}
-                onRowClick={data => {
-                    console.log(data);
-                }}
             >
                 <Column width={120} align="center" fixed>
                     <HeaderCell>Nombre</HeaderCell>
