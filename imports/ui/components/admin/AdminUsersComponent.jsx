@@ -16,7 +16,7 @@ const AdminUsersComponent = (props) => {
     }, [])
 
     return (
-        <Panel bordered bodyFill style={{ height: props.height, overflowY: 'scroll' }}>
+        <Panel bordered bodyFill style={{ height: props.height }}>
             <ButtonToolbar>
                 <IconButton icon={<Icon icon="user-circle-o" />} placement="left" color='green' size='sm'>
                     Nuevo
