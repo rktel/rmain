@@ -84,6 +84,10 @@ const AdminUsersComponent = (props) => {
                     <HeaderCell>Nombre</HeaderCell>
                     <Cell dataKey="firstname" />
                 </Column>
+                <Column width={120} align="center" fixed>
+                    <HeaderCell>Apellido</HeaderCell>
+                    <Cell dataKey="lastname" />
+                </Column>
                 <Column width={120}>
                     <HeaderCell>Rol</HeaderCell>
                     <Cell dataKey="role" />
