@@ -38,6 +38,10 @@ const AdminUsersComponent = (props) => {
                     <Cell dataKey="role" />
                 </Column>
                 <Column width={120}>
+                    <HeaderCell>Spa</HeaderCell>
+                    <Cell dataKey="spa" />
+                </Column>
+                <Column width={120}>
                     <HeaderCell>Usuario</HeaderCell>
                     <Cell dataKey="username" />
                 </Column>
