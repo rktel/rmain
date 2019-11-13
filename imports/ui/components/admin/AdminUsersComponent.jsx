@@ -23,7 +23,7 @@ const AdminUsersComponent = (props) => {
                 </IconButton>
             </ButtonToolbar>
             <Table
-                height={props.height-38}
+                height={props.height - 38}
                 data={users}
             >
                 <Column width={120} align="center" fixed>
@@ -51,12 +51,12 @@ const AdminUsersComponent = (props) => {
 
                     <Cell>
                         {item => {
-                            function handleAction() {
+                            const handleOnRemoveItem = () => {
                                 console.log(item)
                             }
                             return (
                                 <span>
-                                    <Button onClick={handleAction} size='xs' color='red'> Eliminar </Button>
+                                    <Button onClick={handleOnRemoveItem} size='xs' color='red'> Eliminar </Button>
                                 </span>
                             )
                         }}
