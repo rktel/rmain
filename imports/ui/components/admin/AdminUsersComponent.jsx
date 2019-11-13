@@ -23,7 +23,7 @@ const AdminUsersComponent = (props) => {
                 </IconButton>
             </ButtonToolbar>
             <Table
-                height={props.height-64}
+                height={props.height-48}
                 data={users}
             >
                 <Column width={120} align="center" fixed>
