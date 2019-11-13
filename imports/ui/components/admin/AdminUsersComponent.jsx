@@ -31,13 +31,16 @@ const AdminUsersComponent = (props) => {
             </Modal>
         )
     }
-    const onRemoveUser = () => {
-        Meteor.call('removePersonal', userToRemove)
+    const setUsersByMeteor = () => {
         Meteor.call('getAllPersonal', (error, result) => {
             if (!error && result) {
                 setUsers(result.filter(it => it.role == 'Tecnico' || it.role == 'Admin'))
             }
         })
+    }
+    const onRemoveUser = () => {
+        Meteor.call('removePersonal', userToRemove)
+        setUsersByMeteor()
         setShowModalConfirmRemoveUser(false)
         onClearUserToRemove()
     }
@@ -59,11 +62,7 @@ const AdminUsersComponent = (props) => {
     const [users, setUsers] = useState([])
 
     useEffect(_ => {
-        Meteor.call('getAllPersonal', (error, result) => {
-            if (!error && result) {
-                setUsers(result.filter(it => it.role == 'Tecnico' || it.role == 'Admin'))
-            }
-        })
+        setUsersByMeteor()
     }, [])
 
     return (
