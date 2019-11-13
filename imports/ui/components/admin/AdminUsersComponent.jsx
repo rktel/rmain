@@ -18,7 +18,7 @@ const AdminUsersComponent = (props) => {
     return (
         <Panel bordered bodyFill style={{ height: props.height, overflowY: 'scroll' }}>
             <ButtonToolbar>
-                <IconButton icon={<Icon icon="user-circle-o" />} placement="left">
+                <IconButton icon={<Icon icon="user-circle-o" />} placement="left" color='green'>
                     Nuevo
                 </IconButton>
             </ButtonToolbar>
@@ -50,12 +50,12 @@ const AdminUsersComponent = (props) => {
                     <Cell dataKey="password" />
                 </Column>
                 <Column width={120} fixed="right">
-                    <HeaderCell>Action</HeaderCell>
+                    <HeaderCell>Accion</HeaderCell>
 
                     <Cell>
-                        {rowData => {
+                        {item => {
                             function handleAction() {
-                                alert(`id:${rowData}`)
+                                console.log(item)
                             }
                             return (
                                 <span>
