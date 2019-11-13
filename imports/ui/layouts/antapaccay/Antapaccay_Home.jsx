@@ -16,6 +16,10 @@ import { rstream } from '../../../api/streamers'
 import XLSX from 'xlsx'
 
 const Home = (props) => {
+    const [contentHeight, setContentHeight] = useState(window.innerHeight - 84)
+    const updateDimensions = () => {
+        setContentHeight(window.innerHeight - 84)
+    }
     /* HELPS FUNCTION */
     const defaultDateStart = () => {
         const date = new Date();
@@ -29,6 +33,7 @@ const Home = (props) => {
     }
     /* HOOKS */
     useEffect(_ => {
+        window.addEventListener('resize', updateDimensions)
         rstream.on('Antapaccay', (rid, data) => {
             if (rid == randomId) {
                 if (data.length > 0) {
@@ -107,9 +112,9 @@ const Home = (props) => {
                 </Navbar>
             </Header>
 
-            <FlexboxGrid justify="start">
+            <FlexboxGrid justify="start" style={{ marginTop: 8 }}>
                 <FlexboxGrid.Item componentClass={Col} colspan={24} md={6}>
-                    <Panel bordered>
+                    <Panel bordered style={{height: contentHeight - 8}}>
                         <Form fluid>
                             <FormGroup>
                                 <ControlLabel>Vehiculos</ControlLabel>
