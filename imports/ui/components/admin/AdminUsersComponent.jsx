@@ -74,7 +74,7 @@ const AdminUsersComponent = (props) => {
                 onCloseModalConfirmRemoveUser={onCloseModalConfirmRemoveUser}
                 userToRemove={userToRemove} />
             <ButtonToolbar>
-                <IconButton icon={<Icon icon="user-circle-o" />} placement="left" color='green' size='sm' onClick={alert('Press')}>
+                <IconButton icon={<Icon icon="user-circle-o" />} placement="left" color='green' size='sm' onClick={_=>alert('Press')}>
                     Nuevo
                 </IconButton>
             </ButtonToolbar>
