@@ -30,7 +30,7 @@ const Home = (props) => {
     }
     return (
         <>
-            <Container>
+            <Container className="flex-column-space-between">
                 <Header>
                     <Navbar appearance="inverse">
                         <Navbar.Header>

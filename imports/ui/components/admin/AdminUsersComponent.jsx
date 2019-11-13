@@ -52,7 +52,7 @@ const AdminUsersComponent = (props) => {
                     <Cell>
                         {item => {
                             const handleOnRemoveItem = () => {
-                                console.log(item)
+                                // Meteor.call('removePersonal',item)
                             }
                             return (
                                 <span>
