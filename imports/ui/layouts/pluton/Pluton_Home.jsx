@@ -47,9 +47,9 @@ const Home = (props) => {
         { label: 'GLP', value: 'GLP' },
     ]
     /* HOOKS */
-    useEffect(() => { 
+    useEffect(() => {
         window.addEventListener('resize', updateDimensions)
-        Meteor.call('Pluton_plates', (error, elements) => setPlates(elements)) 
+        Meteor.call('Pluton_plates', (error, elements) => setPlates(elements))
     }, [])
     const updateDimensions = () => {
         setContentHeight(window.innerHeight - 186)
@@ -167,7 +167,9 @@ const Home = (props) => {
                     </Navbar.Header>
                     <Navbar.Body>
                         <Nav>
-                            <Nav.Item>YOUR BUSINESS HERE</Nav.Item>
+                            <Nav.Item>
+                                <img src="/img/sanremopluton.png" alt="Securitas Logo" height="45" className="navbar-brand" />
+                            </Nav.Item>
                         </Nav>
                     </Navbar.Body>
                     <Navbar.Body>
@@ -180,10 +182,10 @@ const Home = (props) => {
                 </Navbar>
             </Header>
             <section>
-                <FlexboxGrid style={{marginTop: 8}}>
+                <FlexboxGrid style={{ marginTop: 8 }}>
                     <FlexboxGrid.Item componentClass={Col} colspan={24} md={6}>
                         <Panel header="FORMULARIO" className="card" bordered >
-                            <Form formValue={formElements} onChange={handleOnChangeFormElements} style={{ height: contentHeight-8, overflowY: 'scroll' }}>
+                            <Form formValue={formElements} onChange={handleOnChangeFormElements} style={{ height: contentHeight - 8, overflowY: 'scroll' }}>
                                 <FormGroup>
                                     <ControlLabel>Lista de unidades</ControlLabel>
                                     <FormControl
@@ -296,7 +298,7 @@ const Home = (props) => {
                                 </ButtonToolbar>
                             </FlexboxGrid>
                             <Table
-                                height={contentHeight-40}
+                                height={contentHeight - 40}
                                 data={resultList}
                                 renderEmpty={() => <div className="flex-center">Aun sin datos</div>}
                             >
