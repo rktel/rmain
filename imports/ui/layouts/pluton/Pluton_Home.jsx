@@ -168,7 +168,7 @@ const Home = (props) => {
                     <Navbar.Body>
                         <Nav>
                             <Nav.Item>
-                                <img src="/img/sanremopluton.png" alt="Securitas Logo" height="45" className="navbar-brand" />
+                                <img src="/img/sanremopluton.jpg" alt="San Remo - Pluton Logo" height="45" className="navbar-brand" />
                             </Nav.Item>
                         </Nav>
                     </Navbar.Body>
