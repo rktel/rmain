@@ -164,11 +164,12 @@ const Home = (props) => {
             <Header>
                 <Navbar appearance="inverse">
                     <Navbar.Header>
+                        <img src="/img/sanremopluton.jpg" alt="San Remo - Pluton Logo" height="45" className="navbar-brand" />
                     </Navbar.Header>
                     <Navbar.Body>
                         <Nav>
                             <Nav.Item>
-                                <img src="/img/sanremopluton.jpg" alt="San Remo - Pluton Logo" height="45" className="navbar-brand" />
+
                             </Nav.Item>
                         </Nav>
                     </Navbar.Body>
