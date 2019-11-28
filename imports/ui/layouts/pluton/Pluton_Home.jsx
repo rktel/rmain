@@ -62,13 +62,25 @@ const Home = (props) => {
         datePickerStart: defaultDateStart(),
         datePickerEnd: defaultDateEnd(),
         inputPickerFuel: null,
-        inputNumberGallons: 0.01,
-        inputNumberUnitaryPrice: 0.01,
-        inputNumberSalesValue: 0.01,
-        inputNumberTotalPrice: 0.01,
+        inputNumberGallons: 0,
+        inputNumberUnitaryPrice: 0,
+        inputNumberSalesValue: 0,
+        inputNumberTotalPrice: 0,
         inputNumberJoker: 0.025
     })
-    const handleOnChangeFormElements = elements => setFormElements(elements)
+    const handleOnChangeFormElements = elements => {
+        setFormElements(elements)
+        if (elements.inputNumberGallons && elements.inputNumberUnitaryPrice) {
+            elements.inputNumberTotalPrice = parseFloat(elements.inputNumberGallons * elements.inputNumberUnitaryPrice).toFixed(3)
+            elements.inputNumberSalesValue = parseFloat(elements.inputNumberTotalPrice / 1.18).toFixed(3)
+            setFormElements(elements)
+        }
+        if (!elements.inputNumberGallons || !elements.inputNumberUnitaryPrice) {
+            elements.inputNumberTotalPrice = 0
+            elements.inputNumberSalesValue = 0
+            setFormElements(elements)
+        }
+    }
 
     const [resultList, setResultList] = useState([])
 
@@ -84,7 +96,7 @@ const Home = (props) => {
                 inputNumberUnitaryPrice,
                 inputNumberSalesValue,
                 inputNumberTotalPrice,
-                parseFloat(inputNumberGallons * inputNumberJoker).toFixed(2),
+                parseFloat(inputNumberGallons * inputNumberJoker).toFixed(3),
                 (error, result) => {
                     if (error) console.log(error)
                     else {
@@ -137,10 +149,10 @@ const Home = (props) => {
             datePickerStart: defaultDateStart(),
             datePickerEnd: defaultDateEnd(),
             inputPickerFuel: null,
-            inputNumberGallons: 0.01,
-            inputNumberUnitaryPrice: 0.01,
-            inputNumberSalesValue: 0.01,
-            inputNumberTotalPrice: 0.01,
+            inputNumberGallons: 0,
+            inputNumberUnitaryPrice: 0,
+            inputNumberSalesValue: 0,
+            inputNumberTotalPrice: 0,
             inputNumberJoker: 0.025
         })
     }
@@ -235,7 +247,7 @@ const Home = (props) => {
                                     <FormControl
                                         name="inputNumberGallons"
                                         accepter={InputNumber}
-                                        step={0.01}
+                                        step={0.001}
                                         style={{ width: 222 }}
                                     />
                                 </FormGroup>
@@ -244,7 +256,7 @@ const Home = (props) => {
                                     <FormControl
                                         name="inputNumberUnitaryPrice"
                                         accepter={InputNumber}
-                                        step={0.01}
+                                        step={0.001}
                                         style={{ width: 222 }}
                                     />
                                 </FormGroup>
@@ -253,7 +265,7 @@ const Home = (props) => {
                                     <FormControl
                                         name="inputNumberSalesValue"
                                         accepter={InputNumber}
-                                        step={0.01}
+                                        step={0.001}
                                         style={{ width: 222 }}
                                     />
                                 </FormGroup>
@@ -262,7 +274,7 @@ const Home = (props) => {
                                     <FormControl
                                         name="inputNumberTotalPrice"
                                         accepter={InputNumber}
-                                        step={0.01}
+                                        step={0.001}
                                         style={{ width: 222 }}
                                     />
                                 </FormGroup>

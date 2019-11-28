@@ -26,18 +26,18 @@ Meteor.methods({
 
             startCounter.map(el => {
                 if (el.type == 8) {
-                    startConsumption = parseFloat(el.value * 0.264172 / 1000).toFixed(2)
+                    startConsumption = parseFloat(el.value * 0.264172 / 1000).toFixed(3)
                 }
                 if (el.type == 9) {
-                    startOdometer = parseFloat(el.value / 1000).toFixed(2)
+                    startOdometer = parseFloat(el.value / 1000).toFixed(3)
                 }
             })
             endCounter.map(el => {
                 if (el.type == 8) {
-                    endConsumption = parseFloat(el.value * 0.264172 / 1000).toFixed(2)
+                    endConsumption = parseFloat(el.value * 0.264172 / 1000).toFixed(3)
                 }
                 if (el.type == 9) {
-                    endOdometer = parseFloat(el.value / 1000).toFixed(2)
+                    endOdometer = parseFloat(el.value / 1000).toFixed(3)
                 }
             })
             if (startConsumption != endConsumption && startConsumption < endConsumption && startOdometer != endOdometer && startOdometer < endOdometer) {
@@ -45,12 +45,12 @@ Meteor.methods({
                 console.log(startConsumption, endConsumption)
                 console.log(startOdometer, endOdometer)
                 //----->    TRABAJAR ACA
-                const tripOdometer = parseFloat(endOdometer - startOdometer).toFixed(2)
-                const fuelConsumption = parseFloat(endConsumption - startConsumption).toFixed(2)
-                const efficiency = parseFloat(tripOdometer / fuelConsumption).toFixed(2)
-                const differenceGallons = parseFloat(gallons - fuelConsumption).toFixed(2)
-                const discountGallons = parseFloat(differenceGallons - joker).toFixed(2)
-                const discountSoles = parseFloat(discountGallons * priceUnitary).toFixed(2)
+                const tripOdometer = parseFloat(endOdometer - startOdometer).toFixed(3)
+                const fuelConsumption = parseFloat(endConsumption - startConsumption).toFixed(3)
+                const efficiency = parseFloat(tripOdometer / fuelConsumption).toFixed(3)
+                const differenceGallons = parseFloat(gallons - fuelConsumption).toFixed(3)
+                const discountGallons = parseFloat(differenceGallons - joker).toFixed(3)
+                const discountSoles = parseFloat(discountGallons * priceUnitary).toFixed(3)
                
                 proData = {
                     'Placa': plate,
