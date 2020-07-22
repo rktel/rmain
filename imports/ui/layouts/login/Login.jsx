@@ -45,6 +45,10 @@ const Login = (props) => {
                                     props.history.push('/pltn')
 
                                 }
+                                if (role == 'Tecnico' && spa == 'Esmeralda') {
+                                    props.history.push('/smrld')
+
+                                }
                             }
                             // Admin
                             if (role && !spa) {
