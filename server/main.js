@@ -8,6 +8,7 @@ Meteor.startup(_ => {
         if (mainCounterTime == 2) {
             Meteor.call('Antapaccay_createPlates')
             Meteor.call('Pluton_createPlates')
+            Meteor.call('Esmeralda_createPlates')
         }
         if (mainCounterTime == 10 * 60) {
             mainCounterTime == 0

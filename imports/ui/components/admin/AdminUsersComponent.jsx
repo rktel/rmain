@@ -36,6 +36,7 @@ const AdminUsersComponent = (props) => {
         const userSpaList = [
             { label: 'Antapaccay', value: 'Antapaccay' },
             { label: 'Pluton', value: 'Pluton' },
+            { label: 'Esmeralda', value: 'Esmeralda' },
         ]
         return (
             <Modal show={showModalCreateUser} onHide={onCloseModalCreateUser} size="xs">
